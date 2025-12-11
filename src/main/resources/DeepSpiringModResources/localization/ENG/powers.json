@@ -1,0 +1,9 @@
+{
+	"DeepSpiringMod:Sampling": {
+		"NAME": "Sampling",
+		"DESCRIPTIONS": [
+			"At the #yend of the turn, play 1 card in your discard pile randomly.",
+			"At the #yend of the turn, play %d cards in your discard pile randomly."
+		]
+	}
+}

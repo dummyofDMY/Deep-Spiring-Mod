@@ -1,0 +1,19 @@
+{
+	"DeepSpiringMod:Strike_DeepBlue": {
+		"NAME": "Strike",
+		"DESCRIPTION": "Causing !D! points of damage."
+	},
+	"DeepSpiringMod:Overflow": {
+		"NAME": "Overflow",
+		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Retain your hand this turn."
+	},
+	"DeepSpiringMod:Defend_DeepBlue": {
+		"NAME": "Defend",
+		"DESCRIPTION": "Gain !B! point of Block"
+	},
+	"DeepSpiringMod:StochasticProcess": {
+		"NAME": "Stochastic Process",
+		"DESCRIPTION": "At the end of the turn, play 1 card in your discard pile randomly.",
+		"UPGRADE_DESCRIPTION": "At the end of the turn, play !M! cards in your discard pile randomly."
+	}
+}

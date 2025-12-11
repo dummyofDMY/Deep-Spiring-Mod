@@ -1,0 +1,9 @@
+{
+  "DeepSpiringMod:MyRelic": {
+    "NAME": "test relic",
+    "FLAVOR": ":)",
+    "DESCRIPTIONS": [
+      "At battle start, get #b1 cards。"
+    ]
+  }
+}

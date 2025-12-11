@@ -1,0 +1,10 @@
+{
+  "modid": "DeepSpiring",
+  "name": "深度爬塔",
+  "author_list": ["Dummy"],
+  "description": "Make The Defector Grate Again!",
+  "version": "0.0.1",
+  "sts_version": "12-04-2025",
+  "mts_version": "3.30.3",
+  "dependencies": ["basemod"]
+}

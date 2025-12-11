@@ -1,0 +1,9 @@
+{
+    "DeepSpiringMod:Sampling": {
+        "NAME": "采样",
+        "DESCRIPTIONS": [
+        "#y回合结束 时，随机打出弃牌堆中的%d张牌。",
+        "#y回合结束 时，随机打出弃牌堆中的%d张牌。"
+        ]
+    }
+}
