@@ -3,8 +3,7 @@ package DeepSpiringMod.modcore;
 import DeepSpiringMod.cards.*;
 import DeepSpiringMod.characters.Deepfect;
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.patches.PlayerLibraryEnum;
-import DeepSpiringMod.relics.MyRelic;
+import DeepSpiringMod.relics.BurntHeatSink;
 import DeepSpiringMod.helpers.ModHelper;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -13,14 +12,12 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
-import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -116,7 +113,7 @@ public class DeepSpiringMod implements
 
     @Override
     public void receiveEditRelics() {
-        BaseMod.addRelic(new MyRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelic(new BurntHeatSink(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
     }
 
     @Override

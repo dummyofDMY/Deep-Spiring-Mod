@@ -1,23 +1,15 @@
 package DeepSpiringMod.cards;
 
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;  // 关键导入！
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.abstracts.CustomCard;
-
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
-
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
+
+import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;

@@ -1,24 +1,14 @@
 package DeepSpiringMod.cards;
 
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;  // 关键导入！
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
+import basemod.abstracts.CustomCard;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.abstracts.CustomCard;
-
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
-
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
@@ -33,7 +23,7 @@ public class Overflow extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Strike_DeepBlue.png";
     private static final String IMG_PATH = null;
-    private static final int COST = 1;
+    private static final int COST = 3;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;

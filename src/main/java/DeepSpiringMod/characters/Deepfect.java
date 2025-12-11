@@ -3,7 +3,6 @@ package DeepSpiringMod.characters;
 import java.util.ArrayList;
 
 import basemod.abstracts.CustomPlayer;
-import javassist.tools.reflect.Sample;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -16,18 +15,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.events.city.Vampires;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.Vajra;
-import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 
 import DeepSpiringMod.cards.*;
 import DeepSpiringMod.modcore.DeepSpiringMod;
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.relics.MyRelic;
+import DeepSpiringMod.relics.BurntHeatSink;
 
 // 继承AbstractPlayer类
 public class Deepfect extends CustomPlayer {
@@ -102,7 +97,7 @@ public class Deepfect extends CustomPlayer {
     // 初始遗物的ID
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(MyRelic.ID); // 这里
+        retVal.add(BurntHeatSink.ID); // 这里
         return retVal;
     }
 
