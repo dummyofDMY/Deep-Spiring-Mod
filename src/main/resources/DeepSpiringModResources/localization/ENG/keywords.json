@@ -1,8 +1,9 @@
 [
-  {
-    "NAMES": [
-      "scare"
-    ],
-    "DESCRIPTION": "The character with #yscare will decrease their damage。"
-  }
+	{
+		"NAMES": [
+		"Forward propagation",
+		"forward_propagation"
+		],
+		"DESCRIPTION": "Activate all #yAttention #yHead and #yConvolution #yKernel 's effects in discard pile."
+	}
 ]

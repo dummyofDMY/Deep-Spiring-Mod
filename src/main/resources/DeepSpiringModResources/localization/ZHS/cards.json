@@ -3,17 +3,32 @@
 		"NAME": "打击",
 		"DESCRIPTION": "造成 !D! 点伤害。"
 	},
-	"DeepSpiringMod:Overflow": {
-		"NAME": "溢出",
+	"DeepSpiringMod:BlockStrike": {
+		"NAME": "阻塞一击",
 		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 在本回合 保留 你的手牌。"
 	},
 	"DeepSpiringMod:Defend_DeepBlue": {
 		"NAME": "防御",
-		"DESCRIPTION": "获得 !B! 点 #y格挡"
+		"DESCRIPTION": "获得 !B! 点 *格挡。"
 	},
 	"DeepSpiringMod:StochasticProcess": {
 		"NAME": "随机过程",
-		"DESCRIPTION": "#y回合结束 时，随机打出弃牌堆中的1张牌。",
-		"UPGRADE_DESCRIPTION": "#y回合结束 时，随机打出弃牌堆中的 !M! 张牌。"
+		"DESCRIPTION": " *回合结束 时，随机打出弃牌堆中的1张牌。",
+		"UPGRADE_DESCRIPTION": " *回合结束 时，随机打出弃牌堆中的 !M! 张牌。"
+	},
+	"DeepSpiringMod:Overflow": {
+		"NAME": "溢出",
+		"DESCRIPTION": "抽 !M! 张牌， NL 获得 [E] 。 NL 消耗 ",
+		"UPGRADE_DESCRIPTION": "抽 !M! 张牌， NL 获得 [E] [E] 。"
+	},
+	"DeepSpiringMod:AttentionHead": {
+		"NAME": "注意力头",
+		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。",
+		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。"
+	},
+	"DeepSpiringMod:ForwardPropagation": {
+		"NAME": "前向传播",
+		"DESCRIPTION": "激发所有弃牌堆中的 *注意力头 和 *卷积核 的卡牌效果。"
 	}
+
 }

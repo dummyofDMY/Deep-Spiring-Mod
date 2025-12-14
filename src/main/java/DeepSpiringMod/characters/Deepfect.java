@@ -89,7 +89,7 @@ public class Deepfect extends CustomPlayer {
         for(int x = 0; x < 5; x++) {
             retVal.add(Defend_DeepBlue.ID);
         }
-        retVal.add(Overflow.ID);
+        retVal.add(BlockStrike.ID);
         retVal.add(StochasticProcess.ID);
         return retVal;
     }

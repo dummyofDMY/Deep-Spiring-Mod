@@ -48,23 +48,24 @@ public class DeepSpiringMod implements
     // 技能牌的背景（小尺寸）
     private static final String BG_SKILL_512 = "DeepSpiringModResources/img/512/bg_skill_lime.png";
     // 在卡牌和遗物描述中的能量图标
-    private static final String SMALL_ORB = "DeepSpiringModResources/img/512/card_lime_small_orb.png";
+    private static final String SMALL_ORB = "DeepSpiringModResources/img/char/card_lime_small_orb.png";
     // 攻击牌的背景（大尺寸）
     private static final String BG_ATTACK_1024 = "DeepSpiringModResources/img/1024/bg_attack_lime.png";
     // 能力牌的背景（大尺寸）
     private static final String BG_POWER_1024 = "DeepSpiringModResources/img/1024/bg_power_lime.png";
     // 技能牌的背景（大尺寸）
     private static final String BG_SKILL_1024 = "DeepSpiringModResources/img/1024/bg_skill_lime.png";
+    // private static final String BG_SKILL_1024 = null;
     // 在卡牌预览界面的能量图标
     private static final String BIG_ORB = "DeepSpiringModResources/img/1024/card_lime_orb.png";
     // 小尺寸的能量图标（战斗中，牌堆预览）
-    private static final String ENEYGY_ORB = "DeepSpiringModResources/img/char/card_lime_orb.png";
+    private static final String ENEYGY_ORB = "DeepSpiringModResources/img/512/card_lime_orb.png";
     public static final Color MY_COLOR = new Color(0.0F / 255.0F, 0.0F / 255.0F, 255.0F / 255.0F, 1.0F);
     // 构造方法
     public DeepSpiringMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
         // 注册颜色
-        BaseMod.addColor(PlayerColorEnum.DEEP_BLUE, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,SMALL_ORB,BIG_ORB);
+        BaseMod.addColor(PlayerColorEnum.DEEP_BLUE, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENEYGY_ORB, BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, BIG_ORB, SMALL_ORB);
     }
 
 //     // 实现 PostInitializeSubscriber 接口的方法
@@ -83,9 +84,12 @@ public class DeepSpiringMod implements
     public void receiveEditCards() {
         // 这里写添加你卡牌的代码
         BaseMod.addCard(new Strike_DeepBlue());
-        BaseMod.addCard(new Overflow());
+        BaseMod.addCard(new BlockStrike());
         BaseMod.addCard(new Defend_DeepBlue());
         BaseMod.addCard(new StochasticProcess());
+        BaseMod.addCard(new AttentionHead());
+        BaseMod.addCard(new ForwardPropagation());
+        BaseMod.addCard(new Overflow());
     }
 
     public void receiveEditStrings() {

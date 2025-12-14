@@ -5,5 +5,11 @@
 			"At the #yend of the turn, play 1 card in your discard pile randomly.",
 			"At the #yend of the turn, play %d cards in your discard pile randomly."
 		]
-	}
+	},
+	"DeepSpiringMod:RecursionDepth": {
+        "NAME": "RecursionDepth",
+        "DESCRIPTIONS": [
+            "When the number of stacks reaches #y20, stop all forward propagation and add an *Overflow in your hand."
+        ]
+    }
 }

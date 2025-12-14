@@ -3,17 +3,31 @@
 		"NAME": "Strike",
 		"DESCRIPTION": "Causing !D! points of damage."
 	},
-	"DeepSpiringMod:Overflow": {
-		"NAME": "Overflow",
+	"DeepSpiringMod:BlockStrike": {
+		"NAME": "BlockStrike",
 		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Retain your hand this turn."
 	},
 	"DeepSpiringMod:Defend_DeepBlue": {
 		"NAME": "Defend",
-		"DESCRIPTION": "Gain !B! point of Block"
+		"DESCRIPTION": "Gain !B! point of Block."
 	},
 	"DeepSpiringMod:StochasticProcess": {
 		"NAME": "Stochastic Process",
 		"DESCRIPTION": "At the end of the turn, play 1 card in your discard pile randomly.",
 		"UPGRADE_DESCRIPTION": "At the end of the turn, play !M! cards in your discard pile randomly."
+	},
+	"DeepSpiringMod:Overflow": {
+		"NAME": "Overflow",
+		"DESCRIPTION": "Draw !M! card. NL Gain [E] . NL Exhaust .",
+		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain [E] [E] ."
+	},
+	"DeepSpiringMod:AttentionHead": {
+		"NAME": "Attention Head",
+		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card.",
+		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards."
+	},
+	"DeepSpiringMod:ForwardPropagation": {
+		"NAME": "Forward Propagation",
+		"DESCRIPTION": "Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
 	}
 }

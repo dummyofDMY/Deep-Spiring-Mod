@@ -5,5 +5,11 @@
         "#y回合结束 时，随机打出弃牌堆中的%d张牌。",
         "#y回合结束 时，随机打出弃牌堆中的%d张牌。"
         ]
+    },
+    "DeepSpiringMod:RecursionDepth": {
+        "NAME": "递归深度",
+        "DESCRIPTIONS": [
+            "当层数达到 #y20 时，停止所有前向传播，将一张 *Overflow 置入手中。"
+        ]
     }
 }
