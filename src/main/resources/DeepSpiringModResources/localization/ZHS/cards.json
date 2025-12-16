@@ -18,8 +18,9 @@
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "溢出",
-		"DESCRIPTION": "抽 !M! 张牌， NL 获得 [E] 。 NL 消耗 ",
-		"UPGRADE_DESCRIPTION": "抽 !M! 张牌， NL 获得 [E] [E] 。"
+		"DESCRIPTION": "你爆显存了。 虚无 ",
+		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。NL 虚无 NL 消耗",
+		"EXTENDED_DESCRIPTION": ["这张牌没有升级，无法打出。"]
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "注意力头",
@@ -29,6 +30,11 @@
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
 		"DESCRIPTION": "激发所有弃牌堆中的 *注意力头 和 *卷积核 的卡牌效果。"
+	},
+	"DeepSpiringMod:PositionalEncoding": {
+		"NAME": "位置编码",
+		"DESCRIPTION": "交换弃牌堆中 2 张牌的位置。",
+		"UPGRADE_DESCRIPTION": "交换弃牌堆中 4 张牌的位置。"
 	}
 
 }

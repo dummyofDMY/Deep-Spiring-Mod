@@ -18,8 +18,9 @@
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "Overflow",
-		"DESCRIPTION": "Draw !M! card. NL Gain [E] . NL Exhaust .",
-		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain [E] [E] ."
+		"DESCRIPTION": "Your GPU ran out of VRAM. NL Ethereal.",
+		"UPGRADE_DESCRIPTION": "Restart deepspikingmod:forward_propagation. NL Ethereal. NL Exhaust.",
+		"EXTENDED_DESCRIPTION": ["This card has not been upgraded and cannot be played."]
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "Attention Head",
@@ -29,5 +30,10 @@
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
 		"DESCRIPTION": "Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
+	},
+	"DeepSpiringMod:PositionalEncoding": {
+		"NAME": "PositionalEncoding",
+		"DESCRIPTION": "Swap the positions of 2 cards in the discard pile.",
+		"UPGRADE_DESCRIPTION": "Swap the positions of 4 cards in the discard pile."
 	}
 }

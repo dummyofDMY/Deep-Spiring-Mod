@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "每回合抽牌数 #r减1 ，但每回合打出的第一张牌免费。"
     ]
+  },
+  "DeepSpiringMod:TryBlock": {
+    "NAME": "try语块",
+    "FLAVOR": "我说加try大于DBUG有人懂的吗？",
+    "DESCRIPTIONS": [
+      "获得 #溢出 时将其升级。"
+    ]
   }
 }

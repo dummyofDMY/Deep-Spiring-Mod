@@ -51,6 +51,11 @@ public class RecursionDepth extends AbstractPower {
         this.addToBot(new ApplyPowerAction(p, p, new RecursionDepth(p, -this.amount), -this.amount));
     }
 
+    // @Override
+    // public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+    //     this.addToBot(new MakeTempCardInHandAction(new Overflow(), 1));
+    // }
+
     // 能力在更新时如何修改描述
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];

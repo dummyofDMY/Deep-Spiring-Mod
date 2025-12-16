@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "The number of drawn cards in each round is #rreduced by 1, but the first card played in each round is free."
     ]
+  },
+  "DeepSpiringMod:TryBlock": {
+    "NAME": "Try Block",
+    "FLAVOR": "A try block a code, keep DBUG away.",
+    "DESCRIPTIONS": [
+      "Upgrade #Overflow when it is obtained."
+    ]
   }
 }

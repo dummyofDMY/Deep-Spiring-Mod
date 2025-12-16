@@ -10,10 +10,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import DeepSpiringMod.cards.AttentionHead;
 import DeepSpiringMod.powers.RecursionDepth;
 import DeepSpiringMod.cards.Overflow;
+import DeepSpiringMod.relics.TryBlock;
 
 public class ForwardPropagationAction extends AbstractGameAction {
     private int stackAmount = 0;
@@ -40,12 +42,10 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     }
                 }
 
-                System.out.print("recursion_depth = " + recursion_depth + "\n");
-                if (recursion_depth >= 20) {
-                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepth(AbstractDungeon.player, -20), -20));
-                    this.addToBot(new MakeTempCardInHandAction(new Overflow(), 1));
+                // System.out.print("recursion_depth = " + recursion_depth + "\n");
+                if (recursion_depth >= 10) {
                     this.isDone = true;
-                    System.out.print("overflow happended\n");
+                    // System.out.print("overflow happended\n");
                     return;
                 }
 
@@ -97,6 +97,31 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 }
                 if (has_activated) {
                     this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepth(AbstractDungeon.player, 1), 1));
+                    if (recursion_depth >= 9) {
+                        Boolean has_tryblock = false;
+                        Iterator relic_it = AbstractDungeon.player.relics.iterator();
+                        AbstractRelic relic;
+                        while (relic_it.hasNext()) {
+                            relic = (AbstractRelic)relic_it.next();
+                            // try {
+                            //     Class<?> clazz = relic.getClass();
+                            //     java.lang.reflect.Field field = clazz.getField("ID");
+                            //     String ID = (String) field.get(null); // null 因为访问静态字段
+                            //     System.out.print("now relic = " + ID + "\n");
+                            // } catch (Exception e) {
+                            //     e.printStackTrace();
+                            // }
+                            if (relic instanceof TryBlock) {
+                                has_tryblock = true;
+                                relic.flash();
+                            }
+                        }
+                        AbstractCard overflow_card = new Overflow();
+                        if (has_tryblock) {
+                            overflow_card.upgrade();
+                        }
+                        this.addToBot(new MakeTempCardInHandAction(overflow_card, 1));
+                    }
                 }
                 this.isDone = true;
                 return;

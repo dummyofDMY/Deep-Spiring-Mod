@@ -3,7 +3,7 @@ package DeepSpiringMod.modcore;
 import DeepSpiringMod.cards.*;
 import DeepSpiringMod.characters.Deepfect;
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.relics.BurntHeatSink;
+import DeepSpiringMod.relics.*;
 import DeepSpiringMod.helpers.ModHelper;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.nio.charset.StandardCharsets;
 
@@ -90,6 +91,7 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new AttentionHead());
         BaseMod.addCard(new ForwardPropagation());
         BaseMod.addCard(new Overflow());
+        BaseMod.addCard(new PositionalEncoding());
     }
 
     public void receiveEditStrings() {
@@ -104,7 +106,8 @@ public class DeepSpiringMod implements
         // 如果是中文，加载的就是"DeepSpiringModResources/localization/ZHS/cards.json"
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "DeepSpiringModResources/localization/" + lang + "/characters.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, ModHelper.makeLocalizationPath(lang + "/relics.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class,  ModHelper.makeLocalizationPath(lang + "/powers.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, ModHelper.makeLocalizationPath(lang + "/powers.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, ModHelper.makeLocalizationPath(lang + "/UIStrings.json"));
     }
 
     // 当开始添加人物时，调用这个方法
@@ -118,6 +121,7 @@ public class DeepSpiringMod implements
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new BurntHeatSink(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelic(new TryBlock(), RelicType.SHARED);
     }
 
     @Override
