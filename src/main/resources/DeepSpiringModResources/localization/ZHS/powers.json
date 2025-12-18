@@ -9,7 +9,31 @@
     "DeepSpiringMod:RecursionDepth": {
         "NAME": "递归深度",
         "DESCRIPTIONS": [
-            "当层数达到 #y20 时，停止所有前向传播，将一张 *Overflow 置入手中。"
+            "当层数达到 #y10 时，停止所有前向传播，将一张 #y溢出 置入手中。"
+        ]
+    },
+    "DeepSpiringMod:Loss": {
+        "NAME": "损失",
+        "DESCRIPTIONS": [
+            "当前模型损失，减小 #r损失 层数有利于提高 #y平均精度 。"
+        ]
+    },
+    "DeepSpiringMod:Overfitting": {
+        "NAME": "过拟合",
+        "DESCRIPTIONS": [
+            "当前模型对未见数据集的适应程度，过高的 #r过拟合 层数将降低 #y平均精度 。"
+        ]
+    },
+    "DeepSpiringMod:AP": {
+        "NAME": "平均精度",
+        "DESCRIPTIONS": [
+            "和 #r损失 及 #r过拟合 层数有关，影响前向传播的效果。当前为%.2f。"
+        ]
+    },
+    "DeepSpiringMod:Convolution": {
+        "NAME": "卷积",
+        "DESCRIPTIONS": [
+            "前向传播时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的卷积和乘上 #y平均精度 。卷积核长度为%d，核中心的元素为1，其余的元素每靠外一层就是上一层的一半。"
         ]
     }
 }

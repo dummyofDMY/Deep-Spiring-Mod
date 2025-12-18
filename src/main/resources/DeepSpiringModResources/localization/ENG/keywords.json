@@ -1,9 +1,25 @@
 [
 	{
 		"NAMES": [
-		"Forward propagation",
+		"Forward Propagation",
 		"forward_propagation"
 		],
-		"DESCRIPTION": "Activate all #yAttention #yHead and #yConvolution #yKernel 's effects in discard pile."
-	}
+		"DESCRIPTION": "Activate #yConvolution and all #yAttention #yHead s' effects in discard pile."
+	},
+	{
+        "NAMES": ["Convolution"],
+        "DESCRIPTION": "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the #yAP."
+    },
+	{
+        "NAMES": ["Loss"],
+        "DESCRIPTION": "Current loss of the model. Reducing the stacks of #rLoss is beneficial for improving the #yAP ."
+    },
+	{
+        "NAMES": ["Overfitting"],
+        "DESCRIPTION": "The current model's adaptability to unseen datasets. Excessive #rOverfitting stacks will reduce the #yAP ."
+    },
+	{
+        "NAMES": ["AP"],
+        "DESCRIPTION": "It is related to the #yLoss and #rOverfitting stacks, which affect the effectiveness of #yForward #yPropagation ."
+    }
 ]

@@ -19,13 +19,13 @@
 	"DeepSpiringMod:Overflow": {
 		"NAME": "溢出",
 		"DESCRIPTION": "你爆显存了。 虚无 ",
-		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。NL 虚无 NL 消耗",
+		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。 NL 虚无 NL 消耗",
 		"EXTENDED_DESCRIPTION": ["这张牌没有升级，无法打出。"]
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "注意力头",
-		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。",
-		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。"
+		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。 NL 打防外的效果数值会被乘上 deepspiringmod:平均精度 。",
+		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。 NL 打防外的效果数值会被乘上 deepspiringmod:平均精度 。"
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
@@ -35,6 +35,18 @@
 		"NAME": "位置编码",
 		"DESCRIPTION": "交换弃牌堆中 2 张牌的位置。",
 		"UPGRADE_DESCRIPTION": "交换弃牌堆中 4 张牌的位置。"
+	},
+	"DeepSpiringMod:FeatureMap": {
+		"NAME": "特征图",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。",
+		"UPGRADE_DESCRIPTION": "[#FF0000]你不该拥有这张牌。[]"
+	},
+	"DeepSpiringMod:Convolution": {
+		"NAME": "卷积",
+		"DESCRIPTION": "获得一层 deepspiringmod:卷积"
+	},
+	"DeepSpiringMod:Training": {
+		"NAME": "训练",
+		"DESCRIPTION": "减少一层 deepspiringmod:损失 ，增加一层 deepspiringmod:过拟合 。"
 	}
-
 }

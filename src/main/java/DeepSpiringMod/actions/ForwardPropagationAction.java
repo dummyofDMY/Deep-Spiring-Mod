@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import DeepSpiringMod.cards.AttentionHead;
-import DeepSpiringMod.powers.RecursionDepth;
+import DeepSpiringMod.powers.RecursionDepthPower;
 import DeepSpiringMod.cards.Overflow;
-import DeepSpiringMod.relics.TryBlock;
+import DeepSpiringMod.helpers.ModHelper;
+import DeepSpiringMod.cards.FeatureMap;
 
 public class ForwardPropagationAction extends AbstractGameAction {
     private int stackAmount = 0;
@@ -37,7 +37,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 int recursion_depth = 0;
                 while (power_it.hasNext()) {
                     power = (AbstractPower)power_it.next();
-                    if (power instanceof RecursionDepth) {
+                    if (power instanceof RecursionDepthPower) {
                         recursion_depth = power.amount;
                     }
                 }
@@ -54,8 +54,36 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 int to_play_num = 0;
                 AbstractCard c;
                 Boolean has_activated = false;
+                int damage_sum = 0, block_sum = 0;
+
+                // 检测是否有卷积
+                Boolean has_conv = AbstractDungeon.player.hasPower(ModHelper.makePath("Convolution"));
+                double conv_factor = 0;
+                if (has_conv) {
+                    int conv_stack = AbstractDungeon.player.getPower(ModHelper.makePath("Convolution")).amount;
+                    conv_factor = (2 - Math.pow(0.5, conv_stack - 1)) / 0.5 - 1;
+                }
+
+                // 检测loss和overfitting的情况
+                double loss_factor = 0, overfitting_factor = 0;
+                if (AbstractDungeon.player.hasPower(ModHelper.makePath("Loss"))) {
+                    loss_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Loss")).amount;
+                }
+                if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
+                    overfitting_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
+                }
+                double precision = (1 - loss_factor) * (0.25 - 0.05 * overfitting_factor);
+                precision = precision > 0 ? precision : 0;
+
                 while(var5.hasNext()) {
                     c = (AbstractCard)var5.next();
+                    
+                    // 累积打防数值
+                    System.out.print("damage = " + c.baseDamage + ", block = " + c.baseBlock + "\n");
+                    if (has_conv) {
+                        damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
+                        block_sum += c.baseBlock > 0 ? c.baseBlock : 0;
+                    }
 
                     // try {
                     //     Class<?> clazz = c.getClass();
@@ -65,17 +93,27 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     // } catch (Exception e) {
                     //     e.printStackTrace();
                     // }
+                    Boolean is_attention_head = false;
                     if (c instanceof AttentionHead) {
+                        if (to_play_num > 0) {
+                            to_play_num--;  // 下面进不了衰减的逻辑，这里补偿一下
+                        }
                         to_play_num += c.magicNumber;
-                        continue;
+                        is_attention_head = true;
                     }
 
-                    if (to_play_num > 0) {
+                    if (to_play_num > 0 && !is_attention_head) {
                         has_activated = true;
                         to_play_num--;
                         AbstractCard tmp = c.makeStatEquivalentCopy();
                         tmp.purgeOnUse = true;
                         tmp.energyOnUse = tmp.costForTurn;
+                        if (tmp.magicNumber != -1) {
+                            double magic_num = 2 * precision * tmp.magicNumber;
+                            magic_num = Math.ceil(magic_num);
+                            tmp.magicNumber = tmp.baseMagicNumber = (int)magic_num;
+                            tmp.upgradedMagicNumber = true;
+                        }
 
                         AbstractDungeon.player.limbo.addToBottom(tmp);
                         tmp.current_x = c.current_x;
@@ -95,27 +133,41 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         this.addToTop(new NewQueueCardAction(tmp, true, false, true));
                     }
                 }
+
+                // 打出“特征图”
+                if (damage_sum > 0 || block_sum > 0) {
+                    System.out.print("damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
+                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * precision);
+                    block_sum = (int)Math.ceil(block_sum * conv_factor * precision);
+                    System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
+                    AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
+                    this.addToTop(new NewQueueCardAction(feature_map, true, false, true));
+                }
+
+                // 处理“递归深度”的逻辑
                 if (has_activated) {
-                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepth(AbstractDungeon.player, 1), 1));
+                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepthPower(AbstractDungeon.player, 1), 1));
                     if (recursion_depth >= 9) {
                         Boolean has_tryblock = false;
-                        Iterator relic_it = AbstractDungeon.player.relics.iterator();
-                        AbstractRelic relic;
-                        while (relic_it.hasNext()) {
-                            relic = (AbstractRelic)relic_it.next();
-                            // try {
-                            //     Class<?> clazz = relic.getClass();
-                            //     java.lang.reflect.Field field = clazz.getField("ID");
-                            //     String ID = (String) field.get(null); // null 因为访问静态字段
-                            //     System.out.print("now relic = " + ID + "\n");
-                            // } catch (Exception e) {
-                            //     e.printStackTrace();
-                            // }
-                            if (relic instanceof TryBlock) {
-                                has_tryblock = true;
-                                relic.flash();
-                            }
+                        if (AbstractDungeon.player.hasRelic(ModHelper.makePath("TryBlock"))) {
+                            AbstractDungeon.player.getRelic(ModHelper.makePath("TryBlock")).flash();
+                            has_tryblock = true;
                         }
+                        // while (relic_it.hasNext()) {
+                        //     relic = (AbstractRelic)relic_it.next();
+                        //     // try {
+                        //     //     Class<?> clazz = relic.getClass();
+                        //     //     java.lang.reflect.Field field = clazz.getField("ID");
+                        //     //     String ID = (String) field.get(null); // null 因为访问静态字段
+                        //     //     System.out.print("now relic = " + ID + "\n");
+                        //     // } catch (Exception e) {
+                        //     //     e.printStackTrace();
+                        //     // }
+                        //     if (relic instanceof TryBlock) {
+                        //         has_tryblock = true;
+                        //         relic.flash();
+                        //     }
+                        // }
                         AbstractCard overflow_card = new Overflow();
                         if (has_tryblock) {
                             overflow_card.upgrade();

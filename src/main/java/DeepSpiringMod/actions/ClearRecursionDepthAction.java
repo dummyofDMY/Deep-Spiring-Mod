@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import DeepSpiringMod.powers.RecursionDepth;
+import DeepSpiringMod.powers.RecursionDepthPower;
 
 public class ClearRecursionDepthAction extends AbstractGameAction {
     public ClearRecursionDepthAction() {
@@ -20,12 +20,12 @@ public class ClearRecursionDepthAction extends AbstractGameAction {
         int target_power_stack = 0;
         while (power_it.hasNext()) {
             power = (AbstractPower)power_it.next();
-            if (power instanceof RecursionDepth) {
+            if (power instanceof RecursionDepthPower) {
                 target_power_stack = power.amount;
                 break;
             }
         }
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepth(AbstractDungeon.player, -target_power_stack), -target_power_stack));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RecursionDepthPower(AbstractDungeon.player, -target_power_stack), -target_power_stack));
         this.isDone = true;
     }
 

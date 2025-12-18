@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 
 import DeepSpiringMod.helpers.ModHelper;
+import DeepSpiringMod.powers.APPower;
 
 // 继承CustomRelic
 public class BurntHeatSink extends CustomRelic {
@@ -44,6 +45,7 @@ public class BurntHeatSink extends CustomRelic {
     @Override
     public void atBattleStartPreDraw() {
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawPower(AbstractDungeon.player, -1), 1));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new APPower(AbstractDungeon.player), 1));
     }
 
     @Override

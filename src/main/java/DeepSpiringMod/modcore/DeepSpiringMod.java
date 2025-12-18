@@ -92,6 +92,9 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new ForwardPropagation());
         BaseMod.addCard(new Overflow());
         BaseMod.addCard(new PositionalEncoding());
+        BaseMod.addCard(new FeatureMap(0, 0));
+        BaseMod.addCard(new Convolution());
+        BaseMod.addCard(new Training());
     }
 
     public void receiveEditStrings() {

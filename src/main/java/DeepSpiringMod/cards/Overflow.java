@@ -2,6 +2,7 @@ package DeepSpiringMod.cards;
 
 import basemod.abstracts.CustomCard;
 
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +10,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.actions.ClearRecursionDepthAction;
 import DeepSpiringMod.actions.ForwardPropagationAction;
 
 public class Overflow extends CustomCard {
@@ -54,7 +54,8 @@ public class Overflow extends CustomCard {
 
         if (this.upgraded) {
             // System.out.print("use overflow\n");
-            this.addToBot(new ClearRecursionDepthAction());
+            // this.addToBot(new ClearRecursionDepthAction());
+            this.addToBot(new RemoveSpecificPowerAction(p, p, ModHelper.makePath("RecursionDepth")));
             this.addToBot(new ForwardPropagationAction(1));
         }
     }

@@ -24,8 +24,8 @@
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "Attention Head",
-		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card.",
-		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards."
+		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card. NL The value of card's effect, expecting Block and damage, will be multiplied by deepspicingmod:AP .",
+		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards. NL The value of cards' effect, expecting Block and damage, will be multiplied by deepspicingmod:AP ."
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
@@ -35,5 +35,18 @@
 		"NAME": "PositionalEncoding",
 		"DESCRIPTION": "Swap the positions of 2 cards in the discard pile.",
 		"UPGRADE_DESCRIPTION": "Swap the positions of 4 cards in the discard pile."
+	},
+	"DeepSpiringMod:FeatureMap": {
+		"NAME": "FeatureMap",
+		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage.",
+		"UPGRADE_DESCRIPTION": "[#FF0000]You should NOT have this card.[]"
+	},
+	"DeepSpiringMod:Convolution": {
+		"NAME": "Convolution",
+		"DESCRIPTION": "Gain a stack of deepspiringmod:Convolution"
+	},
+	"DeepSpiringMod:Training": {
+		"NAME": "Training",
+		"DESCRIPTION": "Remove a stack of deepspiringmod:Loss ，gaining a stack of deepspiringmod:Overfitting 。"
 	}
 }
