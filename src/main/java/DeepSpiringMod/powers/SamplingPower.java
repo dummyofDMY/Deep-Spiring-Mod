@@ -1,5 +1,6 @@
 package DeepSpiringMod.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,18 +55,27 @@ public class SamplingPower extends AbstractPower {
         }
 
         this.flash();
-        AbstractCard card = p.discardPile.getRandomCard(AbstractDungeon.cardRandomRng);
-        AbstractCard tmp = card.makeStatEquivalentCopy();
-        tmp.purgeOnUse = true;
-        tmp.energyOnUse = tmp.costForTurn;
+        for (int i = 0; i < amount; ++i) {
+            AbstractCard card = p.discardPile.getRandomCard(AbstractDungeon.cardRandomRng);
+            AbstractCard tmp = card.makeStatEquivalentCopy();
+            tmp.purgeOnUse = true;
+            tmp.energyOnUse = tmp.costForTurn;
 
-        AbstractDungeon.player.limbo.addToBottom(tmp);
-        tmp.current_x = card.current_x;
-        tmp.current_y = card.current_y;
-        tmp.target_x = Settings.WIDTH / 2.0F * Settings.scale;
-        tmp.target_y = Settings.HEIGHT / 2.0F;
+            AbstractDungeon.player.limbo.addToBottom(tmp);
+            tmp.current_x = card.current_x;
+            tmp.current_y = card.current_y;
+            tmp.target_x = Settings.WIDTH / 2.0F * Settings.scale;
+            tmp.target_y = Settings.HEIGHT / 2.0F;
 
-        this.addToBot(new NewQueueCardAction(tmp, true, false, true));
+            // // 肮脏的补丁
+            // System.out.print("Try to find " + ModHelper.makePath("Hallucination") + "\n");
+            // if (AbstractDungeon.player.hasPower(ModHelper.makePath("Hallucination"))) {
+            //     System.out.print("dirty patch\n");
+            //     this.addToTop(new ApplyPowerAction(owner, owner, new HallucinationPower(owner, 1)));
+            // }
+
+            this.addToBot(new NewQueueCardAction(tmp, true, true, true));
+        }
     }
 
     // 能力在更新时如何修改描述

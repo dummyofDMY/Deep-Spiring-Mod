@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.DrawPower;
 
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.APPower;
+import DeepSpiringMod.powers.HallucinationPower;
 
 // 继承CustomRelic
 public class BurntHeatSink extends CustomRelic {
@@ -25,7 +26,7 @@ public class BurntHeatSink extends CustomRelic {
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
-    private int start_energy = 0;
+    // private int start_energy = 0;
 
     public BurntHeatSink() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
@@ -50,22 +51,23 @@ public class BurntHeatSink extends CustomRelic {
 
     @Override
     public void atTurnStartPostDraw() {
-        this.start_energy = AbstractDungeon.player.energy.energy;
+        // this.start_energy = AbstractDungeon.player.energy.energy;
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HallucinationPower(AbstractDungeon.player, 1), 1));
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() <= 1) {
-            if (card.cost == -2) {
-                return;
-            } else if (card.cost == -1) {
-                this.addToBot(new GainEnergyAction(this.start_energy));
-                this.flash();
-            } else {
-                this.addToBot(new GainEnergyAction(card.cost));
-                this.flash();
-            }
+    // @Override
+    // public void onUseCard(AbstractCard card, UseCardAction action) {
+    //     if (!card.purgeOnUse && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() <= 1) {
+    //         if (card.cost == -2) {
+    //             return;
+    //         } else if (card.cost == -1) {
+    //             this.addToBot(new GainEnergyAction(this.start_energy));
+    //             this.flash();
+    //         } else {
+    //             this.addToBot(new GainEnergyAction(card.cost));
+    //             this.flash();
+    //         }
             
-        }
-    }
+    //     }
+    // }
 }

@@ -35,5 +35,12 @@
         "DESCRIPTIONS": [
             "Play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the #yAP. The length of the convolution kernel is %d, the element at the center of the kernel is 1, and the elements in each outer layer are half of those in the previous layer."
         ]
+    },
+    "DeepSpiringMod:Hallucination": {
+        "NAME": "Hallucination",
+        "DESCRIPTIONS": [
+            "Play %d card for free.",
+            "Play %d cards for free."
+        ]
     }
 }
