@@ -56,6 +56,9 @@ public class HallucinationPower extends AbstractPower {
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        if (!card.freeToPlayOnce) {
+            return;
+        }
         if (this.amount > 0) {
             if (card.cost == -1) {
                 this.addToBot(new GainEnergyAction(AbstractDungeon.player.energy.energy));
