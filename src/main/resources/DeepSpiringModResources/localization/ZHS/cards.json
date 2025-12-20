@@ -13,8 +13,8 @@
 	},
 	"DeepSpiringMod:StochasticProcess": {
 		"NAME": "随机过程",
-		"DESCRIPTION": " *回合结束 时，随机打出弃牌堆中的1张牌。",
-		"UPGRADE_DESCRIPTION": " *回合结束 时，随机打出弃牌堆中的 !M! 张牌。"
+		"DESCRIPTION": " *回合开始 时，随机从弃牌堆中抽 !M! 张牌。",
+		"UPGRADE_DESCRIPTION": " *回合开始 时，随机从弃牌堆中抽 !M! 张牌。"
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "溢出",
@@ -45,8 +45,8 @@
 		"NAME": "卷积",
 		"DESCRIPTION": "获得一层 deepspiringmod:卷积"
 	},
-	"DeepSpiringMod:Training": {
-		"NAME": "训练",
-		"DESCRIPTION": "减少一层 deepspiringmod:损失 ，增加一层 deepspiringmod:过拟合 。"
+	"DeepSpiringMod:StochasticGradientDescent": {
+		"NAME": "随机梯度下降法",
+		"DESCRIPTION": "每回合开始时随机地减少一层 deepspiringmod:损失 、增加一层 deepspiringmod:过拟合 。"
 	}
 }

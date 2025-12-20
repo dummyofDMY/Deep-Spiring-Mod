@@ -2,8 +2,8 @@
     "DeepSpiringMod:Sampling": {
         "NAME": "采样",
         "DESCRIPTIONS": [
-        "#y回合结束 时，随机打出弃牌堆中的%d张牌。",
-        "#y回合结束 时，随机打出弃牌堆中的%d张牌。"
+        "#y回合开始 时，随机从弃牌堆中抽%d张牌。",
+        "#y回合开始 时，随机从弃牌堆中抽%d张牌。"
         ]
     },
     "DeepSpiringMod:RecursionDepth": {
@@ -41,6 +41,13 @@
         "DESCRIPTIONS": [
             "免费打出%d张牌",
             "免费打出%d张牌"
+        ]
+    },
+    "DeepSpiringMod:SGD": {
+        "NAME": "随机梯度下降",
+        "DESCRIPTIONS": [
+            "随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。",
+            "随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。"
         ]
     }
 }

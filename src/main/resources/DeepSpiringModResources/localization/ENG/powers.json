@@ -2,8 +2,8 @@
 	"DeepSpiringMod:Sampling": {
 		"NAME": "Sampling",
 		"DESCRIPTIONS": [
-			"At the #yend of the turn, play 1 card in your discard pile randomly.",
-			"At the #yend of the turn, play %d cards in your discard pile randomly."
+			"At the #ystart of each turn, draw %d card from your discard pile randomly.",
+			"At the #ystart of each turn, draw %d cards from your discard pile randomly."
 		]
 	},
 	"DeepSpiringMod:RecursionDepth": {
@@ -41,6 +41,13 @@
         "DESCRIPTIONS": [
             "Play %d card for free.",
             "Play %d cards for free."
+        ]
+    },
+    "DeepSpiringMod:SGD": {
+        "NAME": "SGD",
+        "DESCRIPTIONS": [
+            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d time each turn.",
+            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d times each turn."
         ]
     }
 }

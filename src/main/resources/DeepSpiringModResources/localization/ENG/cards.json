@@ -4,7 +4,7 @@
 		"DESCRIPTION": "Causing !D! points of damage."
 	},
 	"DeepSpiringMod:BlockStrike": {
-		"NAME": "BlockStrike",
+		"NAME": "Block Strike",
 		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Retain your hand this turn."
 	},
 	"DeepSpiringMod:Defend_DeepBlue": {
@@ -13,8 +13,8 @@
 	},
 	"DeepSpiringMod:StochasticProcess": {
 		"NAME": "Stochastic Process",
-		"DESCRIPTION": "At the end of the turn, play 1 card in your discard pile randomly.",
-		"UPGRADE_DESCRIPTION": "At the end of the turn, play !M! cards in your discard pile randomly."
+		"DESCRIPTION": "At the start of the turn, draw !M! card from your discard pile randomly.",
+		"UPGRADE_DESCRIPTION": "At the start of the turn, draw !M! cards from your discard pile randomly."
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "Overflow",
@@ -32,12 +32,12 @@
 		"DESCRIPTION": "Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
 	},
 	"DeepSpiringMod:PositionalEncoding": {
-		"NAME": "PositionalEncoding",
+		"NAME": "Positional Encoding",
 		"DESCRIPTION": "Swap the positions of 2 cards in the discard pile.",
 		"UPGRADE_DESCRIPTION": "Swap the positions of 4 cards in the discard pile."
 	},
 	"DeepSpiringMod:FeatureMap": {
-		"NAME": "FeatureMap",
+		"NAME": "Feature Map",
 		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage.",
 		"UPGRADE_DESCRIPTION": "[#FF0000]You should NOT have this card.[]"
 	},
@@ -45,8 +45,8 @@
 		"NAME": "Convolution",
 		"DESCRIPTION": "Gain a stack of deepspiringmod:Convolution"
 	},
-	"DeepSpiringMod:Training": {
-		"NAME": "Training",
-		"DESCRIPTION": "Remove a stack of deepspiringmod:Loss ，gaining a stack of deepspiringmod:Overfitting 。"
+	"DeepSpiringMod:StochasticGradientDescent": {
+		"NAME": "Stochastic Gradient Descent",
+		"DESCRIPTION": "At the start of each turn, remove a stack of deepspiringmod:Loss and gain a stack of deepspiringmod:Overfitting randomly."
 	}
 }
