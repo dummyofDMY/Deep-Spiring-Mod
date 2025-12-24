@@ -106,6 +106,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         has_activated = true;
                         to_play_num--;
                         AbstractCard tmp = c.makeStatEquivalentCopy();
+                        tmp.exhaust = true;
                         tmp.purgeOnUse = true;
                         tmp.energyOnUse = tmp.costForTurn;
                         if (tmp.magicNumber != -1) {

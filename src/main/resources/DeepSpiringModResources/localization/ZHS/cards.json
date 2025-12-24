@@ -19,13 +19,13 @@
 	"DeepSpiringMod:Overflow": {
 		"NAME": "溢出",
 		"DESCRIPTION": "你爆显存了。 虚无 ",
-		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。 NL 虚无 NL 消耗",
+		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。 NL 虚无 NL 消耗 。",
 		"EXTENDED_DESCRIPTION": ["这张牌没有升级，无法打出。"]
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "注意力头",
-		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。 NL 打防外的效果数值会被乘上 deepspiringmod:平均精度 。",
-		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。 NL 打防外的效果数值会被乘上 deepspiringmod:平均精度 。"
+		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。 NL 打防外的效果数值会被乘上两倍的 deepspiringmod:平均精度 。",
+		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。 NL 打防外的效果数值会被乘上两倍的 deepspiringmod:平均精度 。"
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
@@ -38,7 +38,7 @@
 	},
 	"DeepSpiringMod:FeatureMap": {
 		"NAME": "特征图",
-		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 消耗 。",
 		"UPGRADE_DESCRIPTION": "[#FF0000]你不该拥有这张牌。[]"
 	},
 	"DeepSpiringMod:Convolution": {
@@ -48,5 +48,34 @@
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "随机梯度下降法",
 		"DESCRIPTION": "每回合开始时随机地减少一层 deepspiringmod:损失 、增加一层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:Misconduct": {
+		"NAME": "不端",
+		"DESCRIPTION": "减小 !M! 层 deepspiringmod:损失 ，每回合开始增加一层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:StrikeDataset": {
+		"NAME": "打击数据集",
+		"DESCRIPTION": "造成 !D! 点伤害 !M! 次。"
+	},
+	"DeepSpiringMod:DefendDataset": {
+		"NAME": "防御数据集",
+		"DESCRIPTION": "获得 !B! 点 *格挡。"
+	},
+	"DeepSpiringMod:ChargeDataset": {
+		"NAME": "充能数据集",
+		"DESCRIPTION": "获得 !M! 点 [E] 。"
+	},
+	"DeepSpiringMod:ScalingLaw": {
+		"NAME": "规模定律",
+		"DESCRIPTION": "翻倍你的 deepspiringmod:损失 ， NL 折半 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:Hallucination": {
+		"NAME": "幻觉",
+		"DESCRIPTION": "造成 !D! 点伤害。获得 !M! 层 deepspiringmod:幻觉 。"
+	},
+	"DeepSpiringMod:Diffusion": {
+		"NAME": "扩撒",
+		"DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 消耗 。",
+		"UPGRADE_DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 卡牌将继承本卡的费用 NL 消耗 。"
 	}
 }

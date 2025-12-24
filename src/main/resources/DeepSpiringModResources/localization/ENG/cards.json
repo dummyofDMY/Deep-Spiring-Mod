@@ -24,8 +24,8 @@
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "Attention Head",
-		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card. NL The value of card's effect, expecting Block and damage, will be multiplied by deepspicingmod:AP .",
-		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards. NL The value of cards' effect, expecting Block and damage, will be multiplied by deepspicingmod:AP ."
+		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card. NL The value of card's effect, expecting Block and damage, will be multiplied by twice deepspicingmod:AP .",
+		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards. NL The value of cards' effect, expecting Block and damage, will be multiplied by twice deepspicingmod:AP ."
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
@@ -38,7 +38,7 @@
 	},
 	"DeepSpiringMod:FeatureMap": {
 		"NAME": "Feature Map",
-		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage.",
+		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "[#FF0000]You should NOT have this card.[]"
 	},
 	"DeepSpiringMod:Convolution": {
@@ -47,6 +47,35 @@
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "Stochastic Gradient Descent",
-		"DESCRIPTION": "At the start of each turn, remove a stack of deepspiringmod:Loss and gain a stack of deepspiringmod:Overfitting randomly."
+		"DESCRIPTION": "At the start of each turn, decrease a stack of deepspiringmod:Loss and gain a stack of deepspiringmod:Overfitting randomly."
+	},
+	"DeepSpiringMod:Misconduct": {
+		"NAME": "Misconduct",
+		"DESCRIPTION": "Decrease !M! stacks of deepspiringmod:Loss . At the start of each turn, gain a stack of deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:StrikeDataset": {
+		"NAME": "Strike Dataset",
+		"DESCRIPTION": "Causing !D! points of damage !M! times."
+	},
+	"DeepSpiringMod:DefendDataset": {
+		"NAME": "Defend Dataset",
+		"DESCRIPTION": "Gain !B! point of Block."
+	},
+	"DeepSpiringMod:ChargeDataset": {
+		"NAME": "Charge Dataset",
+		"DESCRIPTION": "Gain !M! point of [E] 。"
+	},
+	"DeepSpiringMod:ScalingLaw": {
+		"NAME": "Scaling Law",
+		"DESCRIPTION": "Double your deepspiringmod:Loss. NL Halve deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:Hallucination": {
+		"NAME": "Hallucination",
+		"DESCRIPTION": "Causing !D! points of damage. Gain !M! stack of deepspiringmod:Hallucination ."
+	},
+	"DeepSpiringMod:Diffusion": {
+		"NAME": "Diffusion",
+		"DESCRIPTION": "Turn this card into a selected card from the draw pile. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Turn this card into a selected card from the draw pile. NL cards will inherit the cost. NL Exhaust."
 	}
 }

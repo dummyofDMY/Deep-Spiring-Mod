@@ -21,7 +21,7 @@ public class FreePlayAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             Iterator var1 = this.p.hand.group.iterator();
-            System.out.print("Free play!\n");
+            // System.out.print("Free play!\n");
 
             while(var1.hasNext()) {
                 AbstractCard c = (AbstractCard)var1.next();
@@ -35,6 +35,18 @@ public class FreePlayAction extends AbstractGameAction {
                 // c.cost = 1;
                 // c.isCostModified = true;
                 // }
+            }
+
+            var1 = this.p.discardPile.group.iterator();
+            while(var1.hasNext()) {
+                AbstractCard c = (AbstractCard)var1.next();
+                c.freeToPlayOnce = true;
+            }
+
+            var1 = this.p.drawPile.group.iterator();
+            while(var1.hasNext()) {
+                AbstractCard c = (AbstractCard)var1.next();
+                c.freeToPlayOnce = true;
             }
         }
 

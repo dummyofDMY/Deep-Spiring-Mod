@@ -27,7 +27,7 @@
     "DeepSpiringMod:AP": {
         "NAME": "平均精度",
         "DESCRIPTIONS": [
-            "和 #r损失 及 #r过拟合 层数有关，影响前向传播的效果。当前为%.2f。"
+            "计算公式为0.05(1 - #r损失 )(5 - #r过拟合 )，影响前向传播的效果。当前为%.2f。"
         ]
     },
     "DeepSpiringMod:Convolution": {
@@ -46,8 +46,15 @@
     "DeepSpiringMod:SGD": {
         "NAME": "随机梯度下降",
         "DESCRIPTIONS": [
-            "随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。",
-            "随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。"
+            "回合开始时，随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。",
+            "回合开始时，随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。"
+        ]
+    },
+    "DeepSpiringMod:DataLeakage": {
+        "NAME": "数据泄露",
+        "DESCRIPTIONS": [
+            "回合开始时，增加一层 #r过拟合 %d次。",
+            "回合开始时，增加一层 #r过拟合 %d次。"
         ]
     }
 }

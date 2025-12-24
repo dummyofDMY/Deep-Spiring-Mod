@@ -3,5 +3,11 @@
 		"TEXT": [
 			"Choose two cards that need to be swapped in position."
 		]
+	},
+	"DeepSpiringMod:DiffusionAction": {
+		"TEXT": [
+			"Select %d card to add to your hand.",
+			"Select %d cards to add to your hand."
+		]
 	}
 }

@@ -20,6 +20,10 @@
     },
 	{
         "NAMES": ["AP"],
-        "DESCRIPTION": "It is related to the #yLoss and #rOverfitting stacks, which affect the effectiveness of #yForward #yPropagation ."
+        "DESCRIPTION": "Its calculation formula is 0.05(1 - #rLoss)(5 - #rOverfitting), which affect the effectiveness of #yForward #yPropagation ."
+    },
+    {
+        "NAMES": ["Hallucination"],
+        "DESCRIPTION": "The cards become free."
     }
 ]

@@ -1,8 +1,11 @@
 package DeepSpiringMod.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -18,21 +21,21 @@ public class ForwardPropagation extends CustomCard {
     private static final String IMG_PATH = null;
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public ForwardPropagation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.damage = this.baseDamage = 6;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-            new ForwardPropagationAction(1)
-        );
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
+        this.addToBot(new ForwardPropagationAction(1));
     }
 
     @Override

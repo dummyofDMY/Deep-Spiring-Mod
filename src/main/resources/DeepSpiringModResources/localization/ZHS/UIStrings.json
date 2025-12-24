@@ -3,5 +3,11 @@
 		"TEXT": [
 			"选择两张需要互换位置的牌。"
 		]
+	},
+	"DeepSpiringMod:DiffusionAction": {
+		"TEXT": [
+			"选择%d张牌增加到手中。",
+			"选择%d张牌增加到手中。"
+		]
 	}
 }

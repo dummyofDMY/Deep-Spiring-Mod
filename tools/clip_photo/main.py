@@ -108,9 +108,10 @@ def resize_image_with_padding(input_path, output_path, target_size, keep_alpha=T
 # 使用示例
 if __name__ == "__main__":
     # 输入参数
-    input_image = r"E:\code_java\DeepSpiring\tools\clip_photo\input.png"  # 输入图片路径
-    output_image = "Iteration32.png"  # 输出图片路径
-    target_resolution = (32, 32)  # 目标分辨率 (宽, 高)
+    input_image = r"E:\code_java\DeepSpiring\tools\clip_photo\StrikeDataset_p.png"  # 输入图片路径
+    output_image = "StrikeDataset.png"  # 输出图片路径
+    target_resolution = (500, 380)  # 目标分辨率 (宽, 高)
+    # target_resolution = (250, 190)
     
     # 调用函数
     resize_image_with_padding(input_image, output_image, target_resolution, keep_alpha=True)

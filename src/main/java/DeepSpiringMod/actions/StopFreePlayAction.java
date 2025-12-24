@@ -36,6 +36,18 @@ public class StopFreePlayAction extends AbstractGameAction {
                 // c.isCostModified = true;
                 // }
             }
+
+            var1 = this.p.discardPile.group.iterator();
+            while(var1.hasNext()) {
+                AbstractCard c = (AbstractCard)var1.next();
+                c.freeToPlayOnce = false;
+            }
+
+            var1 = this.p.drawPile.group.iterator();
+            while(var1.hasNext()) {
+                AbstractCard c = (AbstractCard)var1.next();
+                c.freeToPlayOnce = false;
+            }
         }
 
         this.tickDuration();

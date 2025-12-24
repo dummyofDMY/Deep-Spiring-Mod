@@ -27,7 +27,7 @@
     "DeepSpiringMod:AP": {
         "NAME": "AP",
         "DESCRIPTIONS": [
-            "It is related to the #yLoss and #rOverfitting stacks, which affect the effectiveness of #yForward #yPropagation. Currently %.2f."
+            "Its calculation formula is 0.05(1 - #rLoss )(5 - #rOverfitting ), which affect the effectiveness of #yForward #yPropagation. Currently %.2f."
         ]
     },
     "DeepSpiringMod:Convolution": {
@@ -46,8 +46,15 @@
     "DeepSpiringMod:SGD": {
         "NAME": "SGD",
         "DESCRIPTIONS": [
-            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d time each turn.",
-            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d times each turn."
+            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d time at the start of each turn.",
+            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d times at the start of each turn."
+        ]
+    },
+    "DeepSpiringMod:DataLeakage": {
+        "NAME": "Data Leakage",
+        "DESCRIPTIONS": [
+            "Gain a stack of #rOverfitting %d time at the start of each turn.",
+            "Gain a stack of #rOverfitting %d times at the start of each turn."
         ]
     }
 }

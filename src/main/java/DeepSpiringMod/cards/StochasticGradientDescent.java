@@ -23,7 +23,7 @@ public class StochasticGradientDescent extends CustomCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public StochasticGradientDescent() {

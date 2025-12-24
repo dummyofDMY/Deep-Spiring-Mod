@@ -42,6 +42,7 @@ public class DeepSpiringMod implements
     private static final String MY_CHARACTER_BUTTON = "DeepSpiringModResources/img/char/dkButton.png";
     // 人物选择界面的立绘
     private static final String MY_CHARACTER_PORTRAIT = "DeepSpiringModResources/img/char/dk_awakened.png";
+
     // 攻击牌的背景（小尺寸）
     private static final String BG_ATTACK_512 = "DeepSpiringModResources/img/512/bg_attack_lime.png";
     // 能力牌的背景（小尺寸）
@@ -95,6 +96,13 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new FeatureMap(0, 0));
         BaseMod.addCard(new Convolution());
         BaseMod.addCard(new StochasticGradientDescent());
+        BaseMod.addCard(new StrikeDataset());
+        BaseMod.addCard(new DefendDataset());
+        BaseMod.addCard(new ChargeDataset());
+        BaseMod.addCard(new Misconduct());
+        BaseMod.addCard(new ScalingLaw());
+        BaseMod.addCard(new Hallucination());
+        BaseMod.addCard(new Diffusion());
     }
 
     public void receiveEditStrings() {

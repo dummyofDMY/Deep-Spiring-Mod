@@ -6,6 +6,7 @@ import basemod.abstracts.CustomPlayer;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -61,7 +62,7 @@ public class Deepfect extends CustomPlayer {
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
-                "DeepSpiringModResources/img/char/Idle.png", // 人物图片
+                null, // 人物图片
                 MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1,
                 CORPSE_IMAGE, // 人物死亡图像
                 this.getLoadout(),
@@ -71,11 +72,15 @@ public class Deepfect extends CustomPlayer {
         );
 
 
-        // 如果你的人物没有动画，那么这些不需要写
+        // // 如果你的人物没有动画，那么这些不需要写
         // this.loadAnimation("DeepSpiringModResources/img/char/character.atlas", "DeepSpiringModResources/img/char/character.json", 1.8F);
         // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         // e.setTime(e.getEndTime() * MathUtils.random());
         // e.setTimeScale(1.2F);
+        this.loadAnimation("images/characters/defect/idle/skeleton.atlas", "images/characters/defect/idle/skeleton.json", 1.0F);
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+        this.stateData.setMix("Hit", "Idle", 0.1F);
+        e.setTimeScale(0.9F);
 
 
     }
@@ -165,9 +170,9 @@ public class Deepfect extends CustomPlayer {
     public ArrayList<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
         // 有两个参数的，第二个参数表示出现图片时播放的音效
-        panels.add(new CutscenePanel("DeepSpiringModResources/img/char/dk_blood.png", "ATTACK_MAGIC_FAST_1"));
-        panels.add(new CutscenePanel("DeepSpiringModResources/img/char/dk_evil.png"));
-        panels.add(new CutscenePanel("DeepSpiringModResources/img/char/dk_frozen.png"));
+        panels.add(new CutscenePanel("images/scenes/defect1.png", "ATTACK_HEAVY"));
+        panels.add(new CutscenePanel("images/scenes/defect2.png"));
+        panels.add(new CutscenePanel("images/scenes/defect3.png"));
         return panels;
     }
 

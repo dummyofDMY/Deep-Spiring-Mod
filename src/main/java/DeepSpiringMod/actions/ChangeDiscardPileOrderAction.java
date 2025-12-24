@@ -30,13 +30,8 @@ public class ChangeDiscardPileOrderAction extends AbstractGameAction {
         } else {
             for (int i = 0; i < this.stackAmount; ++i) {
                 if (this.duration == this.startDuration) {
-                    if (AbstractDungeon.player.discardPile.size() < 2) {
-                        this.isDone = true;
-                    } else {
-                        // System.out.println("1\n");
-                        AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, 2, true, UI_TITLE[0]);
-                        this.tickDuration();
-                    }
+                    AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, 2, true, UI_TITLE[0]);
+                    this.tickDuration();
                 } else {
                     // System.out.println("2\n");
                     if (AbstractDungeon.gridSelectScreen.selectedCards.size() == 2) {
@@ -67,7 +62,7 @@ public class ChangeDiscardPileOrderAction extends AbstractGameAction {
                         }
                         System.err.print('\n');
                     }
-
+                    AbstractDungeon.gridSelectScreen.selectedCards.clear();
                     this.tickDuration();
                 }
             }
