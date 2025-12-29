@@ -103,6 +103,7 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new ScalingLaw());
         BaseMod.addCard(new Hallucination());
         BaseMod.addCard(new Diffusion());
+        BaseMod.addCard(new AIForm());
     }
 
     public void receiveEditStrings() {

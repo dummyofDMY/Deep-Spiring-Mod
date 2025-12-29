@@ -56,5 +56,12 @@
             "Gain a stack of #rOverfitting %d time at the start of each turn.",
             "Gain a stack of #rOverfitting %d times at the start of each turn."
         ]
+    },
+    "DeepSpiringMod:AIForm": {
+        "NAME": "AI Form",
+        "DESCRIPTIONS": [
+            "No cards will be drawn at the start of the turn. NL Each turn, one #yAttention #yHead , #yForward #yPropagation , #yPositional #yEncoding , and one random card are placed in hand.",
+            "No cards will be drawn at the start of the turn. NL Each turn, one #yAttention #yHead , #yForward #yPropagation , #yPositional #yEncoding , and one random card are placed in hand."
+        ]
     }
 }

@@ -77,5 +77,10 @@
 		"NAME": "Diffusion",
 		"DESCRIPTION": "Turn this card into a selected card from the draw pile. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "Turn this card into a selected card from the draw pile. NL cards will inherit the cost. NL Exhaust."
+	},
+	"DeepSpiringMod:AIForm": {
+		"NAME": "AI Form",
+		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand.",
+		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand. NL Retain ."
 	}
 }

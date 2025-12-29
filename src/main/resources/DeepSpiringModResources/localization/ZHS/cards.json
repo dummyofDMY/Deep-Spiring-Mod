@@ -77,5 +77,10 @@
 		"NAME": "扩撒",
 		"DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 消耗 。",
 		"UPGRADE_DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 卡牌将继承本卡的费用 NL 消耗 。"
+	},
+	"DeepSpiringMod:AIForm": {
+		"NAME": "AI形态",
+		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。",
+		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。 NL 保留。 "
 	}
 }

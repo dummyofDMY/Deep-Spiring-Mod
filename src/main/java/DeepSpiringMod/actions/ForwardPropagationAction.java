@@ -110,6 +110,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         tmp.exhaust = true;
                         tmp.purgeOnUse = true;
                         tmp.energyOnUse = tmp.costForTurn;
+                        tmp.freeToPlayOnce = true;
                         if (tmp.magicNumber != -1) {
                             double magic_num = 2 * precision * tmp.magicNumber;
                             magic_num = Math.ceil(magic_num);
@@ -143,6 +144,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     block_sum = (int)Math.ceil(block_sum * conv_factor * precision);
                     System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
                     AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
+                    feature_map.freeToPlayOnce = true;
                     this.addToTop(new NewQueueCardAction(feature_map, true, false, true));
                 }
 
