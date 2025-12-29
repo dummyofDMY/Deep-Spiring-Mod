@@ -12,7 +12,9 @@ import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.DataLeakagePower;
 import DeepSpiringMod.powers.LossPower;
-import DeepSpiringMod.powers.SamplingPower;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Misconduct extends CustomCard {
     public static final String ID = ModHelper.makePath("Misconduct");
@@ -27,11 +29,15 @@ public class Misconduct extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    public static final Logger logger = LogManager.getLogger(Misconduct.class);
+
     public Misconduct() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init Misconduct.\n");
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("Misconduct initialization completed.\n");
     }
 
     @Override

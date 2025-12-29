@@ -17,6 +17,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class BlockStrike extends CustomCard {
     public static final String ID = ModHelper.makePath("BlockStrike");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -31,13 +34,17 @@ public class BlockStrike extends CustomCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    public static final Logger logger = LogManager.getLogger(BlockStrike.class);
+
     public BlockStrike() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init BlockStrike.\n");
         this.baseDamage = this.damage = 15;
         this.baseBlock = 15;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("BlockStrike initialization completed.\n");
     }
 
     @Override

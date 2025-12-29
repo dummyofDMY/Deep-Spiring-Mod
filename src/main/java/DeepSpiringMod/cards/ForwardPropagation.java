@@ -14,6 +14,9 @@ import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import basemod.abstracts.CustomCard;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ForwardPropagation extends CustomCard {
     public static final String ID = ModHelper.makePath("ForwardPropagation");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -26,9 +29,13 @@ public class ForwardPropagation extends CustomCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    public static final Logger logger = LogManager.getLogger(ForwardPropagation.class);
+
     public ForwardPropagation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init ForwardPropagation.\n");
+        logger.debug("ForwardPropagation initialization completed.\n");
         this.damage = this.baseDamage = 6;
     }
 

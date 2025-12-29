@@ -45,6 +45,7 @@ public class ChangeDiscardPileOrderAction extends AbstractGameAction {
                         }
                         AbstractDungeon.player.discardPile.group.set(index1, card2);
                         AbstractDungeon.player.discardPile.group.set(index2, card1);
+                        
                     } else {
                         System.err.println("Wrong select number: " + AbstractDungeon.gridSelectScreen.selectedCards.size() + '\n');
                         Iterator card_it = AbstractDungeon.gridSelectScreen.selectedCards.iterator();

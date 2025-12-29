@@ -18,7 +18,7 @@
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "Overflow",
-		"DESCRIPTION": "Your GPU ran out of VRAM. NL Ethereal.",
+		"DESCRIPTION": "Your GPU ran out of VRAM. NL Unplayable. NL Ethereal.",
 		"UPGRADE_DESCRIPTION": "Restart deepspikingmod:forward_propagation. NL Ethereal. NL Exhaust.",
 		"EXTENDED_DESCRIPTION": ["This card has not been upgraded and cannot be played."]
 	},
@@ -29,7 +29,7 @@
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
-		"DESCRIPTION": "Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
+		"DESCRIPTION": "Causing !D! points of damage. NL Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "Positional Encoding",
@@ -55,7 +55,7 @@
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "Strike Dataset",
-		"DESCRIPTION": "Causing !D! points of damage !M! times."
+		"DESCRIPTION": "Causing !D! points of damage !M! times. NL Single attact's damage is 16 times deepspiringmod:AP ."
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "Defend Dataset",

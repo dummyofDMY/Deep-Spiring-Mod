@@ -16,6 +16,9 @@ import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.powers.HallucinationPower;
 import DeepSpiringMod.helpers.ModHelper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Hallucination extends CustomCard {
     public static final String ID = ModHelper.makePath("Hallucination");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -31,12 +34,16 @@ public class Hallucination extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    public static final Logger logger = LogManager.getLogger(Hallucination.class);
+
     public Hallucination() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init Hallucination.\n");
         this.baseDamage = this.damage = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("Hallucination initialization completed.\n");
     }
 
     @Override

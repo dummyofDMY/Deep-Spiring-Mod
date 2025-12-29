@@ -12,6 +12,9 @@ import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.SamplingPower;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class StochasticProcess extends CustomCard {
     public static final String ID = ModHelper.makePath("StochasticProcess");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -26,11 +29,15 @@ public class StochasticProcess extends CustomCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    public static final Logger logger = LogManager.getLogger(StochasticProcess.class);
+
     public StochasticProcess() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init StochasticProcess.\n");
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("StochasticProcess initialization completed.\n");
     }
 
     @Override

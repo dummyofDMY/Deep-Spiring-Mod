@@ -15,6 +15,9 @@ import basemod.abstracts.CustomCard;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Strike_DeepBlue extends CustomCard {
     public static final String ID = ModHelper.makePath("Strike_DeepBlue");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -30,12 +33,16 @@ public class Strike_DeepBlue extends CustomCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    public static final Logger logger = LogManager.getLogger(Strike_DeepBlue.class);
+
     public Strike_DeepBlue() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init Strike_DeepBlue.\n");
         this.damage = this.baseDamage = 6;
         this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
+        logger.debug("Strike_DeepBlue initialization completed.\n");
     }
 
     @Override

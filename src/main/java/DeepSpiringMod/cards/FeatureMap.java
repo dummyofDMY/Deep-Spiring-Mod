@@ -16,6 +16,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class FeatureMap extends CustomCard {
     public static final String ID = ModHelper.makePath("FeatureMap");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -31,14 +34,18 @@ public class FeatureMap extends CustomCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    public static final Logger logger = LogManager.getLogger(FeatureMap.class);
+
     public FeatureMap(int damage, int block) {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init FeatureMap.\n");
         this.baseDamage = this.damage = damage;
         this.baseBlock = block;
         this.baseMagicNumber = 1;
         this.magicNumber = 1;
         this.exhaust = true;
+        logger.debug("FeatureMap initialization completed.\n");
     }
 
     public FeatureMap() {

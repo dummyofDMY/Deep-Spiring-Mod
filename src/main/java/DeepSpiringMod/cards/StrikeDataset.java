@@ -1,7 +1,5 @@
 package DeepSpiringMod.cards;
 
-import basemod.abstracts.CustomCard;
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -14,7 +12,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 
-public class StrikeDataset extends CustomCard {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class StrikeDataset extends AbstractAPCard {
     public static final String ID = ModHelper.makePath("StrikeDataset");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
@@ -28,20 +29,25 @@ public class StrikeDataset extends CustomCard {
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
+    public static final int damge_without_AP = 16;
+
+    public static final Logger logger = LogManager.getLogger(StrikeDataset.class);
 
     public StrikeDataset() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseDamage = this.damage = 6;
+        logger.debug("Start to init StrikeDataset.\n");
+        this.baseDamage = this.damage = (int)(damge_without_AP * 0.25);
         this.baseMagicNumber = 5;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("StrikeDataset initialization completed.\n");
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3);
+            // this.upgradeDamage(3);
 
             // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -54,5 +60,11 @@ public class StrikeDataset extends CustomCard {
         for (int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AttackEffect.BLUNT_HEAVY));
         }
+    }
+
+    @Override
+    public void update_with_AP(double AP) {
+        this.baseDamage = this.damage = (int)(damge_without_AP * AP);
+        this.initializeDescription();
     }
 }

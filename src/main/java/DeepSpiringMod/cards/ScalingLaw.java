@@ -14,6 +14,9 @@ import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.LossPower;
 import DeepSpiringMod.powers.OverfittingPower;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ScalingLaw extends CustomCard {
     public static final String ID = ModHelper.makePath("ScalingLaw");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -27,11 +30,15 @@ public class ScalingLaw extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    public static final Logger logger = LogManager.getLogger(ScalingLaw.class);
+
     public ScalingLaw() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init ScalingLaw.\n");
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        logger.debug("ScalingLaw initialization completed.\n");
     }
 
     @Override

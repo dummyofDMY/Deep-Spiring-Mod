@@ -62,6 +62,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 if (has_conv) {
                     int conv_stack = AbstractDungeon.player.getPower(ModHelper.makePath("Convolution")).amount;
                     conv_factor = (2 - Math.pow(0.5, conv_stack - 1)) / 0.5 - 1;
+                    conv_factor /= 2;
                 }
 
                 // 检测loss和overfitting的情况

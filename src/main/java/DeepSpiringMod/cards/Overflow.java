@@ -12,6 +12,9 @@ import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.actions.ForwardPropagationAction;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Overflow extends CustomCard {
     public static final String ID = ModHelper.makePath("Overflow");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -28,11 +31,15 @@ public class Overflow extends CustomCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    public static final Logger logger = LogManager.getLogger(Overflow.class);
+
     public Overflow() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init Overflow.\n");
         this.exhaust = true;
         this.isEthereal = true;
+        logger.debug("Overflow initialization completed.\n");
     }
 
     @Override

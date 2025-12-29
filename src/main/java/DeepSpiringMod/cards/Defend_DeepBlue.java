@@ -11,6 +11,9 @@ import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import basemod.abstracts.CustomCard;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Defend_DeepBlue extends CustomCard {
      public static final String ID = ModHelper.makePath("Defend_DeepBlue");
      private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -27,11 +30,15 @@ public class Defend_DeepBlue extends CustomCard {
      private static final CardRarity RARITY = CardRarity.BASIC;
      private static final CardTarget TARGET = CardTarget.SELF;
 
+     public static final Logger logger = LogManager.getLogger(Defend_DeepBlue.class);
+
      public Defend_DeepBlue() {
           // 为了命名规范修改了变量名。这些参数具体的作用见下方
           super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+          logger.debug("Start to init Defend_DeepBlue.\n");
           this.baseBlock = 5;
           this.tags.add(CardTags.STARTER_DEFEND);
+          logger.debug("Defend_DeepBlue initialization completed.\n");
      }
 
      @Override

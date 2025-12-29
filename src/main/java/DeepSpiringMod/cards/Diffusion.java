@@ -2,6 +2,9 @@ package DeepSpiringMod.cards;
 
 import basemod.abstracts.CustomCard;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,12 +26,16 @@ public class Diffusion extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
 
+    public static final Logger logger = LogManager.getLogger(Diffusion.class);
+
     public Diffusion() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        logger.debug("Start to init Diffusion.\n");
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        logger.debug("Diffusion initialization completed.\n");
     }
 
     @Override

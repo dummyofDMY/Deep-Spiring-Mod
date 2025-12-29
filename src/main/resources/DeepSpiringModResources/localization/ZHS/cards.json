@@ -18,8 +18,8 @@
 	},
 	"DeepSpiringMod:Overflow": {
 		"NAME": "溢出",
-		"DESCRIPTION": "你爆显存了。 虚无 ",
-		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。 NL 虚无 NL 消耗 。",
+		"DESCRIPTION": "你爆显存了。 NL 不能被打出 。 NL 虚无。 ",
+		"UPGRADE_DESCRIPTION": "重新启动 deepspiringmod:前向传播 。 NL 虚无。 NL 消耗 。",
 		"EXTENDED_DESCRIPTION": ["这张牌没有升级，无法打出。"]
 	},
 	"DeepSpiringMod:AttentionHead": {
@@ -29,7 +29,7 @@
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
-		"DESCRIPTION": "激发所有弃牌堆中的 *注意力头 和 *卷积核 的卡牌效果。"
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 激发所有弃牌堆中的 *注意力头 和 *卷积核 的卡牌效果。"
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "位置编码",
@@ -55,7 +55,7 @@
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "打击数据集",
-		"DESCRIPTION": "造成 !D! 点伤害 !M! 次。"
+		"DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 单次攻击造成的伤害为 deepspiringmod:平均精度 的16倍。"
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "防御数据集",
