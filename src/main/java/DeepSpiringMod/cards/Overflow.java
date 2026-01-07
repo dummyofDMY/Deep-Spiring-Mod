@@ -20,8 +20,7 @@ public class Overflow extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Strike_DeepBlue.png";
-    private static final String IMG_PATH = null;
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Overflow.png";
     private static final int COST = -2;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述

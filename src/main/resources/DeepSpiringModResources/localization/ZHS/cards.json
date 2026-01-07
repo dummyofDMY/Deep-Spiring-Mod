@@ -24,8 +24,8 @@
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "注意力头",
-		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。 NL 打防外的效果数值会被乘上两倍的 deepspiringmod:平均精度 。",
-		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。 NL 打防外的效果数值会被乘上两倍的 deepspiringmod:平均精度 。"
+		"DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 1 张牌。",
+		"UPGRADE_DESCRIPTION": "在激发 deepspiringmod:前向传播 且这张牌在弃牌堆中时，打出其之后的 2 张牌。"
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
@@ -55,7 +55,7 @@
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "打击数据集",
-		"DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 单次攻击造成的伤害为 deepspiringmod:平均精度 的16倍。"
+		"DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层，这张牌就多造成一次伤害。"
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "防御数据集",
@@ -67,7 +67,7 @@
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "规模定律",
-		"DESCRIPTION": "翻倍你的 deepspiringmod:损失 ， NL 折半 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。"
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "幻觉",
@@ -85,7 +85,7 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",
-		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 本回合打出的牌会将伤害和 *格挡 数值乘上 deepspiringmod:平均精度 累加到本牌上。",
-		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 本回合打出的牌会将伤害和 *格挡 数值乘上 *两倍 的 deepspiringmod:平均精度 累加到本牌上。"
+		"DESCRIPTION": "打出上一次打出的牌 !M! 次。",
+		"UPGRADE_DESCRIPTION": "打出上一次打出的牌 !M! 次。"
 	}
 }

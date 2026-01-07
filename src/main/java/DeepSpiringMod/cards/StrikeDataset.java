@@ -22,14 +22,14 @@ public class StrikeDataset extends AbstractAPCard {
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Strike_DeepBlue.png";
     private static final String IMG_PATH = "DeepSpiringModResources/img/cards/StrikeDataset.png";
-    private static final int COST = 5;
+    private static final int COST = 1;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    public static final int damge_without_AP = 16;
+    // public static final int damge_without_AP = 16;
 
     public static final Logger logger = LogManager.getLogger(StrikeDataset.class);
 
@@ -37,8 +37,8 @@ public class StrikeDataset extends AbstractAPCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         logger.debug("Start to init StrikeDataset.\n");
-        this.baseDamage = this.damage = (int)(damge_without_AP * 0.25);
-        this.baseMagicNumber = 5;
+        this.baseDamage = this.damage = 10;
+        this.baseMagicNumber = 0;
         this.magicNumber = this.baseMagicNumber;
         logger.debug("StrikeDataset initialization completed.\n");
     }
@@ -63,8 +63,8 @@ public class StrikeDataset extends AbstractAPCard {
     }
 
     @Override
-    public void update_with_AP(double AP) {
-        this.baseDamage = this.damage = (int)(damge_without_AP * AP);
+    public void update_with_AP(int AP, int Overfitting) {
+        this.baseMagicNumber = Math.abs(AP - Overfitting) + 1;
         this.initializeDescription();
     }
 }

@@ -60,21 +60,22 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 Boolean has_conv = AbstractDungeon.player.hasPower(ModHelper.makePath("Convolution"));
                 double conv_factor = 0;
                 if (has_conv) {
-                    int conv_stack = AbstractDungeon.player.getPower(ModHelper.makePath("Convolution")).amount;
-                    conv_factor = (2 - Math.pow(0.5, conv_stack - 1)) / 0.5 - 1;
-                    conv_factor /= 2;
+                    conv_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Convolution")).amount;
+                    // conv_factor = (2 - Math.pow(0.5, conv_stack - 1)) / 0.5 - 1;
+                    // conv_factor /= 2;
                 }
 
                 // 检测loss和overfitting的情况
-                double loss_factor = 0, overfitting_factor = 0;
-                if (AbstractDungeon.player.hasPower(ModHelper.makePath("Loss"))) {
-                    loss_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Loss")).amount;
+                int AP_factor = 0, overfitting_factor = 0;
+                if (AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
+                    AP_factor = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
                 }
                 if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
                     overfitting_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
                 }
-                double precision = (1 - loss_factor) * (0.25 - 0.05 * overfitting_factor);
-                precision = precision > 0 ? precision : 0;
+                int loss = Math.abs(AP_factor - overfitting_factor);
+                // double precision = (1 - loss_factor) * (0.25 - 0.05 * overfitting_factor);
+                // precision = precision > 0 ? precision : 0;
 
                 while(var5.hasNext()) {
                     c = (AbstractCard)var5.next();
@@ -111,12 +112,12 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         tmp.purgeOnUse = true;
                         tmp.energyOnUse = tmp.costForTurn;
                         tmp.freeToPlayOnce = true;
-                        if (tmp.magicNumber != -1) {
-                            double magic_num = 2 * precision * tmp.magicNumber;
-                            magic_num = Math.ceil(magic_num);
-                            tmp.magicNumber = tmp.baseMagicNumber = (int)magic_num;
-                            tmp.upgradedMagicNumber = true;
-                        }
+                        // if (tmp.magicNumber != -1) {
+                        //     double magic_num = 2 * precision * tmp.magicNumber;
+                        //     magic_num = Math.ceil(magic_num);
+                        //     tmp.magicNumber = tmp.baseMagicNumber = (int)magic_num;
+                        //     tmp.upgradedMagicNumber = true;
+                        // }
 
                         AbstractDungeon.player.limbo.addToBottom(tmp);
                         tmp.current_x = c.current_x;
@@ -140,8 +141,8 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 // 打出“特征图”
                 if (damage_sum > 0 || block_sum > 0) {
                     System.out.print("damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
-                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * precision);
-                    block_sum = (int)Math.ceil(block_sum * conv_factor * precision);
+                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * loss / 2);
+                    block_sum = (int)Math.ceil(block_sum * conv_factor * loss / 2);
                     System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
                     AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
                     feature_map.freeToPlayOnce = true;

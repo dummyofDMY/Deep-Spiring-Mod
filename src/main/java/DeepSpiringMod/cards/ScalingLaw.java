@@ -55,9 +55,9 @@ public class ScalingLaw extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.hasPower(ModHelper.makePath("Loss"))) {
-            int loss_stacks = AbstractDungeon.player.getPower(ModHelper.makePath("Loss")).amount;
-            this.addToBot(new ApplyPowerAction(p, p, new LossPower(p, loss_stacks), loss_stacks));
+        if (AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
+            int AP_stacks = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
+            this.addToBot(new ApplyPowerAction(p, p, new LossPower(p, AP_stacks), AP_stacks));
         }
         if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
             int Overfitting_stacks = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;

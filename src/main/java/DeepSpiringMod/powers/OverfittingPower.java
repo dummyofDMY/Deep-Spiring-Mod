@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import DeepSpiringMod.actions.UpdateAPAction;
 import DeepSpiringMod.helpers.ModHelper;
 
 public class OverfittingPower extends AbstractPower {
@@ -23,7 +24,7 @@ public class OverfittingPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.BUFF;
+        this.type = PowerType.DEBUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = Amount;
@@ -48,5 +49,10 @@ public class OverfittingPower extends AbstractPower {
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         this.description = DESCRIPTIONS[0]; // 这样，%d就被替换成能力的层数
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        this.addToTop(new UpdateAPAction());
     }
 }

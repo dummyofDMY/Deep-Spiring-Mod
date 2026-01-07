@@ -24,8 +24,8 @@
 	},
 	"DeepSpiringMod:AttentionHead": {
 		"NAME": "Attention Head",
-		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card. NL The value of card's effect, expecting Block and damage, will be multiplied by twice deepspicingmod:AP .",
-		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards. NL The value of cards' effect, expecting Block and damage, will be multiplied by twice deepspicingmod:AP ."
+		"DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 1 card.",
+		"UPGRADE_DESCRIPTION": "When triggering deepspikingmod:forward_propagation and this card is in the discard pile, play the next 2 cards."
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
@@ -55,7 +55,7 @@
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "Strike Dataset",
-		"DESCRIPTION": "Causing !D! points of damage !M! times. NL Single attact's damage is 16 times deepspiringmod:AP ."
+		"DESCRIPTION": "Causing !D! points of damage !M! times. NL Per one layer higher deepspiringmod:AP than deepspiringmod:Overfitting , this card deals damage for an additional time."
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "Defend Dataset",
@@ -67,7 +67,7 @@
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "Scaling Law",
-		"DESCRIPTION": "Double your deepspiringmod:Loss. NL Halve deepspiringmod:Overfitting ."
+		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting ."
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "Hallucination",
@@ -85,7 +85,7 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
-		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL This card gains damage and Block for each damage and Block dealt/played timemultiplied by deepspicingmod:AP this turn.",
-		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL This card gains damage and Block for each damage and Block dealt/played timemultiplied by twice deepspicingmod:AP this turn."
+		"DESCRIPTION": "Play the last card you have played for !M! time.",
+		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times."
 	}
 }

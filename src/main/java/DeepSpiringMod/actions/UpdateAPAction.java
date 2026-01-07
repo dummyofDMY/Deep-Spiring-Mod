@@ -16,18 +16,25 @@ public class UpdateAPAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (!AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
-            AbstractDungeon.player.addPower(new APPower(AbstractDungeon.player));
-        }
+        // if (!AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
+        //     AbstractDungeon.player.addPower(new APPower(AbstractDungeon.player));
+        // }
         APPower AP = (APPower)AbstractDungeon.player.getPower(ModHelper.makePath("AP"));
-        AP.calculate_AP();
-        AP.updateDescription();
+        // AP.calculate_AP();
+        // AP.updateDescription();
+        int AP_stack = 0, overfitting_stack = 0;
+        if (!AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
+            AP_stack = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
+        }
+        if (!AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
+            overfitting_stack = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
+        }
 
         Iterator card_it = AbstractDungeon.player.hand.group.iterator();
         while (card_it.hasNext()) {
             AbstractCard card = (AbstractCard)card_it.next();
             if (card instanceof AbstractAPCard) {
-                ((AbstractAPCard)card).update_with_AP(AP.AP);
+                ((AbstractAPCard)card).update_with_AP(AP_stack, overfitting_stack);
             }
         }
 
@@ -35,7 +42,7 @@ public class UpdateAPAction extends AbstractGameAction {
         while (card_it.hasNext()) {
             AbstractCard card = (AbstractCard)card_it.next();
             if (card instanceof AbstractAPCard) {
-                ((AbstractAPCard)card).update_with_AP(AP.AP);
+                ((AbstractAPCard)card).update_with_AP(AP_stack, overfitting_stack);
             }
         }
 
@@ -43,7 +50,7 @@ public class UpdateAPAction extends AbstractGameAction {
         while (card_it.hasNext()) {
             AbstractCard card = (AbstractCard)card_it.next();
             if (card instanceof AbstractAPCard) {
-                ((AbstractAPCard)card).update_with_AP(AP.AP);
+                ((AbstractAPCard)card).update_with_AP(AP_stack, overfitting_stack);
             }
         }
 

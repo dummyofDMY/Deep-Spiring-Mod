@@ -22,5 +22,5 @@ public abstract class AbstractAPCard extends CustomCard{
         logger.debug("AbstractAPCard initialization completed.\n");
     }
 
-    public abstract void update_with_AP(double AP);
+    public abstract void update_with_AP(int AP, int Overfitting);
 }

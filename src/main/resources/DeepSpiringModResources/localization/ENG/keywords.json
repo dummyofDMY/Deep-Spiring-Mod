@@ -16,11 +16,11 @@
     },
 	{
         "NAMES": ["Overfitting"],
-        "DESCRIPTION": "The current model's adaptability to unseen datasets. Excessive #rOverfitting stacks will reduce the #yAP ."
+        "DESCRIPTION": "Demonstrated the current model's adaptability to unseen datasets. High Overfitting stacks would make the battle tought."
     },
 	{
         "NAMES": ["AP"],
-        "DESCRIPTION": "Its calculation formula is 0.05(1 - #rLoss)(5 - #rOverfitting), which affect the effectiveness of #yForward #yPropagation ."
+        "DESCRIPTION": "Model performance on testing set, which affect the effectiveness of some of the cards and powers."
     },
     {
         "NAMES": ["Hallucination"],

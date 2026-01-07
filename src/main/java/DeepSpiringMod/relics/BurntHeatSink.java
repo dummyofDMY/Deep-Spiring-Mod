@@ -46,7 +46,7 @@ public class BurntHeatSink extends CustomRelic {
     @Override
     public void atBattleStartPreDraw() {
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawPower(AbstractDungeon.player, -1), 1));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new APPower(AbstractDungeon.player), 1));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new APPower(AbstractDungeon.player, 1), 1));
     }
 
     @Override
