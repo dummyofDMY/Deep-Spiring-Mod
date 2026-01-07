@@ -104,7 +104,7 @@ def create_preview(image_path, semi_minor_axis, position='bottom'):
 
 def main():
     # 在这里设置参数
-    input_image = r"E:\code_java\DeepSpiring\tools\clip_photo\input.png"
+    input_image = r"E:\code_java\DeepSpiring\out.png"
     output_image = os.path.basename(input_image)
     semi_minor_axis = 0.5            # 椭圆短轴长度（像素）
     position = 'bottom'              # 裁剪位置：'bottom' 或 'top'

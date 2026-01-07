@@ -31,8 +31,8 @@ public class APPower extends AbstractPower {
         this.amount = -1;
 
         // // 添加一大一小两张能力图
-        String path128 = ModHelper.makeImagePath("powers/Iteration84.png");
-        String path48 = ModHelper.makeImagePath("powers/Iteration32.png");
+        String path128 = ModHelper.makeImagePath("powers/AP84.png");
+        String path48 = ModHelper.makeImagePath("powers/AP32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));
@@ -57,7 +57,7 @@ public class APPower extends AbstractPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        this.addToBot(new UpdateAPAction());
+        this.addToTop(new UpdateAPAction());
     }
 
     // 能力在更新时如何修改描述

@@ -104,6 +104,7 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new Hallucination());
         BaseMod.addCard(new Diffusion());
         BaseMod.addCard(new AIForm());
+        BaseMod.addCard(new RecurrentNeuralNetwork());
     }
 
     public void receiveEditStrings() {

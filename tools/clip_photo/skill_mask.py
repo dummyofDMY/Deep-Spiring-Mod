@@ -6,7 +6,7 @@ def simple_bottom_rounded_corners():
     """简化版：只处理底部透明和圆角"""
     
     # ====== 参数设置 ======
-    input_file = r"E:\code_java\DeepSpiring\tools\clip_photo\input.png"
+    input_file = r"E:\code_java\DeepSpiring\out.png"
     output_image = os.path.basename(input_file)
     
     radius_ratio = 0.1            # 圆角半径比例 (0-1)

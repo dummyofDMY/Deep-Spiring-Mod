@@ -1,6 +1,5 @@
 package DeepSpiringMod.powers;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DrawPower;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
 import DeepSpiringMod.cards.AttentionHead;
@@ -38,8 +36,8 @@ public class AIFormPower extends AbstractPower {
         this.amount = -1;
 
         // // 添加一大一小两张能力图
-        String path128 = ModHelper.makeImagePath("powers/Iteration84.png");
-        String path48 = ModHelper.makeImagePath("powers/Iteration32.png");
+        String path128 = ModHelper.makeImagePath("powers/AIForm84.png");
+        String path48 = ModHelper.makeImagePath("powers/AIForm32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));

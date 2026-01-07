@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "Convolution",
         "DESCRIPTIONS": [
-            "Play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the #yAP. The length of the convolution kernel is %d, the element at the center of the kernel is 1, and the elements in each outer layer are half of those in the previous layer."
+            "Play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution (equal to the sum multiplying %.2f) of all card values in the discard pile multiplied by 0.5 #yAP. (The length of the convolution kernel is %d, the element at the center of the kernel is 1, and the elements in each outer layer are half of those in the previous layer.)"
         ]
     },
     "DeepSpiringMod:Hallucination": {

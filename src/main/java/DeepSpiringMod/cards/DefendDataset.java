@@ -36,7 +36,7 @@ public class DefendDataset extends CustomCard {
           // 为了命名规范修改了变量名。这些参数具体的作用见下方
           super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
           logger.debug("Start to init DefendDataset.\n");
-          this.baseBlock = 25;
+          this.baseBlock = block = 25;
           this.tags.add(CardTags.STARTER_DEFEND);
           logger.debug("DefendDataset initialization completed.\n");
      }
@@ -44,7 +44,7 @@ public class DefendDataset extends CustomCard {
      @Override
      public void use(AbstractPlayer p, AbstractMonster m) {
           AbstractDungeon.actionManager.addToBottom(
-               new GainBlockAction(p, p, this.baseBlock)
+               new GainBlockAction(p, p, block)
           );
      }
 

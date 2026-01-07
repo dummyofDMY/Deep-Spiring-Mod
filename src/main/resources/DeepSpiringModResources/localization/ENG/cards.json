@@ -82,5 +82,10 @@
 		"NAME": "AI Form",
 		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand.",
 		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand. NL Retain ."
+	},
+	"DeepSpiringMod:RecurrentNeuralNetwork": {
+		"NAME": "Recurrent Neural Network",
+		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL This card gains damage and Block for each damage and Block dealt/played timemultiplied by deepspicingmod:AP this turn.",
+		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL This card gains damage and Block for each damage and Block dealt/played timemultiplied by twice deepspicingmod:AP this turn."
 	}
 }

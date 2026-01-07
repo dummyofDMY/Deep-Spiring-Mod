@@ -88,7 +88,7 @@ def interactive_triangle_transparency():
 
 
 if __name__ == "__main__":
-    file = r"E:\code_java\DeepSpiring\tools\clip_photo\input.png"
+    file = r"E:\code_java\DeepSpiring\out.png"
     file_name = os.path.basename(file)
     # 方法1：直接使用
     add_triangle_transparency(

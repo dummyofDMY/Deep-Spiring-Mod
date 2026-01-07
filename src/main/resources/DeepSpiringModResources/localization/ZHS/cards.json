@@ -81,6 +81,11 @@
 	"DeepSpiringMod:AIForm": {
 		"NAME": "AI形态",
 		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。",
-		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。 NL 保留。 "
+		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。 保留 。 "
+	},
+	"DeepSpiringMod:RecurrentNeuralNetwork": {
+		"NAME": "循环神经网络",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 本回合打出的牌会将伤害和 *格挡 数值乘上 deepspiringmod:平均精度 累加到本牌上。",
+		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL 本回合打出的牌会将伤害和 *格挡 数值乘上 *两倍 的 deepspiringmod:平均精度 累加到本牌上。"
 	}
 }
