@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import DeepSpiringMod.helpers.ModHelper;
 
-public class SGDPower extends AbstractPower {
+public class SGDPlusPower extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = ModHelper.makePath("SGD");
+    public static final String POWER_ID = ModHelper.makePath("SGD+");
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -21,7 +21,7 @@ public class SGDPower extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public SGDPower(AbstractCreature owner, int Amount) {
+    public SGDPlusPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -46,7 +46,7 @@ public class SGDPower extends AbstractPower {
         for (int i = 0; i < this.amount; ++i) {
             int randem_num = AbstractDungeon.cardRandomRng.random(1);
             if (randem_num == 0) {
-                this.addToBot(new ApplyPowerAction(owner, owner, new APPower(owner, 1), 1));
+                this.addToBot(new ApplyPowerAction(owner, owner, new APPower(owner, 2), 2));
             } else {
                 this.addToBot(new ApplyPowerAction(owner, owner, new OverfittingPower(owner, 1), 1));
             }

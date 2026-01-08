@@ -10,6 +10,7 @@ import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
+import DeepSpiringMod.powers.SGDPlusPower;
 import DeepSpiringMod.powers.SGDPower;
 
 import org.apache.logging.log4j.LogManager;
@@ -42,7 +43,6 @@ public class StochasticGradientDescent extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeBaseCost(0);
 
             // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -52,7 +52,11 @@ public class StochasticGradientDescent extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new SGDPower(p, 1)));
+        if (!this.upgraded) {
+            this.addToBot(new ApplyPowerAction(p, p, new SGDPower(p, 1)));
+        } else {
+            this.addToBot(new ApplyPowerAction(p, p, new SGDPlusPower(p, 1)));
+        }
     }
     
 }

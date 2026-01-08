@@ -82,6 +82,6 @@ if __name__ == "__main__":
     # else:
     #     # 单张图片处理模式
     #     remove_white_background(args.input, args.output, args.threshold)
-    input_path = r"E:\code_java\DeepSpiring\image_lib\res\Hallucination.png"
-    output_path = r"E:\code_java\DeepSpiring\src\main\resources\DeepSpiringModResources\img\powers\Hallucination84.png"
-    remove_white_background(input_path, output_path, 200)
+    input_path = r"E:\code_java\DeepSpiring\out.png"
+    output_path = r"E:\code_java\DeepSpiring\src\main\resources\DeepSpiringModResources\img\relics\.png"
+    remove_white_background(input_path, output_path, 240)

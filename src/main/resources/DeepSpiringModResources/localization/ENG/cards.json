@@ -47,11 +47,12 @@
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "Stochastic Gradient Descent",
-		"DESCRIPTION": "At the start of each turn, decrease a stack of deepspiringmod:Loss and gain a stack of deepspiringmod:Overfitting randomly."
+		"DESCRIPTION": "At the start of each turn, gain 1 stack of deepspiringmod:AP or 1 stack of deepspiringmod:Overfitting randomly with equal chance.",
+		"UPGRADE_DESCRIPTION": "At the start of each turn, gain 2 stacks of deepspiringmod:AP or 1 stack of deepspiringmod:Overfitting randomly with equal chance."
 	},
 	"DeepSpiringMod:Misconduct": {
 		"NAME": "Misconduct",
-		"DESCRIPTION": "Decrease !M! stacks of deepspiringmod:Loss . At the start of each turn, gain a stack of deepspiringmod:Overfitting ."
+		"DESCRIPTION": "Gain !M! stacks of deepspiringmod:AP . At the start of each turn, gain a stack of deepspiringmod:Overfitting ."
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "Strike Dataset",
@@ -85,7 +86,12 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
-		"DESCRIPTION": "Play the last card you have played for !M! time.",
-		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times."
+		"DESCRIPTION": "Play the last card you have played for !M! time. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting."
+	},
+	"DeepSpiringMod:SOTA": {
+		"NAME": "SOTA",
+		"DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting . NL You will ignore deepspiringmod:Overfitting ."
 	}
 }

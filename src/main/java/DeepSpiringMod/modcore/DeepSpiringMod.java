@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
+// import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
@@ -39,7 +39,7 @@ public class DeepSpiringMod implements
         EditCharactersSubscriber,
         EditKeywordsSubscriber {
     // 人物选择界面按钮的图片
-    private static final String MY_CHARACTER_BUTTON = "DeepSpiringModResources/img/char/dkButton.png";
+    private static final String MY_CHARACTER_BUTTON = "DeepSpiringModResources/img/char/deepfect_button.png";
     // 人物选择界面的立绘
     private static final String MY_CHARACTER_PORTRAIT = "DeepSpiringModResources/img/char/dk_awakened.png";
 
@@ -105,6 +105,7 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new Diffusion());
         BaseMod.addCard(new AIForm());
         BaseMod.addCard(new RecurrentNeuralNetwork());
+        BaseMod.addCard(new SOTA());
     }
 
     public void receiveEditStrings() {
@@ -133,8 +134,10 @@ public class DeepSpiringMod implements
 
     @Override
     public void receiveEditRelics() {
-        BaseMod.addRelic(new BurntHeatSink(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-        BaseMod.addRelic(new TryBlock(), RelicType.SHARED);
+        // BaseMod.addRelic(new BurntHeatSink(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        // BaseMod.addRelic(new TryBlock(), RelicType.SHARED);
+        BaseMod.addRelicToCustomPool(new BurntHeatSink(), PlayerColorEnum.DEEP_BLUE);
+        BaseMod.addRelicToCustomPool(new TryBlock(), PlayerColorEnum.DEEP_BLUE);
     }
 
     @Override

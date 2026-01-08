@@ -38,7 +38,7 @@ public class StrikeDataset extends AbstractAPCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         logger.debug("Start to init StrikeDataset.\n");
         this.baseDamage = this.damage = 10;
-        this.baseMagicNumber = 0;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         logger.debug("StrikeDataset initialization completed.\n");
     }
@@ -47,7 +47,7 @@ public class StrikeDataset extends AbstractAPCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            // this.upgradeDamage(3);
+            this.upgradeDamage(3);
 
             // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -64,7 +64,9 @@ public class StrikeDataset extends AbstractAPCard {
 
     @Override
     public void update_with_AP(int AP, int Overfitting) {
+        this.upgradeMagicNumber(Math.abs(AP - Overfitting));
         this.baseMagicNumber = Math.abs(AP - Overfitting) + 1;
+        this.upgradedMagicNumber = true;
         this.initializeDescription();
     }
 }

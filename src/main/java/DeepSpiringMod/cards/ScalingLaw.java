@@ -11,7 +11,7 @@ import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.powers.LossPower;
+import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
 
 import org.apache.logging.log4j.LogManager;
@@ -57,7 +57,7 @@ public class ScalingLaw extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
             int AP_stacks = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
-            this.addToBot(new ApplyPowerAction(p, p, new LossPower(p, AP_stacks), AP_stacks));
+            this.addToBot(new ApplyPowerAction(p, p, new APPower(p, AP_stacks), AP_stacks));
         }
         if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
             int Overfitting_stacks = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;

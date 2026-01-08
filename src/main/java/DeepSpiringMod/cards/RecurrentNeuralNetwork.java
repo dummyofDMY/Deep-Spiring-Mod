@@ -2,16 +2,11 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
@@ -65,9 +60,11 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
             Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
-            AbstractCard c = AbstractDungeon.actionManager.cardsPlayedThisTurn.get(0);
+            AbstractCard c = (AbstractCard)var2.next();
+            AbstractCard c_buf = (AbstractCard)var2.next();
             while(var2.hasNext()) {
-                c = (AbstractCard)var2.next();
+                c = c_buf;
+                c_buf = (AbstractCard)var2.next();;
             }
             AbstractCard tmp = c.makeStatEquivalentCopy();
             tmp.exhaust = true;
@@ -83,6 +80,7 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     @Override
     public void update_with_AP(int AP, int Overfitting) {
         this.baseMagicNumber = Math.abs(AP - Overfitting);
+        this.upgradedDamage = true;
         this.initializeDescription();
     }
 

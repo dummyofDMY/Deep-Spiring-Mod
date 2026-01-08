@@ -11,7 +11,7 @@ public class TryBlock extends CustomRelic {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = ModHelper.makePath("TryBlock");
     // 图片路径（大小128x128，可参考同目录的图片）
-    private static final String IMG_PATH = ModHelper.makeImagePath("relics/kitchen_knife.png");
+    private static final String IMG_PATH = ModHelper.makeImagePath("relics/TryBlock.png");
     // 遗物未解锁时的轮廓。可以不使用。如果要使用，取消注释
     // private static final String OUTLINE_PATH = "ExampleModResources/img/relics/MyRelic_Outline.png";
     // 遗物类型

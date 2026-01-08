@@ -26,7 +26,7 @@ public class BlockStrike extends CustomCard {
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "DeepSpiringModResources/img/cards/BlockStrike.png";
-    private static final int COST = 3;
+    private static final int COST = 2;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
@@ -40,8 +40,8 @@ public class BlockStrike extends CustomCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         logger.debug("Start to init BlockStrike.\n");
-        this.baseDamage = this.damage = 15;
-        this.baseBlock = 15;
+        this.baseDamage = this.damage = 10;
+        this.baseBlock = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         logger.debug("BlockStrike initialization completed.\n");

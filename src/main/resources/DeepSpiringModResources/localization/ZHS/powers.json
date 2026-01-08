@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "卷积",
         "DESCRIPTIONS": [
-            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的和的一半乘上 #y平均精度 与 #y损失 之差。"
+            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的和的一半乘上 #y平均精度 与 #r过拟合 之差。"
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -46,8 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "随机梯度下降",
         "DESCRIPTIONS": [
-            "回合开始时，随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。",
-            "回合开始时，随机减少一层 #r损失 ，增加一层 #r过拟合 %d次。"
+            "回合开始时，等可能地获得1层 #y平均精度 或1层 #r过拟合 。"
+        ]
+    },
+    "DeepSpiringMod:SGD+": {
+        "NAME": "随机梯度下降+",
+        "DESCRIPTIONS": [
+            "回合开始时，等可能地获得2层 #y平均精度 或1层 #r过拟合 。"
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -62,6 +67,13 @@
         "DESCRIPTIONS": [
             "回合开始将不再抽牌。 NL 每回合将一张 #y注意力头 、 #y前向传播 、 #y位置编码 及一张随机牌置入手中。",
             "回合开始将不再抽牌。 NL 每回合将一张 #y注意力头 、 #y前向传播 、 #y位置编码 及一张随机牌置入手中。"
+        ]
+    },
+    "DeepSpiringMod:SOTA": {
+        "NAME": "SOTA",
+        "DESCRIPTIONS": [
+            "你将无视 #r过拟合 。",
+            "你将无视 #r过拟合 。"
         ]
     }
 }

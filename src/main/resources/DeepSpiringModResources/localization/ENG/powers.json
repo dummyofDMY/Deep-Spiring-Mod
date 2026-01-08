@@ -46,8 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "SGD",
         "DESCRIPTIONS": [
-            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d time at the start of each turn.",
-            "Randomly remove a stack of #rLoss and gain a stack of #rOverfitting %d times at the start of each turn."
+            "Randomly gain 1 stack of #yAP or 1 stack of #rOverfitting at the start of each turn with equal chance."
+        ]
+    },
+    "DeepSpiringMod:SGD+": {
+        "NAME": "SGD+",
+        "DESCRIPTIONS": [
+            "Randomly gain 2 stack of #yAP or 1 stack of #rOverfitting at the start of each turn with equal chance."
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -62,6 +67,13 @@
         "DESCRIPTIONS": [
             "No cards will be drawn at the start of the turn. NL Each turn, one #yAttention #yHead , #yForward #yPropagation , #yPositional #yEncoding , and one random card are placed in hand.",
             "No cards will be drawn at the start of the turn. NL Each turn, one #yAttention #yHead , #yForward #yPropagation , #yPositional #yEncoding , and one random card are placed in hand."
+        ]
+    },
+    "DeepSpiringMod:SOTA": {
+        "NAME": "SOTA",
+        "DESCRIPTIONS": [
+            "You will ignore #rOverfitting .",
+            "You will ignore #rOverfitting ."
         ]
     }
 }

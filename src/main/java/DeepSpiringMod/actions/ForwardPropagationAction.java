@@ -83,7 +83,11 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     // 累积打防数值
                     System.out.print("damage = " + c.baseDamage + ", block = " + c.baseBlock + "\n");
                     if (has_conv) {
-                        damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
+                        if (ModHelper.isMultipleHits(c)) {
+                            damage_sum += c.baseDamage * c.baseMagicNumber > 0 ? c.baseDamage * c.baseMagicNumber : 0;
+                        } else {
+                            damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
+                        }
                         block_sum += c.baseBlock > 0 ? c.baseBlock : 0;
                     }
 

@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import DeepSpiringMod.cards.AbstractAPCard;
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.powers.APPower;
 
 public class UpdateAPAction extends AbstractGameAction {
     public UpdateAPAction() {
@@ -16,17 +15,12 @@ public class UpdateAPAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        // if (!AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
-        //     AbstractDungeon.player.addPower(new APPower(AbstractDungeon.player));
-        // }
-        APPower AP = (APPower)AbstractDungeon.player.getPower(ModHelper.makePath("AP"));
-        // AP.calculate_AP();
-        // AP.updateDescription();
         int AP_stack = 0, overfitting_stack = 0;
-        if (!AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
+        if (AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
             AP_stack = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
         }
-        if (!AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting"))) {
+        if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting")) &&
+            !AbstractDungeon.player.hasPower(ModHelper.makePath("SOTA"))) {
             overfitting_stack = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
         }
 

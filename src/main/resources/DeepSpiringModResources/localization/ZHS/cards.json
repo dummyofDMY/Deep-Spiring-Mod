@@ -85,7 +85,12 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",
-		"DESCRIPTION": "打出上一次打出的牌 !M! 次。",
-		"UPGRADE_DESCRIPTION": "打出上一次打出的牌 !M! 次。"
+		"DESCRIPTION": "打出上一次打出的牌 !M! 次。NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。",
+		"UPGRADE_DESCRIPTION": "打出上一次打出的牌 !M! 次。NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。"
+	},
+	"DeepSpiringMod:SOTA": {
+		"NAME": "SOTA",
+		"DESCRIPTION": "获得3层 deepspiringmod:平均精度 ，一层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "获得3层 deepspiringmod:平均精度 ，一层 deepspiringmod:过拟合 。 NL 你将无视 deepspiringmod:过拟合 。"
 	}
 }

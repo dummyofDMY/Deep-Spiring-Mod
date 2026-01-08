@@ -11,17 +11,18 @@ import basemod.abstracts.CustomCard;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.APPower;
-import DeepSpiringMod.powers.DataLeakagePower;
+import DeepSpiringMod.powers.OverfittingPower;
+import DeepSpiringMod.powers.SOTAPower;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Misconduct extends CustomCard {
-    public static final String ID = ModHelper.makePath("Misconduct");
+public class SOTA extends CustomCard {
+    public static final String ID = ModHelper.makePath("SOTA");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Misconduct.png";
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/SOTA.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.POWER;
@@ -29,33 +30,34 @@ public class Misconduct extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public static final Logger logger = LogManager.getLogger(Misconduct.class);
+    public static final Logger logger = LogManager.getLogger(SOTA.class);
 
-    public Misconduct() {
+    public SOTA() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init Misconduct.\n");
-        this.baseMagicNumber = 3;
-        this.magicNumber = this.baseMagicNumber;
-        logger.debug("Misconduct initialization completed.\n");
+        logger.debug("Start to init SOTA.\n");
+        this.magicNumber = 1;
+        logger.debug("SOTA initialization completed.\n");
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(2);
 
-            // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            // this.initializeDescription();
+            // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, this.magicNumber), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(p, p, new DataLeakagePower(p, 1), 1));
+        if (upgraded) {
+            this.addToBot(new ApplyPowerAction(p, p, new SOTAPower(p)));
+        }
+        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 3)));
+        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 2)));
     }
     
 }

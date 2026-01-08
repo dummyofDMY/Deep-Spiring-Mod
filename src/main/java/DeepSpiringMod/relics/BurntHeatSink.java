@@ -3,9 +3,6 @@ package DeepSpiringMod.relics;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.DrawPower;
@@ -19,7 +16,7 @@ public class BurntHeatSink extends CustomRelic {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = ModHelper.makePath("BurntHeatSink");
     // 图片路径（大小128x128，可参考同目录的图片）
-    private static final String IMG_PATH = ModHelper.makeImagePath("relics/kitchen_knife.png");
+    private static final String IMG_PATH = ModHelper.makeImagePath("relics/BurntHeatSink.png");
     // 遗物未解锁时的轮廓。可以不使用。如果要使用，取消注释
     // private static final String OUTLINE_PATH = "ExampleModResources/img/relics/MyRelic_Outline.png";
     // 遗物类型
@@ -46,7 +43,7 @@ public class BurntHeatSink extends CustomRelic {
     @Override
     public void atBattleStartPreDraw() {
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawPower(AbstractDungeon.player, -1), 1));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new APPower(AbstractDungeon.player, 1), 1));
+        // this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new APPower(AbstractDungeon.player, 1), 1));
     }
 
     @Override

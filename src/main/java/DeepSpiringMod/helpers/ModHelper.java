@@ -17,7 +17,7 @@ public class ModHelper {
         return "DeepSpiringModResources/localization/" + path;
     }
 
-    public static boolean isMultipleHits​(AbstractCard card) {
+    public static boolean isMultipleHits(AbstractCard card) {
         if (card instanceof StrikeDataset) {
             return true;
         }
