@@ -36,11 +36,11 @@ public class StrikeDataset extends AbstractAPCard {
     public StrikeDataset() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init StrikeDataset.\n");
+        logger.info("Start to init StrikeDataset.\n");
         this.baseDamage = this.damage = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
-        logger.debug("StrikeDataset initialization completed.\n");
+        logger.info("StrikeDataset initialization completed.\n");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class StrikeDataset extends AbstractAPCard {
     public void update_with_AP(int AP, int Overfitting) {
         this.upgradeMagicNumber(Math.abs(AP - Overfitting));
         this.baseMagicNumber = Math.abs(AP - Overfitting) + 1;
-        this.upgradedMagicNumber = true;
+        this.magicNumber = Math.abs(AP - Overfitting) + 1;
         this.initializeDescription();
     }
 }

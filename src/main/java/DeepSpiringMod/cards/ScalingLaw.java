@@ -35,18 +35,16 @@ public class ScalingLaw extends CustomCard {
     public ScalingLaw() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init ScalingLaw.\n");
-        this.baseMagicNumber = 3;
-        this.magicNumber = this.baseMagicNumber;
-        logger.debug("ScalingLaw initialization completed.\n");
+        logger.info("Start to init ScalingLaw.\n");
+        this.exhaust = true;
+        logger.info("ScalingLaw initialization completed.\n");
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(2);
-
+            this.exhaust = false;
             // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             // this.initializeDescription();

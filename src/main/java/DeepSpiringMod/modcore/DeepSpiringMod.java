@@ -41,7 +41,7 @@ public class DeepSpiringMod implements
     // 人物选择界面按钮的图片
     private static final String MY_CHARACTER_BUTTON = "DeepSpiringModResources/img/char/deepfect_button.png";
     // 人物选择界面的立绘
-    private static final String MY_CHARACTER_PORTRAIT = "DeepSpiringModResources/img/char/dk_awakened.png";
+    private static final String MY_CHARACTER_PORTRAIT = "DeepSpiringModResources/img/char/Deepfect_theme.png";
 
     // 攻击牌的背景（小尺寸）
     private static final String BG_ATTACK_512 = "DeepSpiringModResources/img/512/bg_attack_lime.png";

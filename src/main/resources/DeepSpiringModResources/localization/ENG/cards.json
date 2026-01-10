@@ -68,7 +68,8 @@
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "Scaling Law",
-		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting ."
+		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting . NL Exhaust ."
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "Hallucination",
@@ -87,7 +88,7 @@
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
 		"DESCRIPTION": "Play the last card you have played for !M! time. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting.",
-		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting."
+		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting adding 1."
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",

@@ -30,7 +30,7 @@ public class SOTAPower extends AbstractPower {
 
         // // 添加一大一小两张能力图
         String path128 = ModHelper.makeImagePath("powers/SOTA84.png");
-        String path48 = ModHelper.makeImagePath("powers/SOTAh32.png");
+        String path48 = ModHelper.makeImagePath("powers/SOTA32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));

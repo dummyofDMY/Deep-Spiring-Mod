@@ -2,8 +2,13 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -21,8 +26,7 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Strike_DeepBlue.png";
-    private static final String IMG_PATH = null;
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/RecurrentNeuralNetwork.png";
     private static final int COST = 1;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
@@ -36,11 +40,11 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     public RecurrentNeuralNetwork() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init RecurrentNeuralNetwork.\n");
+        logger.info("Start to init RecurrentNeuralNetwork.\n");
         this.baseDamage = this.damage = 0;
         this.baseBlock = this.block = 0;
         this.magicNumber = this.baseMagicNumber = 0;
-        logger.debug("RecurrentNeuralNetwork initialization completed.\n");
+        logger.info("RecurrentNeuralNetwork initialization completed.\n");
     }
 
     @Override
@@ -58,13 +62,22 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        logger.info("now magicNumber is " + this.magicNumber + ".");
+        logger.info("cards has played: " + AbstractDungeon.actionManager.cardsPlayedThisTurn.size());
         if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
+            Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
+            while(var2.hasNext()) {
+                AbstractCard c = (AbstractCard)var2.next();
+                logger.info("card played: " + c.name);
+            }
+        }
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() < 2) {
             Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
             AbstractCard c = (AbstractCard)var2.next();
             AbstractCard c_buf = (AbstractCard)var2.next();
             while(var2.hasNext()) {
                 c = c_buf;
-                c_buf = (AbstractCard)var2.next();;
+                c_buf = (AbstractCard)var2.next();
             }
             AbstractCard tmp = c.makeStatEquivalentCopy();
             tmp.exhaust = true;
@@ -72,15 +85,24 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
             tmp.energyOnUse = tmp.costForTurn;
             tmp.freeToPlayOnce = true;
             for (int i = 0; i < this.magicNumber; ++i) {
+                logger.info("RecurrentNeuralNetwork use(): adding NewQueueCardAction.");
                 this.addToBot(new NewQueueCardAction(tmp, true, false, true));
             }
+        } else {
+            logger.info("RecurrentNeuralNetwork use(): No cards played this turn.");
         }
     }
 
     @Override
     public void update_with_AP(int AP, int Overfitting) {
-        this.baseMagicNumber = Math.abs(AP - Overfitting);
-        this.upgradedDamage = true;
+        if (!this.upgraded) {
+            this.baseMagicNumber = Math.abs(AP - Overfitting);
+            this.magicNumber = Math.abs(AP - Overfitting);
+        } else {
+            this.baseMagicNumber = Math.abs(AP - Overfitting) + 1;
+            this.magicNumber = Math.abs(AP - Overfitting) + 1;
+        }
+        
         this.initializeDescription();
     }
 

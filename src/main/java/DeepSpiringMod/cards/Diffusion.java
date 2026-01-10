@@ -31,11 +31,11 @@ public class Diffusion extends CustomCard {
     public Diffusion() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init Diffusion.\n");
+        logger.info("Start to init Diffusion.\n");
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
-        logger.debug("Diffusion initialization completed.\n");
+        logger.info("Diffusion initialization completed.\n");
     }
 
     @Override

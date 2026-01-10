@@ -47,11 +47,12 @@
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "随机梯度下降法",
-		"DESCRIPTION": "每回合开始时随机地减少一层 deepspiringmod:损失 、增加一层 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "每回合开始时随机地增加1层 deepspiringmod:平均精度 、增加1层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "每回合开始时随机地增加2层 deepspiringmod:平均精度 、增加1层 deepspiringmod:过拟合 。"
 	},
 	"DeepSpiringMod:Misconduct": {
 		"NAME": "不端",
-		"DESCRIPTION": "减小 !M! 层 deepspiringmod:损失 ，每回合开始增加一层 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "获得 !M! 层 deepspiringmod:平均精度 ，每回合开始增加一层 deepspiringmod:过拟合 。"
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "打击数据集",
@@ -67,7 +68,8 @@
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "规模定律",
-		"DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。 消耗 。",
+		"UPGRADE_DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。"
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "幻觉",
@@ -85,8 +87,8 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",
-		"DESCRIPTION": "打出上一次打出的牌 !M! 次。NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。",
-		"UPGRADE_DESCRIPTION": "打出上一次打出的牌 !M! 次。NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。"
+		"DESCRIPTION": "打出上一次打出的牌 !M! 次。 NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。",
+		"UPGRADE_DESCRIPTION": "打出上一次打出的牌 !M! 次。 NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数加1。"
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",

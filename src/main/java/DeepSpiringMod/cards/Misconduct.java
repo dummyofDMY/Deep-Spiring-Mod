@@ -34,10 +34,10 @@ public class Misconduct extends CustomCard {
     public Misconduct() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init Misconduct.\n");
+        logger.info("Start to init Misconduct.\n");
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
-        logger.debug("Misconduct initialization completed.\n");
+        logger.info("Misconduct initialization completed.\n");
     }
 
     @Override

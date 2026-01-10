@@ -36,10 +36,10 @@ public class ChargeDataset extends CustomCard {
     public ChargeDataset() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.debug("Start to init ChargeDataset.\n");
+        logger.info("Start to init ChargeDataset.\n");
         this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
-        logger.debug("ChargeDataset initialization completed.\n");
+        logger.info("ChargeDataset initialization completed.\n");
     }
 
     @Override
