@@ -9,7 +9,7 @@
 	},
 	"DeepSpiringMod:Defend_DeepBlue": {
 		"NAME": "防御",
-		"DESCRIPTION": "获得 !B! 点 *格挡。"
+		"DESCRIPTION": "获得 !B! 点 *格挡 。"
 	},
 	"DeepSpiringMod:StochasticProcess": {
 		"NAME": "随机过程",
@@ -43,7 +43,8 @@
 	},
 	"DeepSpiringMod:Convolution": {
 		"NAME": "卷积",
-		"DESCRIPTION": "获得一层 deepspiringmod:卷积"
+		"DESCRIPTION": "获得 !M! 层 deepspiringmod:卷积",
+		"UPGRADE_DESCRIPTION": "获得 !M! 层 deepspiringmod:卷积"
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "随机梯度下降法",
@@ -60,7 +61,7 @@
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "防御数据集",
-		"DESCRIPTION": "获得 !B! 点 *格挡。"
+		"DESCRIPTION": "在你的回合结束时，deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。"
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "充能数据集",
@@ -68,8 +69,8 @@
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "规模定律",
-		"DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。 消耗 。",
-		"UPGRADE_DESCRIPTION": "翻倍你的 deepspiringmod:平均精度 ， NL 折半 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "获得1层 deepspiringmod:平均精度 ， NL 减少1层 deepspiringmod:过拟合 。 消耗 。",
+		"UPGRADE_DESCRIPTION": "获得1层 deepspiringmod:平均精度 ， NL 减少1层 deepspiringmod:过拟合 。"
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "幻觉",
@@ -92,7 +93,17 @@
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
-		"DESCRIPTION": "获得3层 deepspiringmod:平均精度 ，一层 deepspiringmod:过拟合 。",
-		"UPGRADE_DESCRIPTION": "获得3层 deepspiringmod:平均精度 ，一层 deepspiringmod:过拟合 。 NL 你将无视 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "获得2层 deepspiringmod:平均精度 ，1层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "获得2层 deepspiringmod:平均精度 ，1层 deepspiringmod:过拟合 。 NL 你将无视 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:KFord": {
+		"NAME": "K折",
+		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 减少 !M! 层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡。 NL 减少 !M! 层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:LongTraining": {
+		"NAME": "长时训练",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得1层 deepspiringmod:平均精度 和2层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得1层 deepspiringmod:平均精度 和2层 deepspiringmod:过拟合 。"
 	}
 }

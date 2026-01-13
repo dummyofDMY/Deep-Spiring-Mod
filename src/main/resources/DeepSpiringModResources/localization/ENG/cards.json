@@ -43,7 +43,8 @@
 	},
 	"DeepSpiringMod:Convolution": {
 		"NAME": "Convolution",
-		"DESCRIPTION": "Gain a stack of deepspiringmod:Convolution"
+		"DESCRIPTION": "Gain !M! stack of deepspiringmod:Convolution.",
+		"UPGRADE_DESCRIPTION": "Gain !M! stacks of deepspiringmod:Convolution."
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "Stochastic Gradient Descent",
@@ -60,7 +61,7 @@
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "Defend Dataset",
-		"DESCRIPTION": "Gain !B! point of Block."
+		"DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting."
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "Charge Dataset",
@@ -94,5 +95,15 @@
 		"NAME": "SOTA",
 		"DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting .",
 		"UPGRADE_DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting . NL You will ignore deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:KFord": {
+		"NAME": "K-Ford",
+		"DESCRIPTION": "Gain !B! point of Block. NL Reduce !M! stack of deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "Gain !B! point of Block. NL Reduce !M! stack of deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:LongTraining": {
+		"NAME": "Long Training",
+		"DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting."
 	}
 }

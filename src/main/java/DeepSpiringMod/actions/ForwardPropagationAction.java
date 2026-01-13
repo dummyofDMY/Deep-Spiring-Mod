@@ -146,8 +146,8 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 // 打出“特征图”
                 if (damage_sum > 0 || block_sum > 0) {
                     System.out.print("damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
-                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * loss / 2);
-                    block_sum = (int)Math.ceil(block_sum * conv_factor * loss / 2);
+                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * loss * 0.2);
+                    block_sum = (int)Math.ceil(block_sum * conv_factor * loss * 0.2);
                     System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
                     AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
                     feature_map.freeToPlayOnce = true;

@@ -2,18 +2,20 @@ package DeepSpiringMod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import DeepSpiringMod.actions.UpdateAPAction;
 import DeepSpiringMod.helpers.ModHelper;
 
-public class OverfittingPower extends AbstractPower {
+public class DefendDatasetPower extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = ModHelper.makePath("Overfitting");
+    public static final String POWER_ID = ModHelper.makePath("DefendDataset");
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -21,7 +23,7 @@ public class OverfittingPower extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public OverfittingPower(AbstractCreature owner, int Amount) {
+    public DefendDatasetPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -31,8 +33,8 @@ public class OverfittingPower extends AbstractPower {
         this.amount = Amount;
 
         // // 添加一大一小两张能力图
-        String path128 = ModHelper.makeImagePath("powers/Overfitting84.png");
-        String path48 = ModHelper.makeImagePath("powers/Overfitting32.png");
+        String path128 = ModHelper.makeImagePath("powers/SGD84.png");
+        String path48 = ModHelper.makeImagePath("powers/SGD32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));
@@ -41,19 +43,30 @@ public class OverfittingPower extends AbstractPower {
         this.updateDescription();
     }
 
-    // @Override
-    // public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-    //     this.addToBot(new MakeTempCardInHandAction(new Overflow(), 1));
-    // }
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        this.flash();
+        int AP = 0, Overfitting = 0;
+        if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
+            AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
+            Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
+        }
+        int block_amount = AP - Overfitting;
+        block_amount = Math.max(block_amount, 0) * 10 * this.amount;
+        if (isPlayer) {
+            this.addToBot(new GainBlockAction(owner, block_amount));
+        }
+    }
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        this.description = DESCRIPTIONS[0]; // 这样，%d就被替换成能力的层数
+        if (this.amount <= 1) {
+            this.description = String.format(DESCRIPTIONS[0], this.amount);
+        } else {
+            this.description = String.format(DESCRIPTIONS[1], this.amount);
+        }
     }
-
-    // @Override
-    // public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-    //     this.addToTop(new UpdateAPAction());
-    // }
 }

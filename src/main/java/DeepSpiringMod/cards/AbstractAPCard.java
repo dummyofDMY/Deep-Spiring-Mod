@@ -1,7 +1,10 @@
 package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import DeepSpiringMod.powers.APPower;
+import DeepSpiringMod.powers.OverfittingPower;
 import basemod.abstracts.CustomCard;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,4 +26,17 @@ public abstract class AbstractAPCard extends CustomCard{
     }
 
     public abstract void update_with_AP(int AP, int Overfitting);
+
+    @Override
+    public void applyPowers() {
+        int AP = 0, Overfitting = 0;
+        if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
+            AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
+            Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
+        }
+        update_with_AP(AP, Overfitting);
+        super.applyPowers();
+    }
 }

@@ -56,8 +56,8 @@ public class SOTA extends CustomCard {
         if (upgraded) {
             this.addToBot(new ApplyPowerAction(p, p, new SOTAPower(p)));
         }
-        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 3)));
-        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 2)));
+        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 2)));
+        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 1)));
     }
     
 }

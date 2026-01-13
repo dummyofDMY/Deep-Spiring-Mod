@@ -54,15 +54,20 @@ public class APPower extends AbstractPower {
     //     System.out.print("AP = " + this.AP + ", loss = " + loss + ", overfitting = " + overfitting + "\n");
     // }
 
-    @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        this.addToTop(new UpdateAPAction());
-    }
+    // @Override
+    // public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+    //     this.addToTop(new UpdateAPAction());
+    // }
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         this.description = String.format(DESCRIPTIONS[0]); // 这样，%d就被替换成能力的层数
+        if (this.amount > 0) {
+            this.type = PowerType.BUFF;
+        } else {
+            this.type = PowerType.DEBUFF;
+        }
     }
 
     public void stackPower(int stackAmount) {
@@ -72,12 +77,12 @@ public class APPower extends AbstractPower {
 			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 		}
 
-		if (this.amount >= 10) {
-			this.amount = 10;
+		if (this.amount >= 99) {
+			this.amount = 99;
 		}
 
-		if (this.amount <= -10) {
-			this.amount = -10;
+		if (this.amount <= -99) {
+			this.amount = -99;
 		}
 
    }
@@ -89,12 +94,12 @@ public class APPower extends AbstractPower {
 			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 		}
 
-		if (this.amount >= 10) {
-			this.amount = 10;
+		if (this.amount >= 99) {
+			this.amount = 99;
 		}
 
-		if (this.amount <= -10) {
-			this.amount = -10;
+		if (this.amount <= -99) {
+			this.amount = -99;
 		}
    }
 }
