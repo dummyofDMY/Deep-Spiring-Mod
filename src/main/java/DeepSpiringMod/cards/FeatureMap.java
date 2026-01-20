@@ -38,13 +38,13 @@ public class FeatureMap extends CustomCard {
     public FeatureMap(int damage, int block) {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init FeatureMap.\n");
+        // logger.info("Start to init FeatureMap.\n");
         this.baseDamage = this.damage = damage;
         this.baseBlock = block;
         this.baseMagicNumber = 1;
         this.magicNumber = 1;
         this.exhaust = true;
-        logger.info("FeatureMap initialization completed.\n");
+        // logger.info("FeatureMap initialization completed.\n");
     }
 
     public FeatureMap() {

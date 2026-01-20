@@ -61,11 +61,12 @@
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "防御数据集",
-		"DESCRIPTION": "在你的回合结束时，deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。"
+		"DESCRIPTION": "在你的回合结束时， deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。"
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "充能数据集",
-		"DESCRIPTION": "获得 !M! 点 [E] 。"
+		"DESCRIPTION": "获得 [E] [E] [E] 。 NL deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层该牌的费用就减1。",
+		"UPGRADE_DESCRIPTION": "获得 [E] [E] [E] [E] 。 NL deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层该牌的费用就减1。"
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "规模定律",
@@ -105,5 +106,10 @@
 		"NAME": "长时训练",
 		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得1层 deepspiringmod:平均精度 和2层 deepspiringmod:过拟合 。",
 		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得1层 deepspiringmod:平均精度 和2层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:Regularization": {
+		"NAME": "正则化",
+		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 本回合将不再获得 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡。 NL 本回合将不再获得 deepspiringmod:过拟合 。"
 	}
 }

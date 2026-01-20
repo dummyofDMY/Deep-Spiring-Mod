@@ -65,12 +65,13 @@
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "Charge Dataset",
-		"DESCRIPTION": "Gain !M! point of [E] 。"
+		"DESCRIPTION": "Gain [E] [E] [E] . NL For each layer that deepspiringmod:AP is higher than deepspiringmod:Overfitting , this card's cost is reduced by 1.",
+		"UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E] . NL For each layer that deepspiringmod:AP is higher than deepspiringmod:Overfitting , this card's cost is reduced by 1."
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "Scaling Law",
-		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting .",
-		"UPGRADE_DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting . NL Exhaust ."
+		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting . NL Exhaust .",
+		"UPGRADE_DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting ."
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "Hallucination",
@@ -105,5 +106,10 @@
 		"NAME": "Long Training",
 		"DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting.",
 		"UPGRADE_DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting."
+	},
+	"DeepSpiringMod:Regularization": {
+		"NAME": "Regularization",
+		"DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn.",
+		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn."
 	}
 }

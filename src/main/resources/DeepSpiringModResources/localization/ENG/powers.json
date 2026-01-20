@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "Convolution",
         "DESCRIPTIONS": [
-            "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the 50% #yAP."
+            "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to 0.2 of the sum of all card values in the discard pile multiplied by the difference between #yAP and #rOverfitting."
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -74,6 +74,20 @@
         "DESCRIPTIONS": [
             "You will ignore #rOverfitting .",
             "You will ignore #rOverfitting ."
+        ]
+    },
+    "DeepSpiringMod:DefendDataset": {
+        "NAME": "Defend Dataset",
+        "DESCRIPTIONS": [
+            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting.",
+            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting."
+        ]
+    },
+    "DeepSpiringMod:Regularization": {
+        "NAME": "Regularization",
+        "DESCRIPTIONS": [
+            "No #rOverfitting will be gained this turn.",
+            "No #rOverfitting will be gained this turn."
         ]
     }
 }

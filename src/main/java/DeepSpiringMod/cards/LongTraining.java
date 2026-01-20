@@ -25,8 +25,8 @@ public class LongTraining extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/LongTraining.png";
-    private static final String IMG_PATH = null;
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/LongTraining.png";
+    // private static final String IMG_PATH = null;
     private static final int COST = 1;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
@@ -40,9 +40,9 @@ public class LongTraining extends CustomCard {
     public LongTraining() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init LongTraining.\n");
+        // logger.info("Start to init LongTraining.\n");
         this.baseDamage = this.damage = 15;
-        logger.info("LongTraining initialization completed.\n");
+        // logger.info("LongTraining initialization completed.\n");
     }
 
     @Override

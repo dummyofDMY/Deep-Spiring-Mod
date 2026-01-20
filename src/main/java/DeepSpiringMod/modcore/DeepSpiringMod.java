@@ -106,6 +106,9 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new AIForm());
         BaseMod.addCard(new RecurrentNeuralNetwork());
         BaseMod.addCard(new SOTA());
+        BaseMod.addCard(new KFord());
+        BaseMod.addCard(new LongTraining());
+        BaseMod.addCard(new Regularization());
     }
 
     public void receiveEditStrings() {
@@ -138,6 +141,7 @@ public class DeepSpiringMod implements
         // BaseMod.addRelic(new TryBlock(), RelicType.SHARED);
         BaseMod.addRelicToCustomPool(new BurntHeatSink(), PlayerColorEnum.DEEP_BLUE);
         BaseMod.addRelicToCustomPool(new TryBlock(), PlayerColorEnum.DEEP_BLUE);
+        BaseMod.addRelicToCustomPool(new GPU(), PlayerColorEnum.DEEP_BLUE);
     }
 
     @Override

@@ -43,6 +43,47 @@ def remove_white_background(input_path, output_path=None, threshold=240):
     
     return img
 
+def remove_black_background(input_path, output_path=None, threshold=50):
+    """
+    将图片中的黑色背景设为透明
+    
+    Args:
+        input_path: 输入图片路径
+        output_path: 输出图片路径（默认为输入文件名+_transparent.png）
+        threshold: 白色判断阈值，RGB值都小于此值被认为是黑色
+    """
+    # 打开图片并转换为RGBA模式
+    img = Image.open(input_path).convert("RGBA")
+    
+    # 获取图片数据
+    datas = img.getdata()
+    
+    # 创建新的数据列表
+    new_data = []
+    
+    for item in datas:
+        # 判断是否为黑色（RGB值都小于阈值）
+        if item[0] < threshold and item[1] < threshold and item[2] < threshold:
+            # 黑色区域：alpha通道设为0（完全透明）
+            new_data.append((0, 0, 0, 0))
+        else:
+            # 非黑色区域：保持原样
+            new_data.append(item)
+    
+    # 更新图片数据
+    img.putdata(new_data)
+    
+    # 设置输出路径
+    if output_path is None:
+        name, ext = os.path.splitext(input_path)
+        output_path = f"{name}_transparent.png"
+    
+    # 保存为PNG格式（支持透明度）
+    img.save(output_path, "PNG")
+    print(f"处理完成：{output_path}")
+    
+    return img
+
 def batch_process(folder_path, threshold=240):
     """
     批量处理文件夹中的所有图片
@@ -82,6 +123,7 @@ if __name__ == "__main__":
     # else:
     #     # 单张图片处理模式
     #     remove_white_background(args.input, args.output, args.threshold)
-    input_path = r"E:\code_java\DeepSpiring\out.png"
-    output_path = r"E:\code_java\DeepSpiring\src\main\resources\DeepSpiringModResources\img\relics\.png"
+    input_path = r"E:\code_java\DeepSpiring\tools\clip_photo\i.png"
+    output_path = r"E:\code_java\DeepSpiring\out.png"
     remove_white_background(input_path, output_path, 240)
+    # remove_black_background(input_path, output_path, 50)

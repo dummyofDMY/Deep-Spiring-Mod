@@ -1,9 +1,7 @@
 package DeepSpiringMod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,8 +31,8 @@ public class DefendDatasetPower extends AbstractPower {
         this.amount = Amount;
 
         // // 添加一大一小两张能力图
-        String path128 = ModHelper.makeImagePath("powers/SGD84.png");
-        String path48 = ModHelper.makeImagePath("powers/SGD32.png");
+        String path128 = ModHelper.makeImagePath("powers/DefendDataset84.png");
+        String path48 = ModHelper.makeImagePath("powers/DefendDataset32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));
@@ -53,6 +51,7 @@ public class DefendDatasetPower extends AbstractPower {
         if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
+        Overfitting = Math.max(0, Overfitting);
         int block_amount = AP - Overfitting;
         block_amount = Math.max(block_amount, 0) * 10 * this.amount;
         if (isPlayer) {
@@ -64,9 +63,9 @@ public class DefendDatasetPower extends AbstractPower {
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         if (this.amount <= 1) {
-            this.description = String.format(DESCRIPTIONS[0], this.amount);
+            this.description = String.format(DESCRIPTIONS[0], this.amount * 10);
         } else {
-            this.description = String.format(DESCRIPTIONS[1], this.amount);
+            this.description = String.format(DESCRIPTIONS[1], this.amount * 10);
         }
     }
 }

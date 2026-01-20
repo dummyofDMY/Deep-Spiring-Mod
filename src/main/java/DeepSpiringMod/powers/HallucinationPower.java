@@ -81,4 +81,12 @@ public class HallucinationPower extends AbstractPower {
             this.description = String.format(DESCRIPTIONS[0], this.amount); // 这样，%d就被替换成能力的层数
         }
     }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            this.addToBot(new StopFreePlayAction());
+            this.addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
+        }
+    }
 }

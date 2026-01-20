@@ -2,13 +2,8 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -40,11 +35,11 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     public RecurrentNeuralNetwork() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init RecurrentNeuralNetwork.\n");
+        // logger.info("Start to init RecurrentNeuralNetwork.\n");
         this.baseDamage = this.damage = 0;
         this.baseBlock = this.block = 0;
         this.magicNumber = this.baseMagicNumber = 0;
-        logger.info("RecurrentNeuralNetwork initialization completed.\n");
+        // logger.info("RecurrentNeuralNetwork initialization completed.\n");
     }
 
     @Override

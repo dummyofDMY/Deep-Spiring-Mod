@@ -11,7 +11,7 @@ def simple_bottom_rounded_corners():
     
     radius_ratio = 0.1            # 圆角半径比例 (0-1)
     bottom_transparent_ratio = 0.03  # 小图
-    # bottom_transparent_ratio = 0.05  # 大图
+    bottom_transparent_ratio = 0.05  # 大图
     # ====================
     
     img = Image.open(input_file).convert("RGBA")

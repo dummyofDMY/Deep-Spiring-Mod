@@ -1,14 +1,13 @@
 package DeepSpiringMod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import DeepSpiringMod.actions.UpdateAPAction;
 import DeepSpiringMod.helpers.ModHelper;
 
 public class OverfittingPower extends AbstractPower {
@@ -56,4 +55,36 @@ public class OverfittingPower extends AbstractPower {
     // public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
     //     this.addToTop(new UpdateAPAction());
     // }
+
+    public void stackPower(int stackAmount) {
+		this.fontScale = 8.0F;
+		this.amount += stackAmount;
+		if (this.amount <= 0) {
+			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+		}
+
+		if (this.amount >= 999) {
+			this.amount = 999;
+		}
+
+		// if (this.amount <= -999) {
+		// 	this.amount = -999;
+		// }
+
+    }
+    public void reducePower(int reduceAmount) {
+		this.fontScale = 8.0F;
+		this.amount -= reduceAmount;
+		if (this.amount <= 0) {
+			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+		}
+
+		if (this.amount >= 99) {
+			this.amount = 99;
+		}
+
+		// if (this.amount <= -99) {
+		// 	this.amount = -99;
+		// }
+    }
 }

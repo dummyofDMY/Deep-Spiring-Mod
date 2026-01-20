@@ -35,9 +35,9 @@ public class SOTA extends CustomCard {
     public SOTA() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init SOTA.\n");
+        // logger.info("Start to init SOTA.\n");
         this.magicNumber = 1;
-        logger.info("SOTA initialization completed.\n");
+        // logger.info("SOTA initialization completed.\n");
     }
 
     @Override

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.actions.UpdateAPAction;
 
 public class APPower extends AbstractPower {
     // 能力的ID
@@ -87,7 +86,7 @@ public class APPower extends AbstractPower {
 
    }
 
-   public void reducePower(int reduceAmount) {
+    public void reducePower(int reduceAmount) {
 		this.fontScale = 8.0F;
 		this.amount -= reduceAmount;
 		if (this.amount == 0) {
@@ -101,5 +100,5 @@ public class APPower extends AbstractPower {
 		if (this.amount <= -99) {
 			this.amount = -99;
 		}
-   }
+    }
 }

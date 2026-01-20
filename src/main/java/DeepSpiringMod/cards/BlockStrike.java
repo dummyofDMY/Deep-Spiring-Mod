@@ -39,12 +39,12 @@ public class BlockStrike extends CustomCard {
     public BlockStrike() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init BlockStrike.\n");
+        // logger.info("Start to init BlockStrike.\n");
         this.baseDamage = this.damage = 10;
         this.baseBlock = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
-        logger.info("BlockStrike initialization completed.\n");
+        // logger.info("BlockStrike initialization completed.\n");
     }
 
     @Override

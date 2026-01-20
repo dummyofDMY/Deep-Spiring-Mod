@@ -6,6 +6,7 @@ import basemod.abstracts.CustomPlayer;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,6 +20,8 @@ import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeDur;
+import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 
 import DeepSpiringMod.cards.*;
 import DeepSpiringMod.modcore.DeepSpiringMod;
@@ -163,6 +166,7 @@ public class Deepfect extends CustomPlayer {
     @Override
     public void doCharSelectScreenSelectEffect() {
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        CardCrawlGame.sound.playA("ATTACK_MAGIC_BEAM_SHORT", MathUtils.random(-0.2F, 0.2F));
     }
 
     // 碎心图片
@@ -209,7 +213,7 @@ public class Deepfect extends CustomPlayer {
     // 吸血鬼事件文本，主要是他（索引为0）和她（索引为1）的区别（机器人另外）
     @Override
     public String getVampireText() {
-        return Vampires.DESCRIPTIONS[0];
+        return Vampires.DESCRIPTIONS[5];
     }
 
     // 卡牌选择界面选择该牌的颜色

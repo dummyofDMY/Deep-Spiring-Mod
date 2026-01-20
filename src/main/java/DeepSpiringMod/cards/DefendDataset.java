@@ -1,7 +1,6 @@
 package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.patches.PlayerColorEnum;
+import DeepSpiringMod.powers.DefendDatasetPower;
 import DeepSpiringMod.powers.OverfittingPower;
 import basemod.abstracts.CustomCard;
 
@@ -37,15 +37,15 @@ public class DefendDataset extends CustomCard {
      public DefendDataset() {
           // 为了命名规范修改了变量名。这些参数具体的作用见下方
           super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-          logger.info("Start to init DefendDataset.\n");
+          // logger.info("Start to init DefendDataset.\n");
           // this.baseBlock = block = 25;
-          logger.info("DefendDataset initialization completed.\n");
+          // logger.info("DefendDataset initialization completed.\n");
      }
 
      @Override
      public void use(AbstractPlayer p, AbstractMonster m) {
           AbstractDungeon.actionManager.addToBottom(
-               new ApplyPowerAction(p, p, new OverfittingPower(p, 1), 1)
+               new ApplyPowerAction(p, p, new DefendDatasetPower(p, 1), 1)
           );
      }
 

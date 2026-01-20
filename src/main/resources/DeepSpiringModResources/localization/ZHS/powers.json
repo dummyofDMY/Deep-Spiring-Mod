@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "卷积",
         "DESCRIPTIONS": [
-            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的和的一半乘上 #y平均精度 与 #r过拟合 之差。"
+            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的和的0.2乘上 #y平均精度 与 #r过拟合 之差。"
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -74,6 +74,20 @@
         "DESCRIPTIONS": [
             "你将无视 #r过拟合 。",
             "你将无视 #r过拟合 。"
+        ]
+    },
+    "DeepSpiringMod:DefendDataset": {
+        "NAME": "防御数据集",
+        "DESCRIPTIONS": [
+            "在你的回合结束时， #y平均精度 每比 #r过拟合 高一层就获得%d点 #y格挡 。",
+            "在你的回合结束时， #y平均精度 每比 #r过拟合 高一层就获得%d点 #y格挡 。"
+        ]
+    },
+    "DeepSpiringMod:Regularization": {
+        "NAME": "正则化",
+        "DESCRIPTIONS": [
+            "本回合将不再获得 #r过拟合 。",
+            "本回合将不再获得 #r过拟合 。"
         ]
     }
 }

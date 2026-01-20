@@ -73,6 +73,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting")) && !AbstractDungeon.player.hasPower(ModHelper.makePath("SOTA"))) {
                     overfitting_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
                 }
+                overfitting_factor = Math.max(overfitting_factor, 0);
                 int loss = Math.abs(AP_factor - overfitting_factor);
                 loss = loss > 0 ? loss : 1;
                 // double precision = (1 - loss_factor) * (0.25 - 0.05 * overfitting_factor);

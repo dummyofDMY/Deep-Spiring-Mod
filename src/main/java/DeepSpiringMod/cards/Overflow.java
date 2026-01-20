@@ -35,10 +35,10 @@ public class Overflow extends CustomCard {
     public Overflow() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        logger.info("Start to init Overflow.\n");
+        // logger.info("Start to init Overflow.\n");
         this.exhaust = true;
         this.isEthereal = true;
-        logger.info("Overflow initialization completed.\n");
+        // logger.info("Overflow initialization completed.\n");
     }
 
     @Override
