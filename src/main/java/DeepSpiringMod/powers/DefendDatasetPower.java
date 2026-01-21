@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -44,16 +43,8 @@ public class DefendDatasetPower extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        int AP = 0, Overfitting = 0;
-        if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
-            AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
-        }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
-            Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
-        }
-        Overfitting = Math.max(0, Overfitting);
-        int block_amount = AP - Overfitting;
-        block_amount = Math.max(block_amount, 0) * 10 * this.amount;
+        int block_amount = ModHelper.get_delta_AP();
+        block_amount = Math.max(block_amount, 0) * 5 * this.amount;
         if (isPlayer) {
             this.addToBot(new GainBlockAction(owner, block_amount));
         }
@@ -63,9 +54,9 @@ public class DefendDatasetPower extends AbstractPower {
     public void updateDescription() {
         // this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         if (this.amount <= 1) {
-            this.description = String.format(DESCRIPTIONS[0], this.amount * 10);
+            this.description = String.format(DESCRIPTIONS[0], this.amount * 5);
         } else {
-            this.description = String.format(DESCRIPTIONS[1], this.amount * 10);
+            this.description = String.format(DESCRIPTIONS[1], this.amount * 5);
         }
     }
 }

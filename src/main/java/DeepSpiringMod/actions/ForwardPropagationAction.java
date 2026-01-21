@@ -2,6 +2,7 @@ package DeepSpiringMod.actions;
 
 import java.util.Iterator;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
@@ -66,16 +67,8 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 }
 
                 // 检测loss和overfitting的情况
-                int AP_factor = 0, overfitting_factor = 0;
-                if (AbstractDungeon.player.hasPower(ModHelper.makePath("AP"))) {
-                    AP_factor = AbstractDungeon.player.getPower(ModHelper.makePath("AP")).amount;
-                }
-                if (AbstractDungeon.player.hasPower(ModHelper.makePath("Overfitting")) && !AbstractDungeon.player.hasPower(ModHelper.makePath("SOTA"))) {
-                    overfitting_factor = AbstractDungeon.player.getPower(ModHelper.makePath("Overfitting")).amount;
-                }
-                overfitting_factor = Math.max(overfitting_factor, 0);
-                int loss = Math.abs(AP_factor - overfitting_factor);
-                loss = loss > 0 ? loss : 1;
+                int loss = ModHelper.get_delta_AP();
+                loss = Math.max(loss, 0);
                 // double precision = (1 - loss_factor) * (0.25 - 0.05 * overfitting_factor);
                 // precision = precision > 0 ? precision : 0;
 
@@ -85,11 +78,12 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     // 累积打防数值
                     System.out.print("damage = " + c.baseDamage + ", block = " + c.baseBlock + "\n");
                     if (has_conv) {
-                        if (ModHelper.isMultipleHits(c)) {
-                            damage_sum += c.baseDamage * c.baseMagicNumber > 0 ? c.baseDamage * c.baseMagicNumber : 0;
-                        } else {
-                            damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
-                        }
+                        // if (ModHelper.isMultipleHits(c)) {
+                        //     damage_sum += c.baseDamage * c.baseMagicNumber > 0 ? c.baseDamage * c.baseMagicNumber : 0;
+                        // } else {
+                        //     damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
+                        // }
+                        damage_sum += c.baseDamage > 0 ? c.baseDamage : 0;
                         block_sum += c.baseBlock > 0 ? c.baseBlock : 0;
                     }
 
@@ -117,19 +111,14 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         tmp.exhaust = true;
                         tmp.purgeOnUse = true;
                         tmp.energyOnUse = tmp.costForTurn;
-                        tmp.freeToPlayOnce = true;
-                        // if (tmp.magicNumber != -1) {
-                        //     double magic_num = 2 * precision * tmp.magicNumber;
-                        //     magic_num = Math.ceil(magic_num);
-                        //     tmp.magicNumber = tmp.baseMagicNumber = (int)magic_num;
-                        //     tmp.upgradedMagicNumber = true;
-                        // }
+                        // tmp.freeToPlayOnce = true;
 
                         AbstractDungeon.player.limbo.addToBottom(tmp);
                         tmp.current_x = c.current_x;
                         tmp.current_y = c.current_y;
-                        tmp.target_x = Settings.WIDTH / 2.0F * Settings.scale;
-                        tmp.target_y = Settings.HEIGHT / 2.0F;
+                        // 这里方向要随机加个偏置，防止牌叠一块了
+                        tmp.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
+                        tmp.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
 
                         // try {
                         //     Class<?> clazz = c.getClass();
@@ -140,7 +129,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         //     e.printStackTrace();
                         // }
 
-                        this.addToTop(new NewQueueCardAction(tmp, true, false, true));
+                        this.addToBot(new NewQueueCardAction(tmp, true, false, true));
                     }
                 }
 
@@ -151,8 +140,16 @@ public class ForwardPropagationAction extends AbstractGameAction {
                     block_sum = (int)Math.ceil(block_sum * conv_factor * loss * 0.2);
                     System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
                     AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
-                    feature_map.freeToPlayOnce = true;
-                    this.addToTop(new NewQueueCardAction(feature_map, true, false, true));
+                    // feature_map.freeToPlayOnce = true;
+
+                    AbstractDungeon.player.limbo.addToBottom(feature_map);
+                    // 这里方向要随机加个偏置，防止牌叠一块了
+                    feature_map.current_x = 0;
+                    feature_map.current_y = 0;
+                    feature_map.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
+                    feature_map.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
+
+                    this.addToBot(new NewQueueCardAction(feature_map, true, false, true));
                 }
 
                 // 处理“递归深度”的逻辑

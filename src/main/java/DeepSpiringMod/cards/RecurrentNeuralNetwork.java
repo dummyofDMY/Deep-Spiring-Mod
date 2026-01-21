@@ -2,9 +2,11 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
@@ -36,9 +38,21 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init RecurrentNeuralNetwork.\n");
-        this.baseDamage = this.damage = 0;
-        this.baseBlock = this.block = 0;
-        this.magicNumber = this.baseMagicNumber = 0;
+        // this.baseDamage = this.damage = 0;
+        // this.baseBlock = this.block = 0;
+        int[] AP_Overfitting = this.get_AP();
+        int AP = AP_Overfitting[0];
+        int Overfitting = AP_Overfitting[1];
+        // if (!this.upgraded) {
+        //     this.baseMagicNumber = Math.max(AP - Overfitting, 0);
+        //     this.magicNumber = Math.max(AP - Overfitting, 0);
+        // } else {
+        //     this.baseMagicNumber = Math.max(AP - Overfitting, 0) + 1;
+        //     this.magicNumber = Math.max(AP - Overfitting, 0) + 1;
+        // }
+        this.baseMagicNumber = Math.max(AP - Overfitting, 0);
+        this.magicNumber = Math.max(AP - Overfitting, 0);
+        // this.magicNumber = this.baseMagicNumber = 1;
         // logger.info("RecurrentNeuralNetwork initialization completed.\n");
     }
 
@@ -66,7 +80,7 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
                 logger.info("card played: " + c.name);
             }
         }
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() < 2) {
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= 2) {
             Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
             AbstractCard c = (AbstractCard)var2.next();
             AbstractCard c_buf = (AbstractCard)var2.next();
@@ -74,12 +88,20 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
                 c = c_buf;
                 c_buf = (AbstractCard)var2.next();
             }
-            AbstractCard tmp = c.makeStatEquivalentCopy();
-            tmp.exhaust = true;
-            tmp.purgeOnUse = true;
-            tmp.energyOnUse = tmp.costForTurn;
-            tmp.freeToPlayOnce = true;
             for (int i = 0; i < this.magicNumber; ++i) {
+                AbstractCard tmp = c.makeStatEquivalentCopy();
+                tmp.exhaust = true;
+                tmp.purgeOnUse = true;
+                tmp.energyOnUse = tmp.costForTurn;
+                tmp.freeToPlayOnce = true;
+
+                AbstractDungeon.player.limbo.addToBottom(tmp);
+                // 这里方向要随机加个偏置，防止牌叠一块了
+                tmp.current_x = c.current_x;
+                tmp.current_y = c.current_y;
+                tmp.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
+                tmp.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
+
                 logger.info("RecurrentNeuralNetwork use(): adding NewQueueCardAction.");
                 this.addToBot(new NewQueueCardAction(tmp, true, false, true));
             }
@@ -91,11 +113,11 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     @Override
     public void update_with_AP(int AP, int Overfitting) {
         if (!this.upgraded) {
-            this.baseMagicNumber = Math.abs(AP - Overfitting);
-            this.magicNumber = Math.abs(AP - Overfitting);
+            this.baseMagicNumber = Math.max(AP - Overfitting, 0);
+            this.magicNumber = Math.max(AP - Overfitting, 0);
         } else {
-            this.baseMagicNumber = Math.abs(AP - Overfitting) + 1;
-            this.magicNumber = Math.abs(AP - Overfitting) + 1;
+            this.baseMagicNumber = Math.max(AP - Overfitting, 0) + 1;
+            this.magicNumber = Math.max(AP - Overfitting, 0) + 1;
         }
         
         this.initializeDescription();

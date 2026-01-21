@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
+import DeepSpiringMod.powers.SOTAPower;
 import basemod.abstracts.CustomCard;
 
 import org.apache.logging.log4j.LogManager;
@@ -33,12 +34,28 @@ public abstract class AbstractAPCard extends CustomCard{
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(SOTAPower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
         Overfitting = Math.max(0, Overfitting);
         // logger.info("Applying powers with AP: " + AP + " and Overfitting: " + Overfitting + "\n");
         update_with_AP(AP, Overfitting);
         super.applyPowers();
+    }
+
+    public int[] get_AP() {
+        int AP = 0, Overfitting = 0;
+        // 这里在游戏初始化的时候有可能player还没有创建好，所以要加个判断
+        if (AbstractDungeon.player == null) {
+            return new int[]{AP, Overfitting};
+        }
+        if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
+            AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(SOTAPower.POWER_ID)) {
+            Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
+        }
+        Overfitting = Math.max(0, Overfitting);
+        return new int[]{AP, Overfitting};
     }
 }

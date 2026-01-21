@@ -61,7 +61,8 @@
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "Defend Dataset",
-		"DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting."
+		"DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting. NL Innate."
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "Charge Dataset",

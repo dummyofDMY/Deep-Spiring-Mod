@@ -61,7 +61,8 @@
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "防御数据集",
-		"DESCRIPTION": "在你的回合结束时， deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。"
+		"DESCRIPTION": "在你的回合结束时， deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。",
+		"UPGRADE_DESCRIPTION": "在你的回合结束时， deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高一层就获得10点 *格挡 。 NL 固有 。"
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "充能数据集",

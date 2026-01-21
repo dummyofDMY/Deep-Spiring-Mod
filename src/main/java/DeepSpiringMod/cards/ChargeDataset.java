@@ -38,8 +38,12 @@ public class ChargeDataset extends AbstractAPCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init ChargeDataset.\n");
+        int[] AP_Overfitting = this.get_AP();
+        now_AP = AP_Overfitting[0];
+        now_Overfitting = AP_Overfitting[1];
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        update_cost_with_AP();
         // logger.info("ChargeDataset initialization completed.\n");
     }
 
