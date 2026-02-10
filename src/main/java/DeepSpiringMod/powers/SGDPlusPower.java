@@ -1,5 +1,8 @@
 package DeepSpiringMod.powers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,6 +23,7 @@ public class SGDPlusPower extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static final Logger logger = LogManager.getLogger(SGDPlusPower.class);
 
     public SGDPlusPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
@@ -45,11 +49,13 @@ public class SGDPlusPower extends AbstractPower {
     public void atStartOfTurnPostDraw() {
         for (int i = 0; i < this.amount; ++i) {
             int randem_num = AbstractDungeon.cardRandomRng.random(1);
-            if (randem_num == 0) {
+            logger.info("随机数是：" + randem_num);
+            if (randem_num == 1) {
                 this.addToBot(new ApplyPowerAction(owner, owner, new APPower(owner, 2), 2));
-            } else {
-                this.addToBot(new ApplyPowerAction(owner, owner, new OverfittingPower(owner, 1), 1));
             }
+            // else {
+            //     this.addToBot(new ApplyPowerAction(owner, owner, new OverfittingPower(owner, 1), 1));
+            // }
         }
     }
 

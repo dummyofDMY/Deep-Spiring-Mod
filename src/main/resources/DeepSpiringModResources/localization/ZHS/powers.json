@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "卷积",
         "DESCRIPTIONS": [
-            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其数值等于弃牌堆中所有牌数值的和的0.2乘上 #y平均精度 与 #r过拟合 之差。"
+            "#y前向传播 时触发。打出一张带有攻击和格挡的 #y特征图 ，其伤害与格挡数值等于弃牌堆中所有牌数值的和的0.5倍。"
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -46,13 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "随机梯度下降",
         "DESCRIPTIONS": [
-            "回合开始时，等可能地获得1层 #y平均精度 或1层 #r过拟合 。"
+            "回合开始时，以0.5的概率获得1层 #y平均精度 。"
         ]
     },
     "DeepSpiringMod:SGD+": {
         "NAME": "随机梯度下降+",
         "DESCRIPTIONS": [
-            "回合开始时，等可能地获得2层 #y平均精度 或1层 #r过拟合 。"
+            "回合开始时，以0.5的概率获得2层 #y平均精度 。"
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -88,6 +88,13 @@
         "DESCRIPTIONS": [
             "本回合将不再获得 #r过拟合 。",
             "本回合将不再获得 #r过拟合 。"
+        ]
+    },
+    "DeepSpiringMod:Embedding": {
+        "NAME": "嵌入",
+        "DESCRIPTIONS": [
+            "免费打出%d张牌",
+            "免费打出%d张牌"
         ]
     }
 }

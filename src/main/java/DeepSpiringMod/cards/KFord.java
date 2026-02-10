@@ -46,7 +46,9 @@ public class KFord extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(
 			new GainBlockAction(p, p, this.baseBlock)
 		);
-		this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, -this.magicNumber)));
+		if (p.hasPower(ModHelper.makePath("Overfitting"))) {
+			this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, -this.magicNumber)));
+		}
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package DeepSpiringMod.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
@@ -61,8 +62,9 @@ public class ScalingLaw extends CustomCard {
         //     Overfitting_stacks = (int)Math.ceil(Overfitting_stacks / 2);
         //     this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, -Overfitting_stacks), -Overfitting_stacks));
         // }
-        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 1), 1));
-        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, -1), -1));
+        // this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 1), 1));
+        // this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, -1), -1));
+        this.addToTop(new RemoveSpecificPowerAction(p, p, ModHelper.makePath("Overfitting")));
     }
     
 }

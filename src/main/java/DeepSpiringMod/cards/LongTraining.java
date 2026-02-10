@@ -60,7 +60,7 @@ public class LongTraining extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 2), 2));
+        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 1), 1));
         this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 1), 1));
     }
 }

@@ -109,6 +109,8 @@ public class DeepSpiringMod implements
         BaseMod.addCard(new KFord());
         BaseMod.addCard(new LongTraining());
         BaseMod.addCard(new Regularization());
+        BaseMod.addCard(new Embedding());
+        BaseMod.addCard(new Distillation());
     }
 
     public void receiveEditStrings() {

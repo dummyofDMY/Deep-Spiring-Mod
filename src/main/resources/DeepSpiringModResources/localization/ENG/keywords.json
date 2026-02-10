@@ -8,7 +8,7 @@
 	},
 	{
         "NAMES": ["Convolution"],
-        "DESCRIPTION": "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the 20% #yAP."
+        "DESCRIPTION": "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the 30% #yAP."
     },
 	{
         "NAMES": ["Loss"],
@@ -23,7 +23,7 @@
         "DESCRIPTION": "Model performance on testing set, which affect the effectiveness of some of the cards and powers."
     },
     {
-        "NAMES": ["Hallucination"],
+        "NAMES": ["Embedding"],
         "DESCRIPTION": "The cards become free."
     }
 ]

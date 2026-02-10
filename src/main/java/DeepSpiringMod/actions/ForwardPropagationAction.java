@@ -18,8 +18,12 @@ import DeepSpiringMod.cards.Overflow;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.cards.FeatureMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ForwardPropagationAction extends AbstractGameAction {
     private int stackAmount = 0;
+    public static final Logger logger = LogManager.getLogger(ForwardPropagationAction.class);
 
     public ForwardPropagationAction(int stackAmount) {
         this.stackAmount = stackAmount;
@@ -100,6 +104,7 @@ public class ForwardPropagationAction extends AbstractGameAction {
                         if (to_play_num > 0) {
                             to_play_num--;  // 下面进不了衰减的逻辑，这里补偿一下
                         }
+                        logger.info("注意力头次数增加了" + c.magicNumber);
                         to_play_num += c.magicNumber;
                         is_attention_head = true;
                     }
@@ -136,8 +141,8 @@ public class ForwardPropagationAction extends AbstractGameAction {
                 // 打出“特征图”
                 if (damage_sum > 0 || block_sum > 0) {
                     System.out.print("damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
-                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * loss * 0.2);
-                    block_sum = (int)Math.ceil(block_sum * conv_factor * loss * 0.2);
+                    damage_sum = (int)Math.ceil(damage_sum * conv_factor * 0.5);
+                    block_sum = (int)Math.ceil(block_sum * conv_factor * 0.5);
                     System.out.print("final damage_sum = " + damage_sum + ", block_sum = " + block_sum + "\n");
                     AbstractCard feature_map = new FeatureMap(damage_sum, block_sum);
                     // feature_map.freeToPlayOnce = true;

@@ -14,19 +14,19 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.powers.HallucinationPower;
+import DeepSpiringMod.powers.EmbeddingPower;
 import DeepSpiringMod.helpers.ModHelper;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Hallucination extends CustomCard {
-    public static final String ID = ModHelper.makePath("Hallucination");
+public class Embedding extends CustomCard {
+    public static final String ID = ModHelper.makePath("Embedding");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Hallucination.png";
-    private static final int COST = 1;
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Embedding.png";
+    private static final int COST = 2;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
@@ -34,13 +34,13 @@ public class Hallucination extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public static final Logger logger = LogManager.getLogger(Hallucination.class);
+    public static final Logger logger = LogManager.getLogger(Embedding.class);
 
-    public Hallucination() {
+    public Embedding() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init Hallucination.\n");
-        this.baseDamage = this.damage = 7;
+        this.baseDamage = this.damage = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         // logger.info("Hallucination initialization completed.\n");
@@ -60,10 +60,8 @@ public class Hallucination extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new DrawCardAction(p, 1));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-        int overfitting = ModHelper.get_Overfitting();
-        if (overfitting > 0) {
-            this.addToBot(new DrawCardAction(p, overfitting * this.magicNumber));
-        }
+        this.addToBot(new ApplyPowerAction(p, p, new EmbeddingPower(p, this.magicNumber), this.magicNumber));
     }
 }

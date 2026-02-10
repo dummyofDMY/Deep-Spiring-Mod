@@ -166,7 +166,7 @@ if __name__ == "__main__":
     # target_resolution = (84, 84)
     # target_resolution = (32, 32)
     # target_resolution = (200, 200)  # 按钮
-    target_resolution = (128, 128)  # 遗物
+    # target_resolution = (128, 128)  # 遗物
     # target_resolution = (1920, 1200)  # 角色选择界面
     
     # 调用函数，可选的裁剪位置：

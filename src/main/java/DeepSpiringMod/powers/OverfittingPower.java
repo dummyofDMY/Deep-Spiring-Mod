@@ -58,6 +58,9 @@ public class OverfittingPower extends AbstractPower {
 
     public void stackPower(int stackAmount) {
 		this.fontScale = 8.0F;
+		if (this.amount == -1) {
+			this.amount += 1;
+		}
 		this.amount += stackAmount;
 		if (this.amount <= 0) {
 			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
@@ -87,4 +90,9 @@ public class OverfittingPower extends AbstractPower {
 		// 	this.amount = -99;
 		// }
     }
+
+	// @Override
+    // public void onVictory() {
+    //     this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+    // }
 }

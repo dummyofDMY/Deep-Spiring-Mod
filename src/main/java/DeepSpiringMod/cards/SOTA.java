@@ -3,12 +3,14 @@ package DeepSpiringMod.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
+import DeepSpiringMod.actions.SOTAAction;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
@@ -29,6 +31,7 @@ public class SOTA extends CustomCard {
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
+    private static int SOTA_AP = 0;
 
     public static final Logger logger = LogManager.getLogger(SOTA.class);
 
@@ -36,7 +39,14 @@ public class SOTA extends CustomCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init SOTA.\n");
-        this.magicNumber = 1;
+        this.magicNumber = 40;
+        this.baseMagicNumber = this.magicNumber;
+        if (!upgraded) {
+            this.rawDescription = String.format(CARD_STRINGS.DESCRIPTION, SOTA_AP);
+        } else {
+            this.rawDescription = String.format(CARD_STRINGS.UPGRADE_DESCRIPTION, SOTA_AP);
+        }
+        this.initializeDescription();
         // logger.info("SOTA initialization completed.\n");
     }
 
@@ -44,20 +54,36 @@ public class SOTA extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.upgradeMagicNumber(10);
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = String.format(CARD_STRINGS.UPGRADE_DESCRIPTION, SOTA_AP);
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (upgraded) {
-            this.addToBot(new ApplyPowerAction(p, p, new SOTAPower(p)));
+        // if (upgraded) {
+        //     this.addToBot(new ApplyPowerAction(p, p, new SOTAPower(p)));
+        // }
+
+        // this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 2)));
+        // this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 1)));
+        
+        int now_AP = ModHelper.get_AP();
+        if (now_AP > SOTA_AP) {
+            logger.info("Current AP: " + now_AP + ", Previous SOTA_AP: " + SOTA_AP);
+            SOTA_AP = now_AP;
+            this.addToBot(new SOTAAction(this.magicNumber * SOTA_AP, this));
         }
-        this.addToBot(new ApplyPowerAction(p, p, new APPower(p, 2)));
-        this.addToBot(new ApplyPowerAction(p, p, new OverfittingPower(p, 1)));
+        this.addToBot(new DrawCardAction(p, 1));
+        if (!upgraded) {
+            this.rawDescription = String.format(CARD_STRINGS.DESCRIPTION, SOTA_AP);
+        } else {
+            this.rawDescription = String.format(CARD_STRINGS.UPGRADE_DESCRIPTION, SOTA_AP);
+        }
+        this.initializeDescription();
     }
     
 }

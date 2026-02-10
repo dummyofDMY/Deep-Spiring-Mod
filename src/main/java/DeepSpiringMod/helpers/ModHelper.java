@@ -45,5 +45,29 @@ public class ModHelper {
         Overfitting = Math.max(0, Overfitting);
         return AP - Overfitting;
     }
+
+    public static int get_AP() {
+        int AP = 0;
+        // 这里在游戏初始化的时候有可能player还没有创建好，所以要加个判断
+        if (AbstractDungeon.player == null) {
+            return 0;
+        }
+        if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
+            AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
+        }
+        return AP;
+    }
+
+    public static int get_Overfitting() {
+        int Overfitting = 0;
+        // 这里在游戏初始化的时候有可能player还没有创建好，所以要加个判断
+        if (AbstractDungeon.player == null) {
+            return 0;
+        }
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
+            Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
+        }
+        return Overfitting;
+    }
 }
 

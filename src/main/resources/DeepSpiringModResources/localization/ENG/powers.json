@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "Convolution",
         "DESCRIPTIONS": [
-            "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to 0.2 of the sum of all card values in the discard pile multiplied by the difference between #yAP and #rOverfitting."
+            "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to 0.5 of the sum of all card values in the discard pile."
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -46,13 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "SGD",
         "DESCRIPTIONS": [
-            "Randomly gain 1 stack of #yAP or 1 stack of #rOverfitting at the start of each turn with equal chance."
+            "At the start of each turn, 50% chance to gain 1 stack of #yAP."
         ]
     },
     "DeepSpiringMod:SGD+": {
         "NAME": "SGD+",
         "DESCRIPTIONS": [
-            "Randomly gain 2 stack of #yAP or 1 stack of #rOverfitting at the start of each turn with equal chance."
+            "At the start of each turn, 50% chance to gain 2 stacks of #yAP."
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -88,6 +88,13 @@
         "DESCRIPTIONS": [
             "No #rOverfitting will be gained this turn.",
             "No #rOverfitting will be gained this turn."
+        ]
+    },
+    "DeepSpiringMod:Embedding": {
+        "NAME": "Embedding",
+        "DESCRIPTIONS": [
+            "Play %d card for free.",
+            "Play %d cards for free."
         ]
     }
 }

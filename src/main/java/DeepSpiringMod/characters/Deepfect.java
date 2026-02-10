@@ -91,10 +91,10 @@ public class Deepfect extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x < 5; x++) {
+        for(int x = 0; x < 4; x++) {
             retVal.add(Strike_DeepBlue.ID);
         }
-        for(int x = 0; x < 5; x++) {
+        for(int x = 0; x < 4; x++) {
             retVal.add(Defend_DeepBlue.ID);
         }
         retVal.add(BlockStrike.ID);

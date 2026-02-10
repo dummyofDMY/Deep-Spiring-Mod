@@ -17,9 +17,9 @@ import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.actions.FreePlayAction;
 import DeepSpiringMod.actions.StopFreePlayAction;
 
-public class HallucinationPower extends AbstractPower {
+public class EmbeddingPower extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = ModHelper.makePath("Hallucination");
+    public static final String POWER_ID = ModHelper.makePath("Embedding");
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -27,7 +27,7 @@ public class HallucinationPower extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public HallucinationPower(AbstractCreature owner, int Amount) {
+    public EmbeddingPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

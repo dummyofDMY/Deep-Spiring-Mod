@@ -101,4 +101,9 @@ public class APPower extends AbstractPower {
 			this.amount = -99;
 		}
     }
+
+    // @Override
+    // public void onVictory() {
+    //     this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+    // }
 }

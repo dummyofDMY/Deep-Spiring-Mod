@@ -21,8 +21,9 @@ public class ChargeDataset extends AbstractAPCard {
     // private static final String IMG_PATH = "DeepSpiringModResources/img/cards/Defend_DeepBlue.png";
     private static final String IMG_PATH = "DeepSpiringModResources/img/cards/ChargeDataset.png";
     // private static final String IMG_PATH = "blue/attack/strike";
-    private static final int COST = 3;
+    private static final int COST = 1;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
+     private static final String raw_description = CARD_STRINGS.DESCRIPTION;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
@@ -33,6 +34,7 @@ public class ChargeDataset extends AbstractAPCard {
     public int now_AP = 0;
     public int now_Overfitting = 0;
     private int initial_cost = COST;
+    private int initial_energy = 1;
 
     public ChargeDataset() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
@@ -41,7 +43,7 @@ public class ChargeDataset extends AbstractAPCard {
         int[] AP_Overfitting = this.get_AP();
         now_AP = AP_Overfitting[0];
         now_Overfitting = AP_Overfitting[1];
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = initial_energy;
         this.magicNumber = this.baseMagicNumber;
         update_cost_with_AP();
         // logger.info("ChargeDataset initialization completed.\n");
@@ -49,6 +51,7 @@ public class ChargeDataset extends AbstractAPCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        logger.info(String.format("magicNumber: %d", magicNumber));
         AbstractDungeon.actionManager.addToBottom(
             new GainEnergyAction(this.magicNumber)
         );
@@ -58,8 +61,7 @@ public class ChargeDataset extends AbstractAPCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.initial_cost = 4;
-            this.upgradeMagicNumber(1);
+            initial_energy += 1;
             update_cost_with_AP();
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -69,15 +71,38 @@ public class ChargeDataset extends AbstractAPCard {
     }
 
     public void update_cost_with_AP() {
-        int cost_decrease = Math.max(0, (this.now_AP - this.now_Overfitting));
-        int new_cost = Math.max(0, this.initial_cost - cost_decrease);
-        logger.info("New cost: " + new_cost);
-        this.upgradeBaseCost(new_cost);
+        int now_cost = Math.max(0, initial_cost + now_Overfitting);
+        int now_energy = Math.max(0, initial_energy + now_AP);
+        this.upgradeBaseCost(now_cost);
+        this.baseMagicNumber = now_energy;
+        this.magicNumber = this.baseMagicNumber;
+        this.upgradedMagicNumber = true;
+        logger.info(String.format("now_cost: %d, now_energy: %d", now_cost, now_energy));
+        this.initializeDescription();
     }
 
     public void update_with_AP(int AP, int Overfitting) {
         this.now_AP = AP;
         this.now_Overfitting = Overfitting;
         this.update_cost_with_AP();
+    }
+
+    @Override
+    public void initializeDescription() {
+        // 在这里根据当前的AP和Overfitting动态生成描述文本
+        String description = CARD_STRINGS.DESCRIPTION;
+        int now_energy = Math.max(0, initial_energy + now_AP);
+        String energy_text = "";
+        for (int i = 0; i < now_energy; i++) {
+            energy_text += " [E]";
+        }
+        if (!this.upgraded) {
+            description = raw_description.replace(" [E]", energy_text);
+        } else {
+            description = raw_description.replace(" [E] [E]", energy_text);
+        }
+        
+        this.rawDescription = description;
+        super.initializeDescription();
     }
 }

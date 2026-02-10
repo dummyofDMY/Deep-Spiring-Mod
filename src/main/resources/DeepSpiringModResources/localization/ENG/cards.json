@@ -48,8 +48,8 @@
 	},
 	"DeepSpiringMod:StochasticGradientDescent": {
 		"NAME": "Stochastic Gradient Descent",
-		"DESCRIPTION": "At the start of each turn, gain 1 stack of deepspiringmod:AP or 1 stack of deepspiringmod:Overfitting randomly with equal chance.",
-		"UPGRADE_DESCRIPTION": "At the start of each turn, gain 2 stacks of deepspiringmod:AP or 1 stack of deepspiringmod:Overfitting randomly with equal chance."
+		"DESCRIPTION": "At the start of each turn, 50% chance to gain 1 stack of deepspiringmod:AP.",
+		"UPGRADE_DESCRIPTION": "At the start of each turn, 50% chance to gain 2 stacks of deepspiringmod:AP."
 	},
 	"DeepSpiringMod:Misconduct": {
 		"NAME": "Misconduct",
@@ -57,26 +57,27 @@
 	},
 	"DeepSpiringMod:StrikeDataset": {
 		"NAME": "Strike Dataset",
-		"DESCRIPTION": "Causing !D! points of damage !M! times. NL Per one layer higher deepspiringmod:AP than deepspiringmod:Overfitting , this card deals damage for an additional time."
+		"DESCRIPTION": "Deal !D! damage !M! times. NL For each stack of deepspiringmod:AP, deal 3 additional damage; NL for each stack of deepspiringmod:Overfitting, hit 1 fewer time.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL For each stack of deepspiringmod:AP, deal 3 additional damage; NL for each stack of deepspiringmod:Overfitting, hit 1 fewer time. NL Hit at least 2 times."
 	},
 	"DeepSpiringMod:DefendDataset": {
 		"NAME": "Defend Dataset",
-		"DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting.",
-		"UPGRADE_DESCRIPTION": "At the start of your turn, gain 10 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting. NL Innate."
+		"DESCRIPTION": "At the start of your turn, gain 5 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "At the start of your turn, gain 5 points of Block for each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting. NL Innate."
 	},
 	"DeepSpiringMod:ChargeDataset": {
 		"NAME": "Charge Dataset",
-		"DESCRIPTION": "Gain [E] [E] [E] . NL For each layer that deepspiringmod:AP is higher than deepspiringmod:Overfitting , this card's cost is reduced by 1.",
-		"UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E] . NL For each layer that deepspiringmod:AP is higher than deepspiringmod:Overfitting , this card's cost is reduced by 1."
+		"DESCRIPTION": "Gain [E] . NL For each stack of deepspiringmod:AP, gain 1 additional energy. NL For each stack of deepspiringmod:Overfitting, increase cost by 1.",
+		"UPGRADE_DESCRIPTION": "Gain [E] [E] . NL For each stack of deepspiringmod:AP, gain 1 additional energy. NL For each stack of deepspiringmod:Overfitting, increase cost by 1."
 	},
 	"DeepSpiringMod:ScalingLaw": {
 		"NAME": "Scaling Law",
-		"DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting . NL Exhaust .",
-		"UPGRADE_DESCRIPTION": "Double your deepspiringmod:AP. NL Halve deepspiringmod:Overfitting ."
+		"DESCRIPTION": "Remove all deepspiringmod:Overfitting . NL Exhaust .",
+		"UPGRADE_DESCRIPTION": "Remove all deepspiringmod:Overfitting ."
 	},
 	"DeepSpiringMod:Hallucination": {
 		"NAME": "Hallucination",
-		"DESCRIPTION": "Causing !D! points of damage. Gain !M! stack of deepspiringmod:Hallucination ."
+		"DESCRIPTION": "Deal !D! damage. NL Draw !M! cards for each stack of deepspiringmod:Overfitting."
 	},
 	"DeepSpiringMod:Diffusion": {
 		"NAME": "Diffusion",
@@ -90,13 +91,13 @@
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
-		"DESCRIPTION": "Play the last card you have played for !M! time. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting.",
-		"UPGRADE_DESCRIPTION": "Play the last card you have played for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting adding 1."
+		"DESCRIPTION": "Play the last card you have played this turn for !M! time. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "Play the last card you have played this turn for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting adding 1."
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
-		"DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting .",
-		"UPGRADE_DESCRIPTION": "Gain 3 stack of deepspiringmod:AP , 1 stack of deepspiringmod:Overfitting . NL You will ignore deepspiringmod:Overfitting ."
+		"DESCRIPTION": "Each stack of deepspiringmod:AP is higher than the maximum recorded value in this game by one layer, gain !M! money. NL Draw a card.",
+		"UPGRADE_DESCRIPTION": "Each stack of deepspiringmod:AP is higher than the maximum recorded value in this game by one layer, gain !M! money. NL Draw a card."
 	},
 	"DeepSpiringMod:KFord": {
 		"NAME": "K-Ford",
@@ -105,12 +106,22 @@
 	},
 	"DeepSpiringMod:LongTraining": {
 		"NAME": "Long Training",
-		"DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting.",
-		"UPGRADE_DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 2 stacks of deepspiringmod:Overfitting."
+		"DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 1 stack of deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "Causing !D! points of damage. NL Gain 1 stack of deepspiringmod:AP and 1 stack of deepspiringmod:Overfitting."
 	},
 	"DeepSpiringMod:Regularization": {
 		"NAME": "Regularization",
 		"DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn.",
 		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn."
+	},
+	"DeepSpiringMod:Embedding": {
+		"NAME": "Embedding",
+		"DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding .",
+		"UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding ."
+	},
+	"DeepSpiringMod:Distillation": {
+		"NAME": "Distillation",
+		"DESCRIPTION": "Draw !M! cards. NL Gain 1 stack of deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 stack of deepspiringmod:Overfitting ."
 	}
 }
