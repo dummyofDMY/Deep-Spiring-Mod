@@ -40,8 +40,8 @@ public class BlockStrike extends CustomCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init BlockStrike.\n");
-        this.baseDamage = this.damage = 10;
-        this.baseBlock = 10;
+        this.baseDamage = this.damage = 18;
+        this.baseBlock = 18;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         // logger.info("BlockStrike initialization completed.\n");
@@ -51,8 +51,8 @@ public class BlockStrike extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(6); // 将该卡牌的伤害提高3点。
-            this.upgradeBlock(6);
+            this.upgradeDamage(4); // 将该卡牌的伤害提高3点。
+            this.upgradeBlock(4);
 
             // // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;

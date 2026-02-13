@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.powers.DefendDatasetPower;
-import DeepSpiringMod.powers.OverfittingPower;
 import basemod.abstracts.CustomCard;
 
 import org.apache.logging.log4j.LogManager;

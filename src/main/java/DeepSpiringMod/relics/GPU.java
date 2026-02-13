@@ -5,11 +5,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.powers.watcher.EnergyDownPower;
 
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.EmbeddingPower;
-import DeepSpiringMod.powers.HallucinationPower;
 
 // 继承CustomRelic
 public class GPU extends CustomRelic {

@@ -29,7 +29,7 @@
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "前向传播",
-		"DESCRIPTION": "造成 !D! 点伤害。 NL 激发所有弃牌堆中的 *注意力头 和 *卷积核 的卡牌效果。"
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 激发所有弃牌堆中的 *注意力头 和 *卷积 的卡牌效果。"
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "位置编码",
@@ -96,8 +96,8 @@
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
-		"DESCRIPTION": "deepspiringmod:平均精度 每比本局游戏中其记录的最大值高一层就获得 !M! 点金钱。 NL 抽一张牌。 NL 当前记录为%d。",
-		"UPGRADE_DESCRIPTION": "deepspiringmod:平均精度 每比本局游戏中其记录的最大值高一层就获得 !M! 点金钱。 NL 抽一张牌。 NL 当前记录为%d。"
+		"DESCRIPTION": "deepspiringmod:平均精度 比本局游戏中其记录的最大值高时，每有一层就获得 !M! 点金钱。 NL 抽一张牌。 NL 当前记录为%d。",
+		"UPGRADE_DESCRIPTION": "deepspiringmod:平均精度 比本局游戏中其记录的最大值高时，每有一层就获得 !M! 点金钱。 NL 抽一张牌。 NL 当前记录为%d。"
 	},
 	"DeepSpiringMod:KFord": {
 		"NAME": "K折",
@@ -123,5 +123,16 @@
 		"NAME": "蒸馏",
 		"DESCRIPTION": "抽 !M! 张牌。 NL 获得1层 deepspiringmod:过拟合 。",
 		"UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 获得1层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:Baskline": {
+		"NAME": "基准",
+		"DESCRIPTION": "获得 !B! 点 *格挡 。 NL 每有1层 deepspiringmod:过拟合 ，减少 !M! 点。 NL 需要 deepspiringmod:平均精度 才能打出 。",
+		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡 。 NL 每有1层 deepspiringmod:过拟合 ，减少 !M! 点。 NL 需要 deepspiringmod:平均精度 才能打出 。",
+		"EXTENDED_DESCRIPTION": ["我没有平均精度，不能使用这张牌。"]
+	},
+	"DeepSpiringMod:Benchmark": {
+		"NAME": "指标",
+		"DESCRIPTION": "每有1层 deepspiringmod:平均精度 ，减少所有敌人一层力量。 NL 每有 !M! 层 deepspiringmod:过拟合 ，获得相应层数的虚弱。 NL 消耗 。",
+		"UPGRADE_DESCRIPTION": "每有1层 deepspiringmod:平均精度 ，减少所有敌人一层力量。 NL 每有 !M! 层 deepspiringmod:过拟合 ，获得相应层数的虚弱。 NL 消耗 。"
 	}
 }

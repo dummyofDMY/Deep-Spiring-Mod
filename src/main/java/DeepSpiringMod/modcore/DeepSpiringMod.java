@@ -10,6 +10,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 // import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
@@ -85,32 +86,36 @@ public class DeepSpiringMod implements
     @Override
     public void receiveEditCards() {
         // 这里写添加你卡牌的代码
-        BaseMod.addCard(new Strike_DeepBlue());
-        BaseMod.addCard(new BlockStrike());
-        BaseMod.addCard(new Defend_DeepBlue());
-        BaseMod.addCard(new StochasticProcess());
-        BaseMod.addCard(new AttentionHead());
-        BaseMod.addCard(new ForwardPropagation());
-        BaseMod.addCard(new Overflow());
-        BaseMod.addCard(new PositionalEncoding());
-        BaseMod.addCard(new FeatureMap(0, 0));
-        BaseMod.addCard(new Convolution());
-        BaseMod.addCard(new StochasticGradientDescent());
-        BaseMod.addCard(new StrikeDataset());
-        BaseMod.addCard(new DefendDataset());
-        BaseMod.addCard(new ChargeDataset());
-        BaseMod.addCard(new Misconduct());
-        BaseMod.addCard(new ScalingLaw());
-        BaseMod.addCard(new Hallucination());
-        BaseMod.addCard(new Diffusion());
-        BaseMod.addCard(new AIForm());
-        BaseMod.addCard(new RecurrentNeuralNetwork());
-        BaseMod.addCard(new SOTA());
-        BaseMod.addCard(new KFord());
-        BaseMod.addCard(new LongTraining());
-        BaseMod.addCard(new Regularization());
-        BaseMod.addCard(new Embedding());
-        BaseMod.addCard(new Distillation());
+        // BaseMod.addCard(new Strike_DeepBlue());
+        // BaseMod.addCard(new BlockStrike());
+        // BaseMod.addCard(new Defend_DeepBlue());
+        // BaseMod.addCard(new StochasticProcess());
+        // BaseMod.addCard(new AttentionHead());
+        // BaseMod.addCard(new ForwardPropagation());
+        // BaseMod.addCard(new Overflow());
+        // BaseMod.addCard(new PositionalEncoding());
+        // BaseMod.addCard(new FeatureMap(0, 0));
+        // BaseMod.addCard(new Convolution());
+        // BaseMod.addCard(new StochasticGradientDescent());
+        // BaseMod.addCard(new StrikeDataset());
+        // BaseMod.addCard(new DefendDataset());
+        // BaseMod.addCard(new ChargeDataset());
+        // BaseMod.addCard(new Misconduct());
+        // BaseMod.addCard(new ScalingLaw());
+        // BaseMod.addCard(new Hallucination());
+        // BaseMod.addCard(new Diffusion());
+        // BaseMod.addCard(new AIForm());
+        // BaseMod.addCard(new RecurrentNeuralNetwork());
+        // BaseMod.addCard(new SOTA());
+        // BaseMod.addCard(new KFord());
+        // BaseMod.addCard(new LongTraining());
+        // BaseMod.addCard(new Regularization());
+        // BaseMod.addCard(new Embedding());
+        // BaseMod.addCard(new Distillation());
+        new AutoAdd("DeepSpiring") // 这里填写你在ModTheSpire.json中写的modid
+        .packageFilter(Defend_DeepBlue.class) // 寻找所有和此类同一个包及内部包的类（本例子是所有卡牌）
+        .setDefaultSeen(false) // 是否将卡牌标为可见
+        .cards(); // 开始批量添加卡牌
     }
 
     public void receiveEditStrings() {

@@ -8,7 +8,7 @@
 	},
 	{
         "NAMES": ["Convolution"],
-        "DESCRIPTION": "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to the convolution of all card values in the discard pile multiplied by the 30% #yAP."
+        "DESCRIPTION": "Triggered during #yForward #yPropagation. Play a #yFeature #yMap with attacks and blocks, whose values equal the sum of all card damage and block values in the discard pile multiplied by 50%."
     },
 	{
         "NAMES": ["Loss"],

@@ -17,6 +17,9 @@ import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.actions.FreePlayAction;
 import DeepSpiringMod.actions.StopFreePlayAction;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class EmbeddingPower extends AbstractPower {
     // 能力的ID
     public static final String POWER_ID = ModHelper.makePath("Embedding");
@@ -26,6 +29,7 @@ public class EmbeddingPower extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static final Logger logger = LogManager.getLogger(EmbeddingPower.class);
 
     public EmbeddingPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
@@ -57,6 +61,7 @@ public class EmbeddingPower extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (!card.freeToPlayOnce) {
+            logger.info("card " + card.name + " is not free to play");
             return;
         }
         if (this.amount > 0) {

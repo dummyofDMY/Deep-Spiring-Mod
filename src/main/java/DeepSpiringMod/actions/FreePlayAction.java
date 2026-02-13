@@ -8,8 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.core.Settings;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class FreePlayAction extends AbstractGameAction {
     private AbstractPlayer p;
+    public static final Logger logger = LogManager.getLogger(FreePlayAction.class);
 
     public FreePlayAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -20,6 +24,7 @@ public class FreePlayAction extends AbstractGameAction {
     @Override
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
+            logger.info("Start free play");
             Iterator var1 = this.p.hand.group.iterator();
             // System.out.print("Free play!\n");
 

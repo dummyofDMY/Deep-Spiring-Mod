@@ -61,7 +61,8 @@ public class DiffusionAction extends AbstractGameAction {
                     while (c_it.hasNext()) {
                         AbstractCard card = ((AbstractCard)c_it.next()).makeStatEquivalentCopy();
                         if (this.new_cost != -1) {
-                            card.updateCost(this.new_cost);
+                            int delta = this.new_cost - card.cost;
+                            card.updateCost(delta);
                         }
                         AbstractDungeon.player.hand.addToHand(card);
                     }

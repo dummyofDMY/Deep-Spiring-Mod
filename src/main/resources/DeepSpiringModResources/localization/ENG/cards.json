@@ -29,7 +29,7 @@
 	},
 	"DeepSpiringMod:ForwardPropagation": {
 		"NAME": "Forward Propagation",
-		"DESCRIPTION": "Causing !D! points of damage. NL Activate all *Attention *Head and *Convolution *Kernel 's effects in discard pile."
+		"DESCRIPTION": "Causing !D! points of damage. NL Activate all *Attention *Head and *Convolution 's effects in discard pile."
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "Positional Encoding",
@@ -96,8 +96,8 @@
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
-		"DESCRIPTION": "Each stack of deepspiringmod:AP is higher than the maximum recorded value in this game by one layer, gain !M! money. NL Draw a card.",
-		"UPGRADE_DESCRIPTION": "Each stack of deepspiringmod:AP is higher than the maximum recorded value in this game by one layer, gain !M! money. NL Draw a card."
+		"DESCRIPTION": "When deepspiringmod:AP is higher than its recorded maximum in this run, gain !M! gold for each stack. NL Draw a card. NL Current record is %d.",
+		"UPGRADE_DESCRIPTION": "When deepspiringmod:AP is higher than its recorded maximum in this run, gain !M! gold for each stack. NL Draw a card. NL Current record is %d."
 	},
 	"DeepSpiringMod:KFord": {
 		"NAME": "K-Ford",
@@ -123,5 +123,16 @@
 		"NAME": "Distillation",
 		"DESCRIPTION": "Draw !M! cards. NL Gain 1 stack of deepspiringmod:Overfitting .",
 		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 stack of deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:Baskline": {
+		"NAME": "Baseline",
+		"DESCRIPTION": "Gain !B! points of Block. NL For each stack of deepspiringmod:Overfitting, reduce by !M! points. NL Requires deepspiringmod:AP to play.",
+		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL For each stack of deepspiringmod:Overfitting, reduce by !M! points. NL Requires deepspiringmod:AP to play.",
+		"EXTENDED_DESCRIPTION": ["I don't have AP, can't use this card."]
+	},
+	"DeepSpiringMod:Benchmark": {
+		"NAME": "Benchmark",
+		"DESCRIPTION": "For each stack of deepspiringmod:AP, reduce enemies Strength by 1. NL For each !M! stacks of deepspiringmod:Overfitting, gain corresponding stacks of Weak. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "For each stack of deepspiringmod:AP, reduce enemies Strength by 1. NL For each !M! stacks of deepspiringmod:Overfitting, gain corresponding stacks of Weak. NL Exhaust."
 	}
 }

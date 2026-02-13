@@ -23,7 +23,7 @@ public class ChargeDataset extends AbstractAPCard {
     // private static final String IMG_PATH = "blue/attack/strike";
     private static final int COST = 1;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
-     private static final String raw_description = CARD_STRINGS.DESCRIPTION;
+    private static final String raw_description = CARD_STRINGS.DESCRIPTION;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
@@ -65,7 +65,7 @@ public class ChargeDataset extends AbstractAPCard {
             update_cost_with_AP();
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            // this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -92,15 +92,20 @@ public class ChargeDataset extends AbstractAPCard {
         // 在这里根据当前的AP和Overfitting动态生成描述文本
         String description = CARD_STRINGS.DESCRIPTION;
         int now_energy = Math.max(0, initial_energy + now_AP);
+        // if (this.upgraded) {
+        //     now_energy += 1;
+        // }
         String energy_text = "";
         for (int i = 0; i < now_energy; i++) {
             energy_text += " [E]";
         }
-        if (!this.upgraded) {
-            description = raw_description.replace(" [E]", energy_text);
-        } else {
-            description = raw_description.replace(" [E] [E]", energy_text);
-        }
+        logger.info(String.format("now_energy: %d, energy_text: %s", now_energy, energy_text));
+        description = raw_description.replace(" [E]", energy_text);
+        // if (!this.upgraded) {
+        //     description = raw_description.replace(" [E]", energy_text);
+        // } else {
+        //     description = raw_description.replace(" [E] [E]", energy_text);
+        // }
         
         this.rawDescription = description;
         super.initializeDescription();

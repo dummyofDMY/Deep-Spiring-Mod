@@ -73,5 +73,5 @@ public class Overflow extends CustomCard {
         }
         this.cantUseMessage = EXTENDED_DESCRIPTION[0];
         return false;
-   }
+    }
 }

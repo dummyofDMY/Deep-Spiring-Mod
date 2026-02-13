@@ -2,7 +2,6 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -11,8 +10,6 @@ import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.powers.APPower;
-import DeepSpiringMod.powers.OverfittingPower;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,7 +13,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.powers.HallucinationPower;
 import DeepSpiringMod.helpers.ModHelper;
 
 import org.apache.logging.log4j.LogManager;

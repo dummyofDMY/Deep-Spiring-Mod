@@ -20,8 +20,6 @@ import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeDur;
-import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 
 import DeepSpiringMod.cards.*;
 import DeepSpiringMod.modcore.DeepSpiringMod;

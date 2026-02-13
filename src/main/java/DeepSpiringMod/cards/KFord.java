@@ -36,7 +36,7 @@ public class KFord extends CustomCard {
 		// 为了命名规范修改了变量名。这些参数具体的作用见下方
 		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		// logger.info("Start to init KFord.\n");
-		this.baseBlock = this.block = 5;
+		this.baseBlock = this.block = 8;
 		this.baseMagicNumber = this.magicNumber = 1;
 		// logger.info("KFord initialization completed.\n");
 	}

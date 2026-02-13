@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.powers.DrawPower;
 
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.EmbeddingPower;
-import DeepSpiringMod.powers.HallucinationPower;
 
 // 继承CustomRelic
 public class BurntHeatSink extends CustomRelic {
