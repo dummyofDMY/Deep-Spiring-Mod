@@ -38,7 +38,7 @@ public class SOTA extends CustomCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init SOTA.\n");
-        this.magicNumber = 40;
+        this.magicNumber = 20;
         this.baseMagicNumber = this.magicNumber;
         this.misc = 0;
         
@@ -66,7 +66,7 @@ public class SOTA extends CustomCard {
         logger.info("Upgrading SOTA. Current misc: " + this.misc + ".\n");
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(10);
+            this.upgradeMagicNumber(20);
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             // this.rawDescription = String.format(CARD_STRINGS.UPGRADE_DESCRIPTION, this.misc);

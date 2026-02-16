@@ -149,5 +149,15 @@
 		"NAME": "Huge Dataset",
 		"DESCRIPTION": "Gain !B! points of Block. NL Deal !D! damage.",
 		"UPGRADE_DESCRIPTION": "Gain !M! points of Block. NL Deal !M! damage."
+	},
+	"DeepSpiringMod:PreTrainedModel": {
+		"NAME": "Pre-trained Model",
+		"DESCRIPTION": "Gain %d stacks of deepspiringmod:AP and %d stacks of deepspiringmod:Overfitting. NL Put a *Weight *Saving into your hand. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Gain %d stacks of deepspiringmod:AP and %d stacks of deepspiringmod:Overfitting. NL Put a *Weight *Saving+ into your hand. NL Exhaust."
+	},
+	"DeepSpiringMod:WeightSaving": {
+		"NAME": "Weight Saving",
+		"DESCRIPTION": "Save 50% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model . NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Save 75% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model . NL Exhaust."
 	}
 }

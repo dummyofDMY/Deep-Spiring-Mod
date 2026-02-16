@@ -149,5 +149,15 @@
 		"NAME": "大数据集",
 		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 造成 !D! 点伤害。",
 		"UPGRADE_DESCRIPTION": "获得 !M! 点 *格挡。 NL 造成 !M! 点伤害。"
+	},
+	"DeepSpiringMod:PreTrainedModel": {
+		"NAME": "预训练模型",
+		"DESCRIPTION": "获得%d点 deepspiringmod:平均精度 和%d点 deepspiringmod:过拟合 。 NL 将一张 *权重保存 置入手中。 NL 消耗 。",
+		"UPGRADE_DESCRIPTION": "获得%d点 deepspiringmod:平均精度 和%d点 deepspiringmod:过拟合 。 NL 将一张 *权重保存+ 置入手中。 NL 消耗 。"
+	},
+	"DeepSpiringMod:WeightSaving": {
+		"NAME": "权重保存",
+		"DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的50%保存到对应的 *预训练模型 中。 NL 消耗 。",
+		"UPGRADE_DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的75%保存到对应的 *预训练模型 中。 NL 消耗 。"
 	}
 }
