@@ -162,7 +162,7 @@ if __name__ == "__main__":
     input_image = r"E:\code_java\DeepSpiring\tools\clip_photo\i.png"  # 输入图片路径
     output_image = "out.png"  # 输出图片路径
     target_resolution = (250, 190)  # 目标分辨率 (宽, 高)
-    target_resolution = (500, 380)
+    # target_resolution = (500, 380)
     # target_resolution = (84, 84)
     # target_resolution = (32, 32)
     # target_resolution = (200, 200)  # 按钮

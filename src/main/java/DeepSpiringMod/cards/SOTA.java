@@ -4,8 +4,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import basemod.abstracts.CustomCard;
@@ -13,6 +13,8 @@ import basemod.abstracts.CustomCard;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.actions.SOTAAction;
 import DeepSpiringMod.helpers.ModHelper;
+
+import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,18 +41,29 @@ public class SOTA extends CustomCard {
         this.magicNumber = 40;
         this.baseMagicNumber = this.magicNumber;
         this.misc = 0;
-        // if (!upgraded) {
-        //     this.rawDescription = String.format(CARD_STRINGS.DESCRIPTION, this.misc);
-        // } else {
-        //     this.rawDescription = String.format(CARD_STRINGS.UPGRADE_DESCRIPTION, this.misc);
-        // }
-        // logger.info("init: " + this.rawDescription + ", misc = " + this.misc);
+        
+        if (AbstractDungeon.player != null) {
+            Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();
+            AbstractCard c;
+            while(var1.hasNext()) {
+                c = (AbstractCard)var1.next();
+                if (c instanceof SOTA) {
+                    logger.info("Found SOTA in master deck during initialization. Setting misc to " + c.misc + ".\n");
+                    this.misc = c.misc;
+                    break;
+                }
+            }
+        } else {
+            logger.warn("Player is null during SOTA initialization. This might happen during game initialization. Setting misc to 0.\n");
+        }
+
         this.initializeDescription();
         // logger.info("SOTA initialization completed.\n");
     }
 
     @Override
     public void upgrade() {
+        logger.info("Upgrading SOTA. Current misc: " + this.misc + ".\n");
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(10);
@@ -105,8 +118,23 @@ public class SOTA extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
+        logger.info("Making a copy of SOTA. Current misc: " + this.misc + ".\n");
         SOTA c =  new SOTA();
         c.misc = this.misc;
+        if (AbstractDungeon.player != null) {
+            Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();
+            AbstractCard tem;
+            while(var1.hasNext()) {
+                tem = (AbstractCard)var1.next();
+                if (tem instanceof SOTA) {
+                    logger.info("Found SOTA in master deck during initialization. Setting misc to " + c.misc + ".\n");
+                    c.misc = tem.misc;
+                    break;
+                }
+            }
+        } else {
+            logger.warn("Player is null during SOTA initialization. This might happen during game initialization. Setting misc to 0.\n");
+        }
         c.initializeDescription();
         return c;
     }

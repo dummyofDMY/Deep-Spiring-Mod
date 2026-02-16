@@ -36,6 +36,7 @@ public class Regularization extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init Regularization.\n");
         this.baseBlock = this.block = 8;
+        this.magicNumber = this.baseMagicNumber = 1;
         // logger.info("Regularization initialization completed.\n");
     }
 
@@ -43,7 +44,7 @@ public class Regularization extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeBlock(3);
+            this.upgradeMagicNumber(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -52,8 +53,8 @@ public class Regularization extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new RegularizationPower(p)));
-        this.addToBot(new GainBlockAction(p, p, this.baseBlock));
+        this.addToBot(new ApplyPowerAction(p, p, new RegularizationPower(p, 1), 1));
+        this.addToBot(new GainBlockAction(p, p, this.block));
     }
     
 }

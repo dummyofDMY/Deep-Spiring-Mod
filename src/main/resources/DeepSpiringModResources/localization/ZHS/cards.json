@@ -86,8 +86,8 @@
 	},
 	"DeepSpiringMod:AIForm": {
 		"NAME": "AI形态",
-		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。",
-		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播 、 *位置编码 及一张随机牌置入手中。 保留 。 "
+		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播+ 、 *位置编码 及一张随机牌置入手中。",
+		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播+ 、 *位置编码 及一张随机牌置入手中。 保留 。 "
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",
@@ -111,8 +111,8 @@
 	},
 	"DeepSpiringMod:Regularization": {
 		"NAME": "正则化",
-		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 本回合将不再获得 deepspiringmod:过拟合 。",
-		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡。 NL 本回合将不再获得 deepspiringmod:过拟合 。"
+		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 获得 !M! 层 deepspiringmod:正则化 。",
+		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡。 NL 获得 !M! 层 deepspiringmod:正则化 。"
 	},
 	"DeepSpiringMod:Embedding": {
 		"NAME": "嵌入",
@@ -134,5 +134,20 @@
 		"NAME": "指标",
 		"DESCRIPTION": "每有1层 deepspiringmod:平均精度 ，减少所有敌人一层力量。 NL 每有 !M! 层 deepspiringmod:过拟合 ，获得相应层数的虚弱。 NL 消耗 。",
 		"UPGRADE_DESCRIPTION": "每有1层 deepspiringmod:平均精度 ，减少所有敌人一层力量。 NL 每有 !M! 层 deepspiringmod:过拟合 ，获得相应层数的虚弱。 NL 消耗 。"
+	},
+	"DeepSpiringMod:Detection": {
+		"NAME": "检测",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高1层，伤害增加 !M! 点。",
+		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL deepspiringmod:平均精度 每比 deepspiringmod:过拟合 高1层，伤害增加 !M! 点。"
+	},
+	"DeepSpiringMod:FineTuning": {
+		"NAME": "微调",
+		"DESCRIPTION": "获得 !M! 点 deepspiringmod:平均精度 。",
+		"UPGRADE_DESCRIPTION": "获得 !M! 点 deepspiringmod:平均精度 。"
+	},
+	"DeepSpiringMod:HugeDataset": {
+		"NAME": "大数据集",
+		"DESCRIPTION": "获得 !B! 点 *格挡。 NL 造成 !D! 点伤害。",
+		"UPGRADE_DESCRIPTION": "获得 !M! 点 *格挡。 NL 造成 !M! 点伤害。"
 	}
 }

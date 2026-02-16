@@ -86,8 +86,8 @@
 	},
 	"DeepSpiringMod:AIForm": {
 		"NAME": "AI Form",
-		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand.",
-		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation , *Positional *Encoding , and one random card are placed in hand. NL Retain ."
+		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation+ , *Positional *Encoding , and one random card are placed in hand.",
+		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation+ , *Positional *Encoding , and one random card are placed in hand. NL Retain ."
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
@@ -111,8 +111,8 @@
 	},
 	"DeepSpiringMod:Regularization": {
 		"NAME": "Regularization",
-		"DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn.",
-		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL You will no longer gain deepspiringmod:Overfitting this turn."
+		"DESCRIPTION": "Gain !B! points of Block. NL Gain !M! stacks of deepspiringmod:Regularization .",
+		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL Gain !M! stacks of deepspiringmod:Regularization ."
 	},
 	"DeepSpiringMod:Embedding": {
 		"NAME": "Embedding",
@@ -134,5 +134,20 @@
 		"NAME": "Benchmark",
 		"DESCRIPTION": "For each stack of deepspiringmod:AP, reduce enemies Strength by 1. NL For each !M! stacks of deepspiringmod:Overfitting, gain corresponding stacks of Weak. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "For each stack of deepspiringmod:AP, reduce enemies Strength by 1. NL For each !M! stacks of deepspiringmod:Overfitting, gain corresponding stacks of Weak. NL Exhaust."
+	},
+	"DeepSpiringMod:Detection": {
+		"NAME": "Detection",
+		"DESCRIPTION": "Deal !D! damage. NL For each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting, increase damage by !M!.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL For each stack of deepspiringmod:AP that is higher than deepspiringmod:Overfitting, increase damage by !M!."
+	},
+	"DeepSpiringMod:FineTuning": {
+		"NAME": "Fine-tuning",
+		"DESCRIPTION": "Gain !M! stack of deepspiringmod:AP.",
+		"UPGRADE_DESCRIPTION": "Gain !M! stacks of deepspiringmod:AP."
+	},
+	"DeepSpiringMod:HugeDataset": {
+		"NAME": "Huge Dataset",
+		"DESCRIPTION": "Gain !B! points of Block. NL Deal !D! damage.",
+		"UPGRADE_DESCRIPTION": "Gain !M! points of Block. NL Deal !M! damage."
 	}
 }

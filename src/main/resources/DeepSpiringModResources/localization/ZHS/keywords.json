@@ -24,5 +24,9 @@
     {
         "NAMES": ["嵌入"],
         "DESCRIPTION": "手牌变得免费。"
+    },
+    {
+        "NAMES": ["正则化"],
+        "DESCRIPTION": "抵挡下一次获得的 #r过拟合 。"
     }
 ]

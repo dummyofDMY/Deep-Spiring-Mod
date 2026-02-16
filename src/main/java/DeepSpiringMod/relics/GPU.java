@@ -3,11 +3,15 @@ package DeepSpiringMod.relics;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.powers.EmbeddingPower;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 // 继承CustomRelic
 public class GPU extends CustomRelic {
@@ -23,6 +27,7 @@ public class GPU extends CustomRelic {
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
     // private int start_energy = 0;
     private int energy_decrease;
+    public static final Logger logger = LogManager.getLogger(GPU.class);
 
     public GPU() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
@@ -54,11 +59,22 @@ public class GPU extends CustomRelic {
     @Override
     public void atTurnStartPostDraw() {
         // this.start_energy = AbstractDungeon.player.energy.energy;
+        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EmbeddingPower(AbstractDungeon.player, 3), 3));
     }
 
     @Override
     public void onEquip() {
+        logger.info("Start to equip GPU.\n");
+        AbstractRelic sink = AbstractDungeon.player.getRelic(ModHelper.makePath("BurntHeatSink"));
+        if (sink != null) {
+            AbstractDungeon.player.loseRelic(sink.relicId);
+            int index = AbstractDungeon.player.relics.indexOf(this);
+            AbstractRelic me = AbstractDungeon.player.relics.remove(index);
+            AbstractDungeon.player.relics.add(0, me);
+        } else {
+            logger.error("No Bernt Heat Sink found!");
+        }
         int original_energy = AbstractDungeon.player.energy.energyMaster;
         energy_decrease = Math.min(3, original_energy);
         AbstractDungeon.player.energy.energyMaster -= energy_decrease;
@@ -67,6 +83,11 @@ public class GPU extends CustomRelic {
     @Override
     public void onUnequip() {
         AbstractDungeon.player.energy.energyMaster += energy_decrease;
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player.hasRelic(ModHelper.makePath("BurntHeatSink"));
     }
 
     // @Override

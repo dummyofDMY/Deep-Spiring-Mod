@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import DeepSpiringMod.helpers.ModHelper;
 
 public class OverfittingPower extends AbstractPower {
@@ -19,6 +22,7 @@ public class OverfittingPower extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static final Logger logger = LogManager.getLogger(OverfittingPower.class);
 
     public OverfittingPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
@@ -57,6 +61,7 @@ public class OverfittingPower extends AbstractPower {
     // }
 
     public void stackPower(int stackAmount) {
+        logger.info("Stacking OverfittingPower. Current amount: " + this.amount + ", stack amount: " + stackAmount);
 		this.fontScale = 8.0F;
 		if (this.amount == -1) {
 			this.amount += 1;

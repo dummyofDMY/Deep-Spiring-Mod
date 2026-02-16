@@ -8,7 +8,11 @@ import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
 import DeepSpiringMod.powers.SOTAPower;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ModHelper {
+    public static final Logger logger = LogManager.getLogger(ModHelper.class);
     public static String makePath(String id) {
         return "DeepSpiringMod:" + id;
     }
@@ -36,6 +40,14 @@ public class ModHelper {
         if (AbstractDungeon.player == null) {
             return 0;
         }
+        try {
+            if (AbstractDungeon.getCurrRoom().isBattleOver) {
+                return 0;
+            }
+        } catch (NullPointerException e) {
+            logger.warn("Current room is null when trying to get AP. This might happen during game initialization. Returning AP as 0.\n");
+            // return new int[]{AP, Overfitting};
+        }
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
@@ -52,6 +64,14 @@ public class ModHelper {
         if (AbstractDungeon.player == null) {
             return 0;
         }
+        try {
+            if (AbstractDungeon.getCurrRoom().isBattleOver) {
+                return 0;
+            }
+        } catch (NullPointerException e) {
+            logger.warn("Current room is null when trying to get AP. This might happen during game initialization. Returning AP as 0.\n");
+            // return new int[]{AP, Overfitting};
+        }
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
@@ -63,6 +83,14 @@ public class ModHelper {
         // 这里在游戏初始化的时候有可能player还没有创建好，所以要加个判断
         if (AbstractDungeon.player == null) {
             return 0;
+        }
+        try {
+            if (AbstractDungeon.getCurrRoom().isBattleOver) {
+                return 0;
+            }
+        } catch (NullPointerException e) {
+            logger.warn("Current room is null when trying to get AP. This might happen during game initialization. Returning AP as 0.\n");
+            // return new int[]{AP, Overfitting};
         }
         if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;

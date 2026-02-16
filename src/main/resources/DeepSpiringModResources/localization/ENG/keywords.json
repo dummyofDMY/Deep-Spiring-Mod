@@ -25,5 +25,9 @@
     {
         "NAMES": ["Embedding"],
         "DESCRIPTION": "The cards become free."
+    },
+    {
+        "NAMES": ["Regularization"],
+        "DESCRIPTION": "Resist the #rOverfitting gained next time."
     }
 ]
