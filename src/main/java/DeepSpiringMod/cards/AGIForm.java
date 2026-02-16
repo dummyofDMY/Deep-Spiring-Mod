@@ -10,27 +10,27 @@ import basemod.abstracts.CustomCard;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
-import DeepSpiringMod.powers.AIFormPower;
+import DeepSpiringMod.powers.AGIFormPower;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class AIForm extends CustomCard {
-    public static final String ID = ModHelper.makePath("AIForm");
+public class AGIForm extends CustomCard {
+    public static final String ID = ModHelper.makePath("AGIForm");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/AIForm.png";
-    private static final int COST = 5;
+    private static final String IMG_PATH = "DeepSpiringModResources/img/cards/AGIForm.png";
+    private static final int COST = 3;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public static final Logger logger = LogManager.getLogger(AIForm.class);
+    public static final Logger logger = LogManager.getLogger(AGIForm.class);
 
-    public AIForm() {
+    public AGIForm() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init AIForm.\n");
@@ -51,7 +51,7 @@ public class AIForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new AIFormPower(p), 1));
+        this.addToBot(new ApplyPowerAction(p, p, new AGIFormPower(p, 1), 1));
     }
     
 }

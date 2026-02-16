@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -26,7 +28,18 @@ public class DiffusionAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (AbstractDungeon.player.drawPile.size() < 1) {
+        if (AbstractDungeon.player.drawPile.size() < stackAmount) {
+            Iterator var6 = AbstractDungeon.player.drawPile.group.iterator();
+            AbstractCard c;
+            while(var6.hasNext()) {
+                c = (AbstractCard)var6.next();
+                AbstractCard tmp = c.makeStatEquivalentCopy();
+                if (this.new_cost != -1) {
+                    int delta = this.new_cost - tmp.cost;
+                    tmp.updateCost(delta);
+                }
+                AbstractDungeon.player.hand.addToHand(tmp);
+            }
             this.isDone = true;
             return;
         } else {
@@ -38,7 +51,19 @@ public class DiffusionAction extends AbstractGameAction {
                 } else {
                     title = String.format(UI_TITLE[1], this.stackAmount);
                 }
-                AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.drawPile, this.stackAmount, title, false);
+                CardGroup temp = new CardGroup(CardGroupType.UNSPECIFIED);
+                Iterator var6 = AbstractDungeon.player.drawPile.group.iterator();
+                AbstractCard c;
+
+                while(var6.hasNext()) {
+                    c = (AbstractCard)var6.next();
+                    temp.addToTop(c);
+                }
+
+                temp.sortAlphabetically(true);
+                temp.sortByRarityPlusStatusCardType(false);
+                AbstractDungeon.gridSelectScreen.open(temp, this.stackAmount, title, false);
+                
                 this.tickDuration();
             } else {
                 // Iterator card_it = AbstractDungeon.gridSelectScreen.selectedCards.iterator();

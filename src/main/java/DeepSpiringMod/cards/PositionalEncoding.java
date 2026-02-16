@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import DeepSpiringMod.patches.PlayerColorEnum;
 import DeepSpiringMod.helpers.ModHelper;
 import DeepSpiringMod.actions.ChangeDiscardPileOrderAction;
+import DeepSpiringMod.actions.TakeDrawPileCardsTop;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,5 +52,6 @@ public class PositionalEncoding extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ChangeDiscardPileOrderAction(this.magicNumber));
+        this.addToBot(new TakeDrawPileCardsTop(1));
     }
 }

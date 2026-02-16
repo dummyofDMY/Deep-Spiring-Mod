@@ -62,8 +62,8 @@
             "回合开始时，增加一层 #r过拟合 %d次。"
         ]
     },
-    "DeepSpiringMod:AIForm": {
-        "NAME": "AI形态",
+    "DeepSpiringMod:AGIForm": {
+        "NAME": "通用形态",
         "DESCRIPTIONS": [
             "回合开始将不再抽牌。 NL 每回合将一张 #y注意力头 、 #y前向传播 、 #y位置编码 及一张随机牌置入手中。",
             "回合开始将不再抽牌。 NL 每回合将一张 #y注意力头 、 #y前向传播 、 #y位置编码 及一张随机牌置入手中。"

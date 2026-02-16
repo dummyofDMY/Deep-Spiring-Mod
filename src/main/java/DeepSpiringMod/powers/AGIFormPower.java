@@ -2,6 +2,7 @@ package DeepSpiringMod.powers;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,14 +11,12 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
-import DeepSpiringMod.cards.AttentionHead;
-import DeepSpiringMod.cards.ForwardPropagation;
-import DeepSpiringMod.cards.PositionalEncoding;
+import DeepSpiringMod.actions.PlayCardsInDiscardPileAction;
 import DeepSpiringMod.helpers.ModHelper;
 
-public class AIFormPower extends AbstractPower {
+public class AGIFormPower extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = ModHelper.makePath("AIForm");
+    public static final String POWER_ID = ModHelper.makePath("AGIForm");
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -26,18 +25,18 @@ public class AIFormPower extends AbstractPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     int original_hand_size;
 
-    public AIFormPower(AbstractCreature owner) {
+    public AGIFormPower(AbstractCreature owner, int Amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = -1;
+        this.amount = Amount;
 
         // // 添加一大一小两张能力图
-        String path128 = ModHelper.makeImagePath("powers/AIForm84.png");
-        String path48 = ModHelper.makeImagePath("powers/AIForm32.png");
+        String path128 = ModHelper.makeImagePath("powers/AGIForm84.png");
+        String path48 = ModHelper.makeImagePath("powers/AGIForm32.png");
         this.region128 = new AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         // this.img = new Texture(ModHelper.makeImagePath("powers/RuneIndexPower.png"));
@@ -61,21 +60,20 @@ public class AIFormPower extends AbstractPower {
     public void atStartOfTurn() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
-            AttentionHead attention_card = new AttentionHead();
-            ForwardPropagation forward_card = new ForwardPropagation();
-            forward_card.upgrade();
-            PositionalEncoding PE_card = new PositionalEncoding();
-            AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
-            if (AbstractDungeon.player.hasPower(ModHelper.makePath("Hallucination"))) {
-                attention_card.freeToPlayOnce = true;
-                forward_card.freeToPlayOnce = true;
-                PE_card.freeToPlayOnce = true;
-                c.freeToPlayOnce = true;
+            for (int i = 0; i < this.amount; i++) {
+                AbstractCard attact_card = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.ATTACK).makeCopy();
+                AbstractCard skill_card = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.SKILL).makeCopy();
+                AbstractCard power_card = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.POWER).makeCopy();
+                if (AbstractDungeon.player.hasPower(ModHelper.makePath("Hallucination"))) {
+                    attact_card.freeToPlayOnce = true;
+                    skill_card.freeToPlayOnce = true;
+                    power_card.freeToPlayOnce = true;
+                }
+                this.addToBot(new MakeTempCardInHandAction(attact_card, false));
+                this.addToBot(new MakeTempCardInHandAction(skill_card, false));
+                this.addToBot(new MakeTempCardInHandAction(power_card, false));
             }
-            this.addToBot(new MakeTempCardInHandAction(attention_card, false));
-            this.addToBot(new MakeTempCardInHandAction(forward_card, false));
-            this.addToBot(new MakeTempCardInHandAction(PE_card, true));
-            this.addToBot(new MakeTempCardInHandAction(c, true));
+            this.addToBot(new PlayCardsInDiscardPileAction(2 * this.amount));
         }
     }
 

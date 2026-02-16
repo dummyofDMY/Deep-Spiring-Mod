@@ -9,5 +9,15 @@
 			"Select %d card to add to your hand.",
 			"Select %d cards to add to your hand."
 		]
+	},
+	"DeepSpiringMod:PlayCardsInDiscardPileAction": {
+		"TEXT": [
+			"Select %d card to play."
+		]
+	},
+	"DeepSpiringMod:TakeDrawPileCardsTop": {
+		"TEXT": [
+			"Select %d card to put on top of draw pile."
+		]
 	}
 }

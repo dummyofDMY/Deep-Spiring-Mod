@@ -33,8 +33,8 @@
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "位置编码",
-		"DESCRIPTION": "交换弃牌堆中 2 张牌的位置。",
-		"UPGRADE_DESCRIPTION": "交换弃牌堆中 4 张牌的位置。"
+		"DESCRIPTION": "交换弃牌堆中2张牌的位置。 NL 选择抽牌堆的1张牌放到抽牌堆顶部。",
+		"UPGRADE_DESCRIPTION": "交换弃牌堆中2张牌的位置2次。 NL 选择抽牌堆的一张牌放到抽牌堆顶部。"
 	},
 	"DeepSpiringMod:FeatureMap": {
 		"NAME": "特征图",
@@ -84,10 +84,10 @@
 		"DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 消耗 。",
 		"UPGRADE_DESCRIPTION": "将这张牌变成抽牌堆中选定的一张牌。 NL 卡牌将继承本卡的费用 NL 消耗 。"
 	},
-	"DeepSpiringMod:AIForm": {
-		"NAME": "AI形态",
-		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播+ 、 *位置编码 及一张随机牌置入手中。",
-		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将一张 *注意力头 、 *前向传播+ 、 *位置编码 及一张随机牌置入手中。 保留 。 "
+	"DeepSpiringMod:AGIForm": {
+		"NAME": "通用形态",
+		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张免费打出。",
+		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张免费打出。 NL 保留 。 "
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",

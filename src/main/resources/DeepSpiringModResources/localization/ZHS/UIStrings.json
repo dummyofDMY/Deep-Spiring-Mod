@@ -9,5 +9,15 @@
 			"选择%d张牌增加到手中。",
 			"选择%d张牌增加到手中。"
 		]
+	},
+	"DeepSpiringMod:PlayCardsInDiscardPileAction": {
+		"TEXT": [
+			"选择%d张牌打出。"
+		]
+	},
+	"DeepSpiringMod:TakeDrawPileCardsTop": {
+		"TEXT": [
+			"选择%d张牌放入抽牌堆顶部。"
+		]
 	}
 }

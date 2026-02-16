@@ -33,8 +33,8 @@
 	},
 	"DeepSpiringMod:PositionalEncoding": {
 		"NAME": "Positional Encoding",
-		"DESCRIPTION": "Swap the positions of 2 cards in the discard pile.",
-		"UPGRADE_DESCRIPTION": "Swap the positions of 4 cards in the discard pile."
+		"DESCRIPTION": "Swap the positions of 2 cards in the discard pile. NL Select 1 card from the draw pile to put on top.",
+		"UPGRADE_DESCRIPTION": "Swap the positions of 2 cards in the discard pile twice. NL Select 1 card from the draw pile to put on top."
 	},
 	"DeepSpiringMod:FeatureMap": {
 		"NAME": "Feature Map",
@@ -84,10 +84,10 @@
 		"DESCRIPTION": "Turn this card into a selected card from the draw pile. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "Turn this card into a selected card from the draw pile. NL cards will inherit the cost. NL Exhaust."
 	},
-	"DeepSpiringMod:AIForm": {
-		"NAME": "AI Form",
-		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation+ , *Positional *Encoding , and one random card are placed in hand.",
-		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL Each turn, one *Attention *Head , *Forward *Propagation+ , *Positional *Encoding , and one random card are placed in hand. NL Retain ."
+	"DeepSpiringMod:AGIForm": {
+		"NAME": "AGIForm",
+		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of the turn, 1 random Attack, Skill and Power card will be added to your hand, and 2 cards in the discard pile will be played for free.",
+		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of the turn, 1 random Attack, Skill and Power card will be added to your hand, and 2 cards in the discard pile will be played for free. NL Retain."
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
