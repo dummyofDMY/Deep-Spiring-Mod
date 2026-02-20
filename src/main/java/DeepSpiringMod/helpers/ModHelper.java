@@ -7,6 +7,7 @@ import DeepSpiringMod.cards.StrikeDataset;
 import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
 import DeepSpiringMod.powers.SOTAPower;
+import DeepSpiringMod.powers.StorytimePower;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +52,7 @@ public class ModHelper {
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(SOTAPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(StorytimePower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
         Overfitting = Math.max(0, Overfitting);
@@ -92,7 +93,7 @@ public class ModHelper {
             logger.warn("Current room is null when trying to get AP. This might happen during game initialization. Returning AP as 0.\n");
             // return new int[]{AP, Overfitting};
         }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(StorytimePower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
         return Overfitting;

@@ -37,7 +37,7 @@ public class Benchmark extends CustomCard {
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
 	private static final CardRarity RARITY = CardRarity.COMMON;
-	private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
+	private static final CardTarget TARGET = CardTarget.ALL;
 
 	public static final Logger logger = LogManager.getLogger(Benchmark.class);
 

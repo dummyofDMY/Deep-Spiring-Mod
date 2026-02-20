@@ -86,13 +86,13 @@
 	},
 	"DeepSpiringMod:AGIForm": {
 		"NAME": "AGIForm",
-		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of the turn, 1 random Attack, Skill and Power card will be added to your hand, and 2 cards in the discard pile will be played for free.",
-		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of the turn, 1 random Attack, Skill and Power card will be added to your hand, and 2 cards in the discard pile will be played for free. NL Retain."
+		"DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of each turn, add 1 random Attack, Skill, and Power card to your hand, and select 2 cards in the discard pile to play for free and exhaust.",
+		"UPGRADE_DESCRIPTION": "No cards will be drawn at the start of the turn. NL At the start of the turn, 1 random Attack, Skill and Power card will be added to your hand, and 2 cards in the discard pile will be played for free and exhaust. NL Retain."
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "Recurrent Neural Network",
-		"DESCRIPTION": "Play the last card you have played this turn for !M! time. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting.",
-		"UPGRADE_DESCRIPTION": "Play the last card you have played this turn for !M! times. NL The number of times is the number of stacks deepspiringmod:AP is higher than deepspiringmod:Overfitting adding 1."
+		"DESCRIPTION": "Gain deepspiringmod:AP stacks of deepspiringmod:HiddenState.",
+		"UPGRADE_DESCRIPTION": "Gain deepspiringmod:AP + 1 stacks of deepspiringmod:HiddenState."
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
@@ -116,8 +116,8 @@
 	},
 	"DeepSpiringMod:Embedding": {
 		"NAME": "Embedding",
-		"DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding .",
-		"UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding ."
+		"DESCRIPTION": "Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding .",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! stack of deepspiringmod:Embedding ."
 	},
 	"DeepSpiringMod:Distillation": {
 		"NAME": "Distillation",
@@ -157,7 +157,43 @@
 	},
 	"DeepSpiringMod:WeightSaving": {
 		"NAME": "Weight Saving",
-		"DESCRIPTION": "Save 50% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model . NL Exhaust.",
-		"UPGRADE_DESCRIPTION": "Save 75% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model . NL Exhaust."
+		"DESCRIPTION": "Save 50% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model . NL Save 5 stacks at most. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Save 75% of current deepspiringmod:AP and deepspiringmod:Overfitting to corresponding *Pre-trained *Model+ . NL Save 5 stacks at most. NL Exhaust."
+	},
+	"DeepSpiringMod:ResNet": {
+		"NAME": "ResNet",
+		"DESCRIPTION": "Draw !M! cards. NL Gain !B! points of Block. NL Gain 1 stack of deepspiringmod:Embedding .",
+		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain !B! points of Block. NL Gain 1 stack of deepspiringmod:Embedding ."
+	},
+	"DeepSpiringMod:ImitationLearning": {
+		"NAME": "Imitation Learning",
+		"DESCRIPTION": "When you enter deepspiringmod:Embedding, draw 2 cards.",
+		"UPGRADE_DESCRIPTION": "When you enter deepspiringmod:Embedding, draw 2 cards."
+	},
+	"DeepSpiringMod:DeepfectStrike": {
+		"NAME": "Deepfect Strike",
+		"DESCRIPTION": "Deal !D! damage to all enemies X times. NL For each stack of deepspiringmod:AP, increase damage by %d, and each stack of deepspiringmod:Overfitting, increase damage by %d. NL [#FF0000]Overfitting part has self-damage.[]",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies X times. NL For each stack of deepspiringmod:AP, increase damage by %d, and each stack of deepspiringmod:Overfitting, increase damage by %d. NL [#FF0000]Overfitting part has self-damage.[]",
+		"EXTENDED_DESCRIPTION": ["那要不就战个未来吧"]
+	},
+	"DeepSpiringMod:DeepNetwork": {
+		"NAME": "Deep Network",
+		"DESCRIPTION": "Gain !B! points of Block. NL Gain !M! stacks of deepspiringmod:AP and !M! stacks of deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "Gain !B! points of Block. NL Gain !M! stacks of deepspiringmod:AP and !M! stacks of deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:Storytime": {
+		"NAME": "Storytime",
+		"DESCRIPTION": "At the end of your turn, for each stack of deepspiringmod:Overfitting you have, take 5 damage. NL Except this, you will ignore deepspiringmod:Overfitting .",
+		"UPGRADE_DESCRIPTION": "At the end of your turn, for each stack of deepspiringmod:Overfitting you have, take 5 damage. NL Except this, you will ignore deepspiringmod:Overfitting ."
+	},
+	"DeepSpiringMod:GradientExplosion": {
+		"NAME": "Gradient Explosion",
+		"DESCRIPTION": "Deal !D! damage. NL For each stack of deepspiringmod:AP and deepspiringmod:Overfitting you have, increase damage by !M!. NL Reduce 1 stack of deepspiringmod:AP and deepspiringmod:Overfitting.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL For each stack of deepspiringmod:AP and deepspiringmod:Overfitting you have, increase damage by !M!. NL Reduce 1 stack of deepspiringmod:AP and deepspiringmod:Overfitting."
+	},
+	"DeepSpiringMod:BackPropagation": {
+		"NAME": "Back Propagation",
+		"DESCRIPTION": "For every !M! stacks of power you have, gain 1 stack of deepspiringmod:AP.",
+		"UPGRADE_DESCRIPTION": "For every !M! stacks of power you have, gain 1 stack of deepspiringmod:AP."
 	}
 }

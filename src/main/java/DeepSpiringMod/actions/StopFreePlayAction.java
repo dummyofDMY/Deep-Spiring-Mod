@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
+import DeepSpiringMod.powers.ImitationPower;
+
 import com.megacrit.cardcrawl.core.Settings;
 
 public class StopFreePlayAction extends AbstractGameAction {
@@ -48,6 +51,7 @@ public class StopFreePlayAction extends AbstractGameAction {
                 AbstractCard c = (AbstractCard)var1.next();
                 c.freeToPlayOnce = false;
             }
+            ImitationPower.has_stop_free_play = true;
         }
 
         this.tickDuration();

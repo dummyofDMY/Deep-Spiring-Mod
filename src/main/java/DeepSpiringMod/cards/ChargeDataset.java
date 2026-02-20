@@ -96,9 +96,14 @@ public class ChargeDataset extends AbstractAPCard {
         //     now_energy += 1;
         // }
         String energy_text = "";
-        for (int i = 0; i < now_energy; i++) {
-            energy_text += " [E]";
+        if (now_energy < 10) {
+            for (int i = 0; i < now_energy; i++) {
+                energy_text += " [E]";
+            }
+        } else {
+            energy_text = " [E] x " + now_energy;
         }
+        
         logger.info(String.format("now_energy: %d, energy_text: %s", now_energy, energy_text));
         description = raw_description.replace(" [E]", energy_text);
         // if (!this.upgraded) {

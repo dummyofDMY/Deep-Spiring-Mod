@@ -96,5 +96,26 @@
             "Play %d card for free.",
             "Play %d cards for free."
         ]
+    },
+    "DeepSpiringMod:HiddenState": {
+        "NAME": "Hidden State",
+        "DESCRIPTIONS": [
+            "The next card is played extra %d time, and the stacks are halved. For each stack of #rOverfitting , halve again.",
+            "The next card is played extra %d times, and the stacks are halved. For each stack of #rOverfitting , halve again."
+        ]
+    },
+    "DeepSpiringMod:Imitation": {
+        "NAME": "Imitation",
+        "DESCRIPTIONS": [
+            "When you enter #yEmbedding, draw %d card.",
+            "When you enter #yEmbedding, draw %d cards."
+        ]
+    },
+    "DeepSpiringMod:Storytime": {
+        "NAME": "Storytime",
+        "DESCRIPTIONS": [
+            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting.",
+            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting."
+        ]
     }
 }

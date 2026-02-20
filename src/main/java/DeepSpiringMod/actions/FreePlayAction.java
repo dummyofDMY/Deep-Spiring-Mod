@@ -3,9 +3,13 @@ package DeepSpiringMod.actions;
 import java.util.Iterator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
+import DeepSpiringMod.powers.ImitationPower;
+
 import com.megacrit.cardcrawl.core.Settings;
 
 import org.apache.logging.log4j.LogManager;
@@ -53,9 +57,14 @@ public class FreePlayAction extends AbstractGameAction {
                 AbstractCard c = (AbstractCard)var1.next();
                 c.freeToPlayOnce = true;
             }
+
+            if (this.p.hasPower(ImitationPower.POWER_ID) && ImitationPower.has_stop_free_play) {
+                int drawAmount = this.p.getPower(ImitationPower.POWER_ID).amount * 2;
+                this.addToBot(new DrawCardAction(this.p, drawAmount));
+                ImitationPower.has_stop_free_play = false;
+            }
         }
 
         this.tickDuration();
     }
-
 }

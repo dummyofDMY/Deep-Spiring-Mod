@@ -29,5 +29,11 @@
     {
         "NAMES": ["Regularization"],
         "DESCRIPTION": "Resist the #rOverfitting gained next time."
+    },
+    {
+        "NAMES": ["Hidden State",
+        "HiddenState"
+        ],
+        "DESCRIPTION": "The next card is played extra times equal to the Hidden State stacks, and the stacks are halved. For each stack of #rOverfitting , halve again."
     }
 ]

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import DeepSpiringMod.powers.APPower;
 import DeepSpiringMod.powers.OverfittingPower;
 import DeepSpiringMod.powers.SOTAPower;
+import DeepSpiringMod.powers.StorytimePower;
 import basemod.abstracts.CustomCard;
 
 import org.apache.logging.log4j.LogManager;
@@ -35,7 +36,7 @@ public abstract class AbstractAPCard extends CustomCard{
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(SOTAPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(StorytimePower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
         Overfitting = Math.max(0, Overfitting);
@@ -61,7 +62,7 @@ public abstract class AbstractAPCard extends CustomCard{
         if (AbstractDungeon.player.hasPower(APPower.POWER_ID)) {
             AP = AbstractDungeon.player.getPower(APPower.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(SOTAPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(OverfittingPower.POWER_ID) && !AbstractDungeon.player.hasPower(StorytimePower.POWER_ID)) {
             Overfitting = AbstractDungeon.player.getPower(OverfittingPower.POWER_ID).amount;
         }
         Overfitting = Math.max(0, Overfitting);

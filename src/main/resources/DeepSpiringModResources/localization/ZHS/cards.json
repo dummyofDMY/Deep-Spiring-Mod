@@ -86,13 +86,13 @@
 	},
 	"DeepSpiringMod:AGIForm": {
 		"NAME": "通用形态",
-		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张免费打出。",
-		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张免费打出。 NL 保留 。 "
+		"DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张牌免费打出并消耗。",
+		"UPGRADE_DESCRIPTION": "回合开始将不再抽牌。 NL 每回合将随机的攻击、技能、能力牌各1张置入手中，并在弃牌堆选择2张牌免费打出并消耗。 NL 保留 。 "
 	},
 	"DeepSpiringMod:RecurrentNeuralNetwork": {
 		"NAME": "循环神经网络",
-		"DESCRIPTION": "打出本回合上一次打出的牌 !M! 次。 NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数。",
-		"UPGRADE_DESCRIPTION": "打出本回合上一次打出的牌 !M! 次。 NL 打出的次数为 deepspiringmod:平均精度 高出 deepspiringmod:过拟合 的层数加1。"
+		"DESCRIPTION": "获得 deepspiringmod:平均精度 层 deepspiringmod:隐状态 。",
+		"UPGRADE_DESCRIPTION": "获得 deepspiringmod:平均精度 + 1层 deepspiringmod:隐状态 。"
 	},
 	"DeepSpiringMod:SOTA": {
 		"NAME": "SOTA",
@@ -116,8 +116,8 @@
 	},
 	"DeepSpiringMod:Embedding": {
 		"NAME": "嵌入",
-		"DESCRIPTION": "抽1张牌。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 deepspiringmod:嵌入 。",
-		"UPGRADE_DESCRIPTION": "抽1张牌。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 deepspiringmod:嵌入 。"
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 deepspiringmod:嵌入 。",
+		"UPGRADE_DESCRIPTION": "NL 造成 !D! 点伤害。 NL 获得 !M! 层 deepspiringmod:嵌入 。"
 	},
 	"DeepSpiringMod:Distillation": {
 		"NAME": "蒸馏",
@@ -157,7 +157,43 @@
 	},
 	"DeepSpiringMod:WeightSaving": {
 		"NAME": "权重保存",
-		"DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的50%保存到对应的 *预训练模型 中。 NL 消耗 。",
-		"UPGRADE_DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的75%保存到对应的 *预训练模型 中。 NL 消耗 。"
+		"DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的50%保存到对应的 *预训练模型 中。 NL 至多保存5层。 NL 消耗 。",
+		"UPGRADE_DESCRIPTION": "将当前 deepspiringmod:平均精度 和 deepspiringmod:过拟合 的75%保存到对应的 *预训练模型+ 中。 NL 至多保存5层。 NL 消耗 。"
+	},
+	"DeepSpiringMod:ResNet": {
+		"NAME": "残差网络",
+		"DESCRIPTION": "抽 !M! 张牌。 NL 获得 !B! 点 *格挡。 NL 获得1层 deepspiringmod:嵌入 。",
+		"UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 获得 !B! 点 *格挡。 NL 获得1层 deepspiringmod:嵌入 。"
+	},
+	"DeepSpiringMod:ImitationLearning": {
+		"NAME": "模仿学习",
+		"DESCRIPTION": "进入 deepspiringmod:嵌入 时抽2张牌。",
+		"UPGRADE_DESCRIPTION": "进入 deepspiringmod:嵌入 时抽2张牌"
+	},
+	"DeepSpiringMod:DeepfectStrike": {
+		"NAME": "股掌击其人",
+		"DESCRIPTION": "对所有敌人造成 !D! 点伤害X次。 NL 每拥有1层 deepspiringmod:平均精度 增加%d点，1层 deepspiringmod:过拟合 增加%d点。 NL [#FF0000]过拟合部分有己伤。[]",
+		"UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害X次。 NL 每拥有1层 deepspiringmod:平均精度 增加%d点，1层 deepspiringmod:过拟合 增加%d点。 NL [#FF0000]过拟合部分有己伤。[]",
+		"EXTENDED_DESCRIPTION": ["那要不就战个未来吧"]
+	},
+	"DeepSpiringMod:DeepNetwork": {
+		"NAME": "深度网络",
+		"DESCRIPTION": "获得 !B! 点 *格挡 。 NL 获得 !M! 层 deepspiringmod:平均精度 和 !M! 层 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "获得 !B! 点 *格挡 。 NL 获得 !M! 层 deepspiringmod:平均精度 和 !M! 层 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:Storytime": {
+		"NAME": "故事会",
+		"DESCRIPTION": "回合结束时每有一层 deepspiringmod:过拟合 就受到5点伤害。 NL 除此外你将无视 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "回合结束时每有一层 deepspiringmod:过拟合 就受到5点伤害。 NL 除此外你将无视 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:GradientExplosion": {
+		"NAME": "梯度爆炸",
+		"DESCRIPTION": "造成 !D! 点伤害。 NL 每有1层 deepspiringmod:平均精度 和 deepspiringmod:过拟合 ，伤害增加 !M! 点。 NL 减少1层 deepspiringmod:平均精度 和 deepspiringmod:过拟合 。",
+		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 每有1层 deepspiringmod:平均精度 和 deepspiringmod:过拟合 ，伤害增加 !M! 点。 NL 减少1层 deepspiringmod:平均精度 和 deepspiringmod:过拟合 。"
+	},
+	"DeepSpiringMod:BackPropagation": {
+		"NAME": "反向传播",
+		"DESCRIPTION": "每拥有 !M! 层能力，获得1层 deepspiringmod:平均精度 。",
+		"UPGRADE_DESCRIPTION": "每拥有 !M! 层能力，获得1层 deepspiringmod:平均精度 。"
 	}
 }

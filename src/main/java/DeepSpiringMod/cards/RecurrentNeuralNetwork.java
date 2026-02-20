@@ -2,23 +2,19 @@ package DeepSpiringMod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
+import DeepSpiringMod.powers.HiddenStatePower;
+import basemod.abstracts.CustomCard;
 import DeepSpiringMod.helpers.ModHelper;
-
-import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class RecurrentNeuralNetwork extends AbstractAPCard {
+public class RecurrentNeuralNetwork extends CustomCard {
     public static final String ID = ModHelper.makePath("RecurrentNeuralNetwork");
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     // private static final String NAME = "打击";
@@ -40,9 +36,9 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
         // logger.info("Start to init RecurrentNeuralNetwork.\n");
         // this.baseDamage = this.damage = 0;
         // this.baseBlock = this.block = 0;
-        int[] AP_Overfitting = this.get_AP();
-        int AP = AP_Overfitting[0];
-        int Overfitting = AP_Overfitting[1];
+        // int[] AP_Overfitting = this.get_AP();
+        // int AP = AP_Overfitting[0];
+        // int Overfitting = AP_Overfitting[1];
         // if (!this.upgraded) {
         //     this.baseMagicNumber = Math.max(AP - Overfitting, 0);
         //     this.magicNumber = Math.max(AP - Overfitting, 0);
@@ -50,8 +46,8 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
         //     this.baseMagicNumber = Math.max(AP - Overfitting, 0) + 1;
         //     this.magicNumber = Math.max(AP - Overfitting, 0) + 1;
         // }
-        this.baseMagicNumber = Math.max(AP - Overfitting, 0);
-        this.magicNumber = Math.max(AP - Overfitting, 0);
+        // this.baseMagicNumber = Math.max(AP - Overfitting, 0);
+        // this.magicNumber = Math.max(AP - Overfitting, 0);
         // this.magicNumber = this.baseMagicNumber = 1;
         // logger.info("RecurrentNeuralNetwork initialization completed.\n");
     }
@@ -60,7 +56,7 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
+            // this.upgradeMagicNumber(1);
             // this.upgradeDamage(3);
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -71,57 +67,64 @@ public class RecurrentNeuralNetwork extends AbstractAPCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        logger.info("now magicNumber is " + this.magicNumber + ".");
-        logger.info("cards has played: " + AbstractDungeon.actionManager.cardsPlayedThisTurn.size());
-        if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
-            Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
-            while(var2.hasNext()) {
-                AbstractCard c = (AbstractCard)var2.next();
-                logger.info("card played: " + c.name);
-            }
-        }
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= 2) {
-            Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
-            AbstractCard c = (AbstractCard)var2.next();
-            AbstractCard c_buf = (AbstractCard)var2.next();
-            while(var2.hasNext()) {
-                c = c_buf;
-                c_buf = (AbstractCard)var2.next();
-            }
-            for (int i = 0; i < this.magicNumber; ++i) {
-                AbstractCard tmp = c.makeStatEquivalentCopy();
-                tmp.exhaust = true;
-                tmp.purgeOnUse = true;
-                tmp.energyOnUse = tmp.costForTurn;
-                tmp.freeToPlayOnce = true;
+        // logger.info("now magicNumber is " + this.magicNumber + ".");
+        // logger.info("cards has played: " + AbstractDungeon.actionManager.cardsPlayedThisTurn.size());
+        // if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
+        //     Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
+        //     while(var2.hasNext()) {
+        //         AbstractCard c = (AbstractCard)var2.next();
+        //         logger.info("card played: " + c.name);
+        //     }
+        // }
+        // if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= 2) {
+        //     Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
+        //     AbstractCard c = (AbstractCard)var2.next();
+        //     AbstractCard c_buf = (AbstractCard)var2.next();
+        //     while(var2.hasNext()) {
+        //         c = c_buf;
+        //         c_buf = (AbstractCard)var2.next();
+        //     }
+        //     for (int i = 0; i < this.magicNumber; ++i) {
+        //         AbstractCard tmp = c.makeStatEquivalentCopy();
+        //         tmp.exhaust = true;
+        //         tmp.purgeOnUse = true;
+        //         tmp.energyOnUse = tmp.costForTurn;
+        //         tmp.freeToPlayOnce = true;
 
-                AbstractDungeon.player.limbo.addToBottom(tmp);
-                // 这里方向要随机加个偏置，防止牌叠一块了
-                tmp.current_x = c.current_x;
-                tmp.current_y = c.current_y;
-                tmp.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
-                tmp.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
+        //         AbstractDungeon.player.limbo.addToBottom(tmp);
+        //         // 这里方向要随机加个偏置，防止牌叠一块了
+        //         tmp.current_x = c.current_x;
+        //         tmp.current_y = c.current_y;
+        //         tmp.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
+        //         tmp.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
 
-                logger.info("RecurrentNeuralNetwork use(): adding NewQueueCardAction.");
-                this.addToBot(new NewQueueCardAction(tmp, true, false, true));
-            }
-        } else {
-            logger.info("RecurrentNeuralNetwork use(): No cards played this turn.");
-        }
-    }
+        //         logger.info("RecurrentNeuralNetwork use(): adding NewQueueCardAction.");
+        //         this.addToBot(new NewQueueCardAction(tmp, true, false, true));
+        //     }
+        // } else {
+        //     logger.info("RecurrentNeuralNetwork use(): No cards played this turn.");
+        // }
 
-    @Override
-    public void update_with_AP(int AP, int Overfitting) {
+        int AP = ModHelper.get_AP();
         if (!this.upgraded) {
-            this.baseMagicNumber = Math.max(AP - Overfitting, 0);
-            this.magicNumber = Math.max(AP - Overfitting, 0);
+            this.addToBot(new ApplyPowerAction(p, p, new HiddenStatePower(p, AP), AP));
         } else {
-            this.baseMagicNumber = Math.max(AP - Overfitting, 0) + 1;
-            this.magicNumber = Math.max(AP - Overfitting, 0) + 1;
+            this.addToBot(new ApplyPowerAction(p, p, new HiddenStatePower(p, AP + 1), AP + 1));
         }
-        
-        this.initializeDescription();
     }
+
+    // @Override
+    // public void update_with_AP(int AP, int Overfitting) {
+    //     if (!this.upgraded) {
+    //         this.baseMagicNumber = Math.max(AP - Overfitting, 0);
+    //         this.magicNumber = Math.max(AP - Overfitting, 0);
+    //     } else {
+    //         this.baseMagicNumber = Math.max(AP - Overfitting, 0) + 1;
+    //         this.magicNumber = Math.max(AP - Overfitting, 0) + 1;
+    //     }
+        
+    //     this.initializeDescription();
+    // }
 
     // public void triggerOnEndOfPlayerTurn() {
     //     super.triggerOnEndOfPlayerTurn();

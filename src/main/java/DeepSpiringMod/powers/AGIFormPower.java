@@ -73,7 +73,7 @@ public class AGIFormPower extends AbstractPower {
                 this.addToBot(new MakeTempCardInHandAction(skill_card, false));
                 this.addToBot(new MakeTempCardInHandAction(power_card, false));
             }
-            this.addToBot(new PlayCardsInDiscardPileAction(2 * this.amount));
+            this.addToBot(new PlayCardsInDiscardPileAction(2 * this.amount, true));
         }
     }
 
