@@ -68,6 +68,7 @@ public class BackPropagation extends CustomCard {
             }
         }
         int increase = (int) Math.floor(power_amount / this.magicNumber);
+        increase = Math.min(increase, 3);
         if (increase > 0) {
             this.addToBot(new ApplyPowerAction(p, p, new APPower(p, increase), increase));
         }

@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DeepfectStrikeAction extends AbstractGameAction {
    public int[] multiDamage;
    private boolean freeToPlayOnce = false;
@@ -22,6 +25,7 @@ public class DeepfectStrikeAction extends AbstractGameAction {
    private AbstractPlayer p;
    private int selfDamage;
    private int energyOnUse = -1;
+   public static final Logger logger = LogManager.getLogger(DeepfectStrikeAction.class);
 
    public DeepfectStrikeAction(AbstractPlayer p, int[] multiDamage, int selfDamage, DamageInfo.DamageType damageType, boolean freeToPlayOnce, int energyOnUse) {
       this.multiDamage = multiDamage;
@@ -39,6 +43,7 @@ public class DeepfectStrikeAction extends AbstractGameAction {
       if (this.energyOnUse != -1) {
          effect = this.energyOnUse;
       }
+      logger.info("effect: " + effect + ", energyOnUse: " + this.energyOnUse);
 
       if (this.p.hasRelic("Chemical X")) {
          effect += 2;

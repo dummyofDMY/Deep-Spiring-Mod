@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import DeepSpiringMod.patches.PlayerColorEnum;
-import DeepSpiringMod.powers.EmbeddingPower;
 import DeepSpiringMod.helpers.ModHelper;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,7 +22,7 @@ public class ResNet extends CustomCard {
     // private static final String NAME = "打击";
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "DeepSpiringModResources/img/cards/ResNet.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     // private static final String DESCRIPTION = "造成 !D! 点伤害。";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
@@ -37,7 +36,7 @@ public class ResNet extends CustomCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // logger.info("Start to init ResNet.\n");
-        this.baseBlock = this.block = 5;
+        this.baseBlock = this.block = 8;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         // logger.info("ResNet initialization completed.\n");
@@ -59,6 +58,6 @@ public class ResNet extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawCardAction(p, this.magicNumber));
         this.addToBot(new GainBlockAction(p, p, this.block));
-        this.addToBot(new ApplyPowerAction(p, p, new EmbeddingPower(p, 1), 1));
+        // this.addToBot(new ApplyPowerAction(p, p, new EmbeddingPower(p, 1), 1));
     }
 }

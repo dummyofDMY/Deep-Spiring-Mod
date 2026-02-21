@@ -199,6 +199,6 @@ if __name__ == "__main__":
     #         result.show()
     
     input_path = r"E:\code_java\DeepSpiring\tools\clip_photo\i.png"
-    output_path = r"E:\code_java\DeepSpiring\src\main\resources\DeepSpiringModResources\img\powers\Storytime.png"
-    target_size = (32, 32)
+    output_path = r"E:\code_java\DeepSpiring\src\main\resources\DeepSpiringModResources\img\powers\AutomaticDifferentiation84.png"
+    target_size = (84, 84)
     resize_with_padding(input_path, target_size, output_path, (255, 255, 255, 0))

@@ -41,6 +41,7 @@ public class SOTA extends CustomCard {
         this.magicNumber = 20;
         this.baseMagicNumber = this.magicNumber;
         this.misc = 0;
+        this.tags.add(CardTags.HEALING);
         
         if (AbstractDungeon.player != null) {
             Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();

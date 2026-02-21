@@ -46,13 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "随机梯度下降",
         "DESCRIPTIONS": [
-            "回合开始时，以0.5的概率获得1层 #y平均精度 。"
+            "回合开始时迭代%d次，每以0.5的概率获得1层 #y平均精度 。"
         ]
     },
     "DeepSpiringMod:SGD+": {
         "NAME": "随机梯度下降+",
         "DESCRIPTIONS": [
-            "回合开始时，以0.5的概率获得2层 #y平均精度 。"
+            "回合开始时迭代%d次，每以0.5的概率获得2层 #y平均精度 。"
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -100,8 +100,8 @@
     "DeepSpiringMod:HiddenState": {
         "NAME": "隐状态",
         "DESCRIPTIONS": [
-            "下一张牌额外打出%d次并使层数减半。每有一层 #r过拟合 ，多减半一次。",
-            "下一张牌额外打出%d次并使层数减半。每有一层 #r过拟合 ，多减半一次。"
+            "下一张牌额外打出%d次并使层数减半。每有一层 #r过拟合 ，多减半一次。至多堆叠10层。",
+            "下一张牌额外打出%d次并使层数减半。每有一层 #r过拟合 ，多减半一次。至多堆叠10层。"
         ]
     },
     "DeepSpiringMod:Imitation": {
@@ -116,6 +116,13 @@
         "DESCRIPTIONS": [
             "回合结束时每有一层 #r过拟合 就受到%d点伤害。 NL 除此外你将无视 #r过拟合 。",
             "回合结束时每有一层 #r过拟合 就受到%d点伤害。 NL 除此外你将无视 #r过拟合 。"
+        ]
+    },
+    "DeepSpiringMod:AutomaticDifferentiation": {
+        "NAME": "自动微分",
+        "DESCRIPTIONS": [
+            "回合开始时打出%d张 *前向传播 和 *反向传播 。",
+            "回合开始时打出%d张 *前向传播 和 *反向传播 。"
         ]
     }
 }

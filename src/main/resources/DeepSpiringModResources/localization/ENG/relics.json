@@ -17,7 +17,7 @@
 		"NAME": "GPU",
 		"FLAVOR": "A graphics card without a core, picked up from secondhand sources.",
 		"DESCRIPTIONS": [
-			"#rReplace Burnt Heat Sink. The first three cards played each turn are free, #roccupying [E] [E] [E]."
+			"#rReplace Burnt Heat Sink. The first three cards played each turn are free, #roccupying [E] [E] [E] ."
 		]
 	}
 }

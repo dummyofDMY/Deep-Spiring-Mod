@@ -5,13 +5,14 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.Settings;
@@ -64,6 +65,10 @@ public class HiddenStatePower extends AbstractPower {
             logger.info("Card is already a copy, skip copying.");
             return;
         }
+        AbstractMonster m = null;
+         if (action.target != null) {
+            m = (AbstractMonster)action.target;
+         }
         for (int i = 0; i < this.amount; ++i) {
             AbstractCard tmp = card.makeStatEquivalentCopy();
             tmp.exhaust = true;
@@ -79,7 +84,8 @@ public class HiddenStatePower extends AbstractPower {
             tmp.target_x = (Settings.WIDTH / 2.0F * Settings.scale) * MathUtils.random(0.8F, 1.2F);
             tmp.target_y = Settings.HEIGHT / 2.0F * MathUtils.random(0.8F, 1.2F);
 
-            this.addToBot(new NewQueueCardAction(tmp, true, false, true));
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+            // this.addToBot(new NewQueueCardAction(tmp, true, false, true));
         }
         int new_amount = this.amount;
         int Overfitting = ModHelper.get_Overfitting();
@@ -105,5 +111,41 @@ public class HiddenStatePower extends AbstractPower {
         } else {
             this.description = String.format(DESCRIPTIONS[0], this.amount); // 这样，%d就被替换成能力的层数
         }
+    }
+
+    public void stackPower(int stackAmount) {
+        logger.info("Stacking OverfittingPower. Current amount: " + this.amount + ", stack amount: " + stackAmount);
+		this.fontScale = 8.0F;
+		if (this.amount == -1) {
+			this.amount += 1;
+		}
+		this.amount += stackAmount;
+		if (this.amount <= 0) {
+			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+		}
+
+		if (this.amount >= 10) {
+			this.amount = 10;
+		}
+
+		// if (this.amount <= -999) {
+		// 	this.amount = -999;
+		// }
+
+    }
+    public void reducePower(int reduceAmount) {
+		this.fontScale = 8.0F;
+		this.amount -= reduceAmount;
+		if (this.amount <= 0) {
+			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+		}
+
+		if (this.amount >= 10) {
+			this.amount = 10;
+		}
+
+		// if (this.amount <= -99) {
+		// 	this.amount = -99;
+		// }
     }
 }

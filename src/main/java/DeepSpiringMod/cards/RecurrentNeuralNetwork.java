@@ -25,7 +25,7 @@ public class RecurrentNeuralNetwork extends CustomCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = PlayerColorEnum.DEEP_BLUE;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public static final Logger logger = LogManager.getLogger(RecurrentNeuralNetwork.class);
@@ -106,11 +106,19 @@ public class RecurrentNeuralNetwork extends CustomCard {
         // }
 
         int AP = ModHelper.get_AP();
-        if (!this.upgraded) {
-            this.addToBot(new ApplyPowerAction(p, p, new HiddenStatePower(p, AP), AP));
-        } else {
-            this.addToBot(new ApplyPowerAction(p, p, new HiddenStatePower(p, AP + 1), AP + 1));
+        int final_add = AP;
+        if (this.upgraded) {
+            final_add = AP + 1;
         }
+        int now_RNN = 0;
+        if (p.hasPower(HiddenStatePower.POWER_ID)) {
+            now_RNN = p.getPower(HiddenStatePower.POWER_ID).amount;
+        }
+        int to_decrease = Math.max(final_add + now_RNN - 10, 0);
+        final_add -= to_decrease;
+        
+        logger.info("AP: " + AP + ", now_RNN: " + now_RNN + ", to_decrease: " + to_decrease + ", final_add: " + final_add + ".");
+        this.addToBot(new ApplyPowerAction(p, p, new HiddenStatePower(p, final_add), final_add));
     }
 
     // @Override

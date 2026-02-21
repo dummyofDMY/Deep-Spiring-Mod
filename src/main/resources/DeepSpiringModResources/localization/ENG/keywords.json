@@ -7,32 +7,46 @@
 		"DESCRIPTION": "Activate #yConvolution and all #yAttention #yHead s' effects in discard pile."
 	},
 	{
-        "NAMES": ["Convolution"],
+        "NAMES": [
+            "Convolution",
+            "convolution"],
         "DESCRIPTION": "Triggered during #yForward #yPropagation. Play a #yFeature #yMap with attacks and blocks, whose values equal the sum of all card damage and block values in the discard pile multiplied by 50%."
     },
 	{
-        "NAMES": ["Loss"],
+        "NAMES": [
+            "Loss",
+            "loss"],
         "DESCRIPTION": "Current loss of the model. Reducing the stacks of #rLoss is beneficial for improving the #yAP ."
     },
 	{
-        "NAMES": ["Overfitting"],
+        "NAMES": [
+            "Overfitting",
+            "overfitting"],
         "DESCRIPTION": "Demonstrated the current model's adaptability to unseen datasets. High Overfitting stacks would make the battle tought."
     },
 	{
-        "NAMES": ["AP"],
+        "NAMES": [
+            "AP",
+            "ap"],
         "DESCRIPTION": "Model performance on testing set, which affect the effectiveness of some of the cards and powers."
     },
     {
-        "NAMES": ["Embedding"],
+        "NAMES": [
+            "Embedding",
+            "embedding"],
         "DESCRIPTION": "The cards become free."
     },
     {
-        "NAMES": ["Regularization"],
+        "NAMES": [
+            "Regularization",
+            "regularization"],
         "DESCRIPTION": "Resist the #rOverfitting gained next time."
     },
     {
-        "NAMES": ["Hidden State",
-        "HiddenState"
+        "NAMES": [
+            "Hidden State",
+            "HiddenState",
+            "hiddenstate"
         ],
         "DESCRIPTION": "The next card is played extra times equal to the Hidden State stacks, and the stacks are halved. For each stack of #rOverfitting , halve again."
     }

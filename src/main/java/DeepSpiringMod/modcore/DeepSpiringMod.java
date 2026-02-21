@@ -165,6 +165,8 @@ public class DeepSpiringMod implements
                 // 这个id要全小写
                 BaseMod.addKeyword("deepspiringmod", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
+        } else {
+            BaseMod.logger.error("Failed to load keywords from " + ModHelper.makeLocalizationPath(lang + "/keywords.json"));
         }
     }
 }

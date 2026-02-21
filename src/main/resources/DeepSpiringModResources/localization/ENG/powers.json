@@ -9,7 +9,7 @@
 	"DeepSpiringMod:RecursionDepth": {
         "NAME": "RecursionDepth",
         "DESCRIPTIONS": [
-            "When the number of stacks reaches #y10, stop all forward propagation and add an #yOverflow in your hand."
+            "When the number of stacks reaches #y10 , stop all forward propagation and add an #yOverflow in your hand."
         ]
     },
     "DeepSpiringMod:Loss": {
@@ -21,7 +21,7 @@
     "DeepSpiringMod:Overfitting": {
         "NAME": "Overfitting",
         "DESCRIPTIONS": [
-            "Demonstrated the current model's adaptability to unseen datasets. High Overfitting stacks would make the battle tought."
+            "Demonstrated the current model's adaptability to unseen datasets. High #rOverfitting stacks would make the battle tought."
         ]
     },
     "DeepSpiringMod:AP": {
@@ -33,7 +33,7 @@
     "DeepSpiringMod:Convolution": {
         "NAME": "Convolution",
         "DESCRIPTIONS": [
-            "During #yForward #yPropagation, play a #yFeature #yMap with attacks and blocks, whose values are equal to 0.5 of the sum of all card values in the discard pile."
+            "During #yForward #yPropagation , play a #yFeature #yMap with attacks and blocks, whose values are equal to 0.5 of the sum of all card values in the discard pile."
         ]
     },
     "DeepSpiringMod:Hallucination": {
@@ -46,13 +46,13 @@
     "DeepSpiringMod:SGD": {
         "NAME": "SGD",
         "DESCRIPTIONS": [
-            "At the start of each turn, 50% chance to gain 1 stack of #yAP."
+            "At the start of each turn, iterate %d times, and for each iteration, 0.5 chance to gain 1 stack of #yAP ."
         ]
     },
     "DeepSpiringMod:SGD+": {
         "NAME": "SGD+",
         "DESCRIPTIONS": [
-            "At the start of each turn, 50% chance to gain 2 stacks of #yAP."
+            "At the start of each turn, iterate %d times, and for each iteration, 0.5 chance to gain 2 stacks of #yAP ."
         ]
     },
     "DeepSpiringMod:DataLeakage": {
@@ -79,8 +79,8 @@
     "DeepSpiringMod:DefendDataset": {
         "NAME": "Defend Dataset",
         "DESCRIPTIONS": [
-            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting.",
-            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting."
+            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting .",
+            "At the end of your turn, gain %d #yBlock for each stack that #yAP is higher than #rOverfitting ."
         ]
     },
     "DeepSpiringMod:Regularization": {
@@ -100,8 +100,8 @@
     "DeepSpiringMod:HiddenState": {
         "NAME": "Hidden State",
         "DESCRIPTIONS": [
-            "The next card is played extra %d time, and the stacks are halved. For each stack of #rOverfitting , halve again.",
-            "The next card is played extra %d times, and the stacks are halved. For each stack of #rOverfitting , halve again."
+            "The next card is played extra %d time, and the stacks are halved. For each stack of #rOverfitting , halve again. Up to 10 stacks.",
+            "The next card is played extra %d times, and the stacks are halved. For each stack of #rOverfitting , halve again. Up to 10 stacks."
         ]
     },
     "DeepSpiringMod:Imitation": {
@@ -114,8 +114,15 @@
     "DeepSpiringMod:Storytime": {
         "NAME": "Storytime",
         "DESCRIPTIONS": [
-            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting.",
-            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting."
+            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting .",
+            "At the end of your turn, for each stack of #rOverfitting you have, take %d damage. NL Except this, you will ignore #rOverfitting ."
+        ]
+    },
+    "DeepSpiringMod:AutomaticDifferentiation": {
+        "NAME": "Automatic Differentiation",
+        "DESCRIPTIONS": [
+            "At the start of your turn, play %d *Forward *Propagation and *Back *Propagation .",
+            "At the start of your turn, play %d *Forward *Propagation and *Back *Propagation ."
         ]
     }
 }
